@@ -1,0 +1,2103 @@
+{
+	"info": {
+		"_postman_id": "310343b8-b116-4503-a4f8-64801a00a0ec",
+		"name": "Drivv - Courier Board",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "36543516"
+	},
+	"item": [
+		{
+			"name": "API Auth",
+			"item": [
+				{
+					"name": "Exchange Acc. Simple Register",
+					"item": [
+						{
+							"name": "Register Exchange Account",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "fname",
+											"value": "John",
+											"type": "text"
+										},
+										{
+											"key": "lname",
+											"value": "Doe",
+											"type": "text"
+										},
+										{
+											"key": "title",
+											"value": "Assistant Director Operations",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "john@gmail.com",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "123456",
+											"type": "text"
+										},
+										{
+											"key": "c_password",
+											"value": "123456",
+											"type": "text"
+										},
+										{
+											"key": "phone",
+											"value": "+14567189283",
+											"type": "text"
+										},
+										{
+											"key": "fax",
+											"value": "+14567189284",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "company",
+											"value": "Highway Production Inc.",
+											"type": "text"
+										},
+										{
+											"key": "company_type",
+											"value": "3",
+											"type": "text"
+										},
+										{
+											"key": "mail_address_1",
+											"value": "7162 Broadway",
+											"type": "text"
+										},
+										{
+											"key": "mail_address_2",
+											"value": "Manhattan",
+											"type": "text"
+										},
+										{
+											"key": "city",
+											"value": "New York City",
+											"type": "text"
+										},
+										{
+											"key": "state",
+											"value": "New York",
+											"type": "text"
+										},
+										{
+											"key": "country",
+											"value": "United States",
+											"type": "text"
+										},
+										{
+											"key": "zip",
+											"value": "11011",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{base_url}}/auth/user/register",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"auth",
+										"user",
+										"register"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Premium Acc. Register",
+					"item": [
+						{
+							"name": "Register Premium Account",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "fname",
+											"value": "Ali",
+											"type": "text"
+										},
+										{
+											"key": "lname",
+											"value": "Doe",
+											"type": "text"
+										},
+										{
+											"key": "title",
+											"value": "Assistant Director",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "ali@gmail.com",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "123456",
+											"type": "text"
+										},
+										{
+											"key": "c_password",
+											"value": "123456",
+											"type": "text"
+										},
+										{
+											"key": "company_phone",
+											"value": "+14567189283",
+											"type": "text"
+										},
+										{
+											"key": "company_mobile",
+											"value": "+14567189176",
+											"type": "text"
+										},
+										{
+											"key": "company",
+											"value": "Premium Logistics",
+											"type": "text"
+										},
+										{
+											"key": "company_type",
+											"value": "3",
+											"type": "text"
+										},
+										{
+											"key": "mail_address_1",
+											"value": "981 Ricford Ave",
+											"type": "text"
+										},
+										{
+											"key": "mail_address_2",
+											"value": "Queens",
+											"type": "text"
+										},
+										{
+											"key": "city",
+											"value": "New York City",
+											"type": "text"
+										},
+										{
+											"key": "state",
+											"value": "New York",
+											"type": "text"
+										},
+										{
+											"key": "country",
+											"value": "United States",
+											"type": "text"
+										},
+										{
+											"key": "zip",
+											"value": "11011",
+											"type": "text"
+										},
+										{
+											"key": "website",
+											"value": "https://premiumlogs.com",
+											"type": "text"
+										},
+										{
+											"key": "drivers",
+											"value": "10",
+											"type": "text"
+										},
+										{
+											"key": "motor_carrier_no",
+											"value": "162781",
+											"type": "text"
+										},
+										{
+											"key": "dot_no",
+											"value": "183726",
+											"type": "text"
+										},
+										{
+											"key": "insurance_company",
+											"value": "Dorlq Simmit",
+											"type": "text"
+										},
+										{
+											"key": "gen_liability",
+											"value": "89000",
+											"type": "text"
+										},
+										{
+											"key": "cargo_insurance",
+											"value": "671928",
+											"type": "text"
+										},
+										{
+											"key": "other_insurance",
+											"value": "8912",
+											"type": "text"
+										},
+										{
+											"key": "insurance_declaration",
+											"type": "file",
+											"src": "/C:/Users/being/Downloads/arslan-ats-resume.pdf"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{base_url}}/auth/user/premium-register",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"auth",
+										"user",
+										"premium-register"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Billing Info",
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {
+									"accept": true
+								}
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "bearer {{access_token}}",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "company_id",
+											"value": "10",
+											"type": "text"
+										},
+										{
+											"key": "card_number",
+											"value": "4242424242424242",
+											"type": "text"
+										},
+										{
+											"key": "cvv",
+											"value": "124",
+											"type": "text"
+										},
+										{
+											"key": "expiry_month",
+											"value": "9",
+											"type": "text"
+										},
+										{
+											"key": "expiry_year",
+											"value": "2025",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{base_url}}/auth/user/premium-billing-info",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"auth",
+										"user",
+										"premium-billing-info"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Home Page Quote & Register",
+					"item": [
+						{
+							"name": "Homepage Register",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "pickup_date",
+											"value": "2024-12-12",
+											"type": "text"
+										},
+										{
+											"key": "pickup_time",
+											"value": "1200",
+											"type": "text"
+										},
+										{
+											"key": "pickup_zip",
+											"value": "10001",
+											"type": "text"
+										},
+										{
+											"key": "delivery_zip",
+											"value": "10002",
+											"type": "text"
+										},
+										{
+											"key": "delivery_time",
+											"value": "1600",
+											"type": "text"
+										},
+										{
+											"key": "dimensions",
+											"value": "12x12x12 inches",
+											"type": "text"
+										},
+										{
+											"key": "weight",
+											"value": "5 lbs",
+											"type": "text"
+										},
+										{
+											"key": "description",
+											"value": "Mustard Gas",
+											"type": "text"
+										},
+										{
+											"key": "fname",
+											"value": "Irfan",
+											"type": "text"
+										},
+										{
+											"key": "lname",
+											"value": "Junejo",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "sceneonhai@gmail.com",
+											"type": "text"
+										},
+										{
+											"key": "phone",
+											"value": "+18917263511",
+											"type": "text"
+										},
+										{
+											"key": "company_name",
+											"value": "Robocop inc.",
+											"type": "text"
+										},
+										{
+											"key": "your_zip",
+											"value": "10001",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{base_url}}/auth/user/homepage-register",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"auth",
+										"user",
+										"homepage-register"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Refresh",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "bearer {{access_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/auth/user/refresh",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"auth",
+								"user",
+								"refresh"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Forgot Password",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "username",
+									"value": "john@gmail.com",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/auth/user/forgot",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"auth",
+								"user",
+								"forgot"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Me/Profile",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						},
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "bearer {{access_token}}"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{base_url}}/auth/user/me",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"auth",
+								"user",
+								"me"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Password",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "bearer {{access_token}}"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "old_password",
+									"value": "123456",
+									"type": "text"
+								},
+								{
+									"key": "new_password",
+									"value": "12345678",
+									"type": "text"
+								},
+								{
+									"key": "c_new_password",
+									"value": "12345678",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/auth/user/updatePassword",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"auth",
+								"user",
+								"updatePassword"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Profile",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "bearer {{access_token}}"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "fname",
+									"value": "Jack",
+									"type": "text"
+								},
+								{
+									"key": "lname",
+									"value": "Sparrow",
+									"type": "text"
+								},
+								{
+									"key": "title",
+									"value": "Assistant Manager",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "ysheldon@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "+1234516787",
+									"type": "text"
+								},
+								{
+									"key": "fax",
+									"value": "+1234516787",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/auth/user/updateProfile",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"auth",
+								"user",
+								"updateProfile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Logout",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "bearer {{access_token}}"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{base_url}}/auth/user/logout",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"auth",
+								"user",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "username",
+									"value": "kohey12342@ikangou.com",
+									"description": "x",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "154224aA#88",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/auth/user/login",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"auth",
+								"user",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Quote Requests",
+			"item": [
+				{
+					"name": "Add Quote Request",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "pickup_date",
+									"value": "2023-12-12",
+									"type": "text"
+								},
+								{
+									"key": "pickup_time",
+									"value": "14591",
+									"type": "text"
+								},
+								{
+									"key": "start_point",
+									"value": "10001, 5th Ave, New York, NY",
+									"type": "text"
+								},
+								{
+									"key": "delivery_point",
+									"value": "15470, Ohiopyle, PA",
+									"type": "text"
+								},
+								{
+									"key": "pickup_time",
+									"value": "1600",
+									"type": "text"
+								},
+								{
+									"key": "delivery_time",
+									"value": "1200",
+									"type": "text"
+								},
+								{
+									"key": "dimensions",
+									"value": "12x12x12 ft",
+									"type": "text"
+								},
+								{
+									"key": "weight",
+									"value": "45",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Radio-active Waste",
+									"type": "text"
+								},
+								{
+									"key": "vehicle",
+									"value": "0",
+									"type": "text"
+								},
+								{
+									"key": "reefer",
+									"value": "0",
+									"type": "text"
+								},
+								{
+									"key": "hazmat",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "lift_gate",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "contact_name",
+									"value": "Harvey Spectre",
+									"type": "text"
+								},
+								{
+									"key": "contact_email",
+									"value": "harvey@outlook.com",
+									"type": "text"
+								},
+								{
+									"key": "contact_phone",
+									"value": "+17163241919",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/api/quote-request/submit",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"quote-request",
+								"submit"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Quote Request",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "id",
+									"value": "5",
+									"type": "text"
+								},
+								{
+									"key": "pickup_date",
+									"value": "2023-12-12",
+									"type": "text"
+								},
+								{
+									"key": "pickup_time",
+									"value": "14591",
+									"type": "text"
+								},
+								{
+									"key": "start_point",
+									"value": "10002, Knickerbocker, NY",
+									"type": "text"
+								},
+								{
+									"key": "delivery_point",
+									"value": "15470, Ohiopyle, PA",
+									"type": "text"
+								},
+								{
+									"key": "pickup_time",
+									"value": "1600",
+									"type": "text"
+								},
+								{
+									"key": "delivery_time",
+									"value": "1200",
+									"type": "text"
+								},
+								{
+									"key": "dimensions",
+									"value": "12x12x12 ft",
+									"type": "text"
+								},
+								{
+									"key": "weight",
+									"value": "45",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Radio-active Waste",
+									"type": "text"
+								},
+								{
+									"key": "vehicle",
+									"value": "0",
+									"type": "text"
+								},
+								{
+									"key": "reefer",
+									"value": "0",
+									"type": "text"
+								},
+								{
+									"key": "hazmat",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "lift_gate",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "contact_name",
+									"value": "Muhammad Haris",
+									"type": "text"
+								},
+								{
+									"key": "contact_email",
+									"value": "mharis@outlook.com",
+									"type": "text"
+								},
+								{
+									"key": "contact_phone",
+									"value": "7163241919",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/api/quote-request/updateRequest",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"quote-request",
+								"updateRequest"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Address Quote Request",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "id",
+									"value": "5",
+									"type": "text"
+								},
+								{
+									"key": "pickup_address_1",
+									"value": "Suite 105, Tashker Hotel",
+									"type": "text"
+								},
+								{
+									"key": "pickup_address_2",
+									"value": "Long Island",
+									"type": "text"
+								},
+								{
+									"key": "pickup_city",
+									"value": "New York City",
+									"type": "text"
+								},
+								{
+									"key": "pickup_state",
+									"value": "New York",
+									"type": "text"
+								},
+								{
+									"key": "pickup_zip",
+									"value": "10002",
+									"type": "text"
+								},
+								{
+									"key": "pickup_contact_name",
+									"value": "Raju Mehta",
+									"type": "text"
+								},
+								{
+									"key": "pickup_contact_phone",
+									"value": "+14567812312",
+									"type": "text"
+								},
+								{
+									"key": "pickup_company",
+									"value": "Soft Rubber Solutions",
+									"type": "text"
+								},
+								{
+									"key": "delivery_address_1",
+									"value": "Alpha Store",
+									"type": "text"
+								},
+								{
+									"key": "delivery_address_2",
+									"value": "Roma Barista Avenue",
+									"type": "text"
+								},
+								{
+									"key": "delivery_city",
+									"value": "Ohiopyle",
+									"type": "text"
+								},
+								{
+									"key": "delivery_state",
+									"value": "Pennsylvania",
+									"type": "text"
+								},
+								{
+									"key": "delivery_zip",
+									"value": "15470",
+									"type": "text"
+								},
+								{
+									"key": "delivery_contact_name",
+									"value": "Harold Cooper",
+									"type": "text"
+								},
+								{
+									"key": "delivery_contact_phone",
+									"value": "+!9871230908",
+									"type": "text"
+								},
+								{
+									"key": "delivery_company",
+									"value": "FBI Black Site Ops",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/api/quote-request/updateAddress",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"quote-request",
+								"updateAddress"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Requests",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/quote-request/all",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"quote-request",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All By Auth User",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/quote-request/allByUser",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"quote-request",
+								"allByUser"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All By Company",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/quote-request/allByCompany/3",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"quote-request",
+								"allByCompany",
+								"3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Quote Bids",
+			"item": [
+				{
+					"name": "Submit Bid on Request",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "request_id",
+									"value": "10",
+									"type": "text"
+								},
+								{
+									"key": "amount",
+									"value": "2000",
+									"type": "text"
+								},
+								{
+									"key": "contact_fname",
+									"value": "Joshua",
+									"type": "text"
+								},
+								{
+									"key": "contact_lname",
+									"value": "Cooper",
+									"type": "text"
+								},
+								{
+									"key": "contact_phone",
+									"value": "+15613451289",
+									"type": "text"
+								},
+								{
+									"key": "contact_email",
+									"value": "jasper@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "terms",
+									"value": "In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before the final copy is available.",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/api/quote-bids/submit",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"quote-bids",
+								"submit"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Bids On A Requests",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/quote-bids/allOnRequest/10",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"quote-bids",
+								"allOnRequest",
+								"10"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Bids By Auth User",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/quote-bids/allByUser",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"quote-bids",
+								"allByUser"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Bids By Company",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/quote-bids/allByCompany/17",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"quote-bids",
+								"allByCompany",
+								"17"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Users Management",
+			"item": [
+				{
+					"name": "Create New User",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "kohey12342@ikangou.com",
+									"type": "text"
+								},
+								{
+									"key": "c_email",
+									"value": "kohey12342@ikangou.com",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "is_major_user",
+									"value": "1",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "has_acc_info",
+									"value": "1",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "has_post_func",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "has_alerts",
+									"value": "1",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/api/user-management/create",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"user-management",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update User Permission",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "user_id",
+									"value": "16",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "+17652349879",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "is_major_user",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "has_acc_info",
+									"value": "1",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "has_post_func",
+									"value": "1",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "has_alerts",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/api/user-management/update",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"user-management",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update User Phone",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "user_id",
+									"value": "16",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "+15461239878",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/api/user-management/updatePhone",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"user-management",
+								"updatePhone"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete User",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "user_id",
+									"value": "16",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/api/user-management/delete",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"user-management",
+								"delete"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Reset User Pswd",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/user-management/resetPassword/16",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"user-management",
+								"resetPassword",
+								"16"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Show All Users in Company",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/user-management/all",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"user-management",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Show Single User",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/user-management/show/16",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"user-management",
+								"show",
+								"16"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Company Management",
+			"item": [
+				{
+					"name": "Update Alerts Emails",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "alert_email_1",
+									"value": "polo981@modotso.com",
+									"type": "text"
+								},
+								{
+									"key": "alert_email_2",
+									"value": "ceyeje5833@modotso.com",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/api/company-management/updateAlerts",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"company-management",
+								"updateAlerts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Alert Preferences",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "alert_freight",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "alert_vehicle",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "alert_rpf",
+									"value": "1",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "alert_driver",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/api/company-management/updateAlertPref",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"company-management",
+								"updateAlertPref"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Auth Company Info",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/company-management/getCompanyInfo",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"company-management",
+								"getCompanyInfo"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Auth Company Info",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Mecernan Motors",
+									"type": "text"
+								},
+								{
+									"key": "mail_address_1",
+									"value": "99 East Nobel Boulevard",
+									"type": "text"
+								},
+								{
+									"key": "mail_address_2",
+									"value": "Debitis accusamus au",
+									"type": "text"
+								},
+								{
+									"key": "city",
+									"value": "Debitis voluptas dui",
+									"type": "text"
+								},
+								{
+									"key": "state",
+									"value": "Missouri",
+									"type": "text"
+								},
+								{
+									"key": "country",
+									"value": "62970",
+									"type": "text"
+								},
+								{
+									"key": "zip",
+									"value": "+15461239878",
+									"type": "text"
+								},
+								{
+									"key": "company_type",
+									"value": "0",
+									"type": "text"
+								},
+								{
+									"key": "motor_carrier_no",
+									"value": "987654",
+									"type": "text"
+								},
+								{
+									"key": "dot_no",
+									"value": "234561",
+									"type": "text"
+								},
+								{
+									"key": "intrastate_no",
+									"value": "527312",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/api/company-management/updateCompanyInfo",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"company-management",
+								"updateCompanyInfo"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Credit Card",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "card_number",
+									"value": "4242424242424242",
+									"type": "text"
+								},
+								{
+									"key": "cvv",
+									"value": "951",
+									"type": "text"
+								},
+								{
+									"key": "expiry_month",
+									"value": "12",
+									"type": "text"
+								},
+								{
+									"key": "expiry_year",
+									"value": "2025",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/api/company-management/updateCreditCard",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"company-management",
+								"updateCreditCard"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost/courierboard/api",
+			"type": "string"
+		},
+		{
+			"key": "access_token",
+			"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0L2NvdXJpZXJib2FyZC9hcGkvYXV0aC91c2VyL2xvZ2luIiwiaWF0IjoxNzIxOTA5Nzg4LCJleHAiOjE3MjE5MTMzODgsIm5iZiI6MTcyMTkwOTc4OCwianRpIjoiRWx1MVZJVmN1VDNmWFlzcyIsInN1YiI6IjE0IiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.BnVw5Bh5xTfFx4xjmUV27MF0nwUuZGKvKM3B4O9wtbA",
+			"type": "string"
+		}
+	]
+}
