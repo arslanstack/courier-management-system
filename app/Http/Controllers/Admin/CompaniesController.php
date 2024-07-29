@@ -33,6 +33,8 @@ class CompaniesController extends Controller
         }
         $data['users'] = $company->users;
         $data['company'] = $company;
+        $data['quoteRequests'] = $company->quoteRequests;
+        $data['quoteBids'] = $company->quoteBids;
         return view('admin/companies/company_details', $data);
     }
 }

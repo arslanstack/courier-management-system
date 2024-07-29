@@ -27,7 +27,9 @@
 				<ul class="nav nav-tabs" role="tablist">
 					<li class="show_details"><a class="nav-link active show" data-toggle="tab" href="#tab-1">Company Details</a></li>
 					<li class="show_users"><a class="nav-link" data-toggle="tab" href="#tab-2">Users</a></li>
-					<li class="show_billing"><a class="nav-link" data-toggle="tab" href="#tab-3">Billing History</a></li>
+					<li class="show_requests"><a class="nav-link" data-toggle="tab" href="#tab-3">Quote Requests</a></li>
+					<li class="show_bids"><a class="nav-link" data-toggle="tab" href="#tab-4">Recent Bids</a></li>
+					<li class="show_billing"><a class="nav-link" data-toggle="tab" href="#tab-5">Billing History</a></li>
 				</ul>
 				<div class="tab-content">
 					<div id="tab-1" class="tab-pane active show" role="tabpanel">
@@ -416,6 +418,111 @@
 					<div id="tab-3" class="tab-pane" role="tabpanel">
 						<div class="ibox">
 							<div class="ibox-title">
+								<h5>Quote Requests</h5>
+							</div>
+							<div class="ibox-content">
+								<div class="table-responsive">
+									<table id="manage_tbl2" class="table table-striped table-bordered dt-responsive" style="width:100%">
+										<thead>
+											<tr>
+												<th>Sr #</th>
+												<th>Pickup Zip</th>
+												<th>Delivery Zip</th>
+												<th>Pickup Date</th>
+												<th>Estimated Mileage</th>
+												<th>Status</th>
+												<th>Action</th>
+											</tr>
+										</thead>
+										<tbody>
+											@php($i = 1)
+											@foreach($quoteRequests as $item)
+											<tr class="gradeX">
+												<td>{{ $i++ }}</td>
+												<td>{{$item->pickup_zip}}</td>
+												<td>{{$item->delivery_zip}}</td>
+												<td>{{$item->pickup_date}}</td>
+												<td>{{$item->estimated_mileage ?? '-'}}</td>
+												<td>
+													@if($item->status == 0 || 1)
+													<span class="label label-dark">Listed</span>
+													@elseif($item->status == 2)
+													<span class="label label-primary">Bid Accepted</span>
+													@elseif($item->status == 3)
+													<span class="label label-success">Delivered</span>
+													@elseif($item->status == 4)
+													<span class="label label-red">Removed</span>
+													@endif
+												</td>
+
+												<td>
+													<a href="{{ url('admin/quote-requests/detail') }}/{{ $item->id }}" class="btn btn-primary btn-sm" data-placement="top" title="Details"><i class="fa-solid fa-file-text-o"></i> Details </a>
+												</td>
+											</tr>
+											@endforeach
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div id="tab-4" class="tab-pane" role="tabpanel">
+						<div class="ibox">
+							<div class="ibox-title">
+								<h5>Quote Bids</h5>
+							</div>
+							<div class="ibox-content">
+								<div class="table-responsive">
+									<table id="manage_tbl3" class="table table-striped table-bordered dt-responsive" style="width:100%">
+										<thead>
+											<tr>
+												<th>Sr #</th>
+												<th>Bidding Company</th>
+												<th>Amount</th>
+												<th>Status</th>
+												<th>Action</th>
+											</tr>
+										</thead>
+										<tbody>
+											@php($i = 1)
+											@foreach($quoteBids as $item)
+											<tr class="gradeX">
+												<td>{{ $i++ }}</td>
+												<td>{{ $item->company->name }}</td>
+												<td>{{$item->amount}}</td>
+												<td>
+													@if($item->status == 0)
+													<span class="label label-dark">Listed</span>
+													@elseif($item->status == 1)
+													<span class="label label-warning">Unlisted</span>
+													@elseif($item->status == 2)
+													<span class="label label-primary">Bid Accepted</span>
+													@elseif($item->status == 3)
+													<span class="label label-success">Delivered</span>
+													@elseif($item->status == 4)
+													<span class="label label-red">Removed</span>
+													@endif
+												</td>
+												<td>
+													<button class="btn btn-primary btn-sm btn_bid_details" data-id="{{$item->id}}" type="button"><i class="fa-solid fa-file-text-o"></i> Details</button>
+												</td>
+											</tr>
+											@endforeach
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+						<div class="modal inmodal show fade" id="edit_modalbox" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+							<div class="modal-dialog modal-md" role="document">
+								<div class="modal-content animated flipInY" id="edit_modalbox_body">
+								</div>
+							</div>
+						</div>
+					</div>
+					<div id="tab-5" class="tab-pane" role="tabpanel">
+						<div class="ibox">
+							<div class="ibox-title">
 								<h5>Billing History</h5>
 							</div>
 							<div class="ibox-content">
@@ -446,6 +553,22 @@
 @endsection
 @push('scripts')
 <script>
+	$(document).on("click", ".btn_bid_details", function() {
+		var id = $(this).attr('data-id');
+		$.ajax({
+			url: "{{ url('admin/quote-requests/bidDetails') }}",
+			type: 'POST',
+			dataType: 'json',
+			data: {
+				"_token": "{{ csrf_token() }}",
+				'id': id
+			},
+			success: function(status) {
+				$("#edit_modalbox_body").html(status.response);
+				$("#edit_modalbox").modal('show');
+			}
+		});
+	});
 	$(document).on('click', '.show_users', function() {
 		if (!($("table#manage_tbl").hasClass("dataTable"))) {
 			$('#manage_tbl').dataTable({
@@ -495,7 +618,9 @@
 	// 			var tabParamsMap = {
 	// 				'#tab-1': 'details',
 	// 				'#tab-2': 'users',
-	// 				'#tab-3': 'billing'
+	// 				'#tab-3': 'requests',
+	// 				'#tab-4': 'bids',
+	// 				'#tab-5': 'billing',
 	// 			};
 	// 			var tabParam = tabParamsMap[targetTabId];
 	// 			var currentUrl = new URL(window.location.href);
@@ -510,7 +635,9 @@
 	// 	var tabParamsMap = {
 	// 		'#tab-1': 'details',
 	// 		'#tab-2': 'users',
-	// 		'#tab-3': 'billing'
+	// 		'#tab-3': 'requests',
+	// 		'#tab-4': 'bids',
+	// 		'#tab-5': 'billing',
 	// 	};
 	// 	if (activeTab) {
 	// 		var targetTabId = null;
@@ -525,5 +652,53 @@
 	// 		}
 	// 	}
 	// });
+
+	document.addEventListener('DOMContentLoaded', function() {
+		// 1. Tab Click Event Handler
+		var tabLinks = document.querySelectorAll('.nav-tabs a.nav-link');
+		tabLinks.forEach(function(tabLink) {
+			tabLink.addEventListener('click', function(event) {
+				event.preventDefault();
+				var targetTabId = tabLink.getAttribute('href');
+
+				// Update URL params
+				var tabParamsMap = {
+					'#tab-1': 'details',
+					'#tab-2': 'users',
+					'#tab-3': 'requests',
+					'#tab-4': 'bids',
+					'#tab-5': 'billing',
+				};
+				var tabParam = tabParamsMap[targetTabId];
+				var currentUrl = new URL(window.location.href);
+				currentUrl.searchParams.set('tab', tabParam);
+				history.replaceState(null, null, currentUrl);
+
+				// Show the target tab
+				$(targetTabId).tab('show');
+			});
+		});
+
+		// 2. Handle Tab Parameter on Page Load
+		var urlParams = new URLSearchParams(window.location.search);
+		var activeTab = urlParams.get('tab');
+
+		// Keep the tab ID mapping separate
+		var tabParamsMap = {
+			'details': '#tab-1',
+			'users': '#tab-2',
+			'requests': '#tab-3',
+			'bids': '#tab-4',
+			'billing': '#tab-5',
+		};
+
+		// Get the target tab ID based on the URL parameter
+		var targetTabId = tabParamsMap[activeTab];
+
+		// If a valid tab ID is found, show the corresponding tab
+		if (targetTabId) {
+			$(targetTabId).tab('show');
+		}
+	});
 </script>
 @endpush

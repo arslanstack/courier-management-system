@@ -321,3 +321,56 @@ if (!function_exists('calculate_address')) {
 		return $address;
 	}
 }
+
+if (!function_exists('map_vehicle')) {
+	function map_vehicle($vehicle)
+	{
+		if($vehicle == 0){
+			return 'Any';
+		} 
+		else if ($vehicle == 1){
+			return 'Car';
+		}
+		else if ($vehicle == 2){
+			return 'Mini-van';
+		}
+		else if ($vehicle == 3){
+			return 'SUV';
+		}
+		else if ($vehicle == 4){
+			return 'Cargo Van';
+		}
+		else if ($vehicle == 5){
+			return 'Sprinter';
+		}
+		else if ($vehicle == 6){
+			return 'Covered Pickup';
+		}
+		else if ($vehicle == 7){
+			return '16 ft. Box Truck';
+		}
+		else if ($vehicle == 8){
+			return '18 ft. Box Truck';
+		}
+		else if ($vehicle == 9){
+			return '20 ft. Box Truck';
+		}
+		else if ($vehicle == 10){
+			return '22 ft. Box Truck';
+		}
+		else if ($vehicle == 11){
+			return '24 ft. Box Truck';
+		}
+		else if ($vehicle == 12){
+			return '26 ft. Box Truck';
+		}
+		else if ($vehicle == 13){
+			return 'Flatbed';
+		}
+		else if ($vehicle == 13){
+			return 'Tractor Trailer';
+		} else {
+			return 'Any';
+		}
+	}
+}

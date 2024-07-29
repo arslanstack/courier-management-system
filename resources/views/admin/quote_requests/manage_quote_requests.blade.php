@@ -42,6 +42,7 @@
                                     <th>Delivery Zip</th>
                                     <th>Pickup Date</th>
                                     <th>Estimated Mileage</th>
+                                    <th>Status</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -55,6 +56,17 @@
                                     <td>{{$item->delivery_zip}}</td>
                                     <td>{{$item->pickup_date}}</td>
                                     <td>{{$item->estimated_mileage ?? '-'}}</td>
+                                    <td>
+                                        @if($item->status == 0 || 1)
+                                        <span class="label label-dark">Listed</span>
+                                        @elseif($item->status == 2)
+                                        <span class="label label-primary">Bid Accepted</span>
+                                        @elseif($item->status == 3)
+                                        <span class="label label-success">Delivered</span>
+                                        @elseif($item->status == 4)
+                                        <span class="label label-red">Removed</span>
+                                        @endif
+                                    </td>
                                     <td>
                                         <a href="{{ url('admin/quote-requests/detail') }}/{{ $item->id }}" class="btn btn-primary btn-sm" data-placement="top" title="Details"><i class="fa-solid fa-file-text-o"></i> Details </a>
                                     </td>

@@ -52,4 +52,14 @@ class Company extends Model
     {
         return $this->hasMany(User::class);
     }
+
+    public function quoteRequests()
+    {
+        return $this->hasMany(QuoteRequest::class);
+    }
+
+    public function quoteBids()
+    {
+        return $this->hasMany(QuoteBids::class);
+    }
 }

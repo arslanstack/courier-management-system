@@ -63,6 +63,7 @@ Route::group(['prefix'  =>  'admin'], function () {
 		Route::group(['prefix'  =>  'quote-requests'], function () {
 			Route::get('/', [QuoteRequestController::class, 'index']);
 			Route::get('detail/{id}', [QuoteRequestController::class, 'details']);
+			Route::post('bidDetails', [QuoteRequestController::class, 'bidDetails']);
 		});
 	});
 });

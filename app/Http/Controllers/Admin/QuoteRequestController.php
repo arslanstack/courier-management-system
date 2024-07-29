@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\QuoteBids;
 use App\Models\QuoteRequest;
 use Illuminate\Http\Request;
 
@@ -34,6 +35,21 @@ class QuoteRequestController extends Controller
             return redirect()->back()->with('error', 'Quote Requests not found');
         }
         $data['quoteRequests'] = $quote_request;
+        $data['quoteBids'] = QuoteBids::where('request_id', $quote_request->id)->get();
         return view('admin/quote_requests/quote_request_details', $data);
+    }
+
+    public function bidDetails(Request $request)
+    {
+        $bid = QuoteBids::where('id', $request->id)->first();
+        $bid['company'] = $bid->company->name;
+        $bid['user'] = $bid->user->fname . ' ' . $bid->user->lname;
+        if (!empty($bid)) {
+            $htmlresult = view('admin/quote_requests/bids_ajax', compact('bid'))->render();
+            $finalResult = response()->json(['msg' => 'success', 'response' => $htmlresult]);
+            return $finalResult;
+        } else {
+            return response()->json(['msg' => 'error', 'response' => 'Quote Bid not found.']);
+        }
     }
 }
