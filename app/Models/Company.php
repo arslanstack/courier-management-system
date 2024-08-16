@@ -46,6 +46,8 @@ class Company extends Model
         'cvv',
         'expiry_month',
         'expiry_year',
+        'lat',
+        'long',
     ];
 
     public function users()
@@ -62,4 +64,15 @@ class Company extends Model
     {
         return $this->hasMany(QuoteBids::class);
     }
+
+    public function companyProfile()
+    {
+        return $this->hasOne(CompanyProfile::class, 'company_id', 'id');
+    }
+
+    public function companyAirports()
+    {
+        return $this->hasMany(CompanyAirports::class, 'company_id', 'id');
+    }
+    
 }

@@ -25,11 +25,11 @@
 		<div class="col-lg-12">
 			<div class="tabs-container">
 				<ul class="nav nav-tabs" role="tablist">
-					<li class="show_details"><a class="nav-link active show" data-toggle="tab" href="#tab-1">Company Details</a></li>
-					<li class="show_users"><a class="nav-link" data-toggle="tab" href="#tab-2">Users</a></li>
-					<li class="show_requests"><a class="nav-link" data-toggle="tab" href="#tab-3">Quote Requests</a></li>
-					<li class="show_bids"><a class="nav-link" data-toggle="tab" href="#tab-4">Recent Bids</a></li>
-					<li class="show_billing"><a class="nav-link" data-toggle="tab" href="#tab-5">Billing History</a></li>
+					<li class="show_details"><a class="nav-link active show" data-toggle="tab" id="tab1-link" href="#tab-1">Company Details</a></li>
+					<li class="show_users"><a class="nav-link" data-toggle="tab" id="tab2-link" href="#tab-2">Users</a></li>
+					<li class="show_requests"><a class="nav-link" data-toggle="tab" id="tab3-link" href="#tab-3">Quote Requests</a></li>
+					<li class="show_bids"><a class="nav-link" data-toggle="tab" id="tab4-link" href="#tab-4">Recent Bids</a></li>
+					<li class="show_billing"><a class="nav-link" data-toggle="tab" id="tab5-link" href="#tab-5">Billing History</a></li>
 				</ul>
 				<div class="tab-content">
 					<div id="tab-1" class="tab-pane active show" role="tabpanel">
@@ -225,7 +225,7 @@
 											</label>
 											<label class="col-8 col-form-label">
 												@if($company->cargo_insurance)
-												$company->cargo_insurance . ' USD'
+												{{$company->cargo_insurance }} USD
 												@else
 												N/A
 												@endif
@@ -241,7 +241,7 @@
 											</label>
 											<label class="col-8 col-form-label">
 												@if($company->other_insurance)
-												$company->other_insurance . ' USD'
+												{{$company->other_insurance}} USD
 												@else
 												N/A
 												@endif
@@ -454,7 +454,6 @@
 													<span class="label label-red">Removed</span>
 													@endif
 												</td>
-
 												<td>
 													<a href="{{ url('admin/quote-requests/detail') }}/{{ $item->id }}" class="btn btn-primary btn-sm" data-placement="top" title="Details"><i class="fa-solid fa-file-text-o"></i> Details </a>
 												</td>
@@ -513,12 +512,6 @@
 								</div>
 							</div>
 						</div>
-						<div class="modal inmodal show fade" id="edit_modalbox" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-							<div class="modal-dialog modal-md" role="document">
-								<div class="modal-content animated flipInY" id="edit_modalbox_body">
-								</div>
-							</div>
-						</div>
 					</div>
 					<div id="tab-5" class="tab-pane" role="tabpanel">
 						<div class="ibox">
@@ -527,7 +520,7 @@
 							</div>
 							<div class="ibox-content">
 								<div class="table-responsive">
-									<table id="manage_tbl2" class="table table-striped table-bordered dt-responsive" style="width:100%">
+									<table id="manage_tbl4" class="table table-striped table-bordered dt-responsive" style="width:100%">
 										<thead>
 											<tr>
 												<th>Sr #</th>
@@ -547,6 +540,12 @@
 					</div>
 				</div>
 			</div>
+		</div>
+	</div>
+</div>
+<div class="modal inmodal show fade" id="edit_modalbox" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal-dialog modal-md" role="document">
+		<div class="modal-content animated flipInY" id="edit_modalbox_body">
 		</div>
 	</div>
 </div>
@@ -577,15 +576,10 @@
 				"bInfo": true,
 				"responsive": true,
 				"pageLength": 50,
-				"columnDefs": [{
-						"responsivePriority": 1,
-						"targets": 0
-					},
-					{
-						"responsivePriority": 2,
-						"targets": -1
-					},
-				]
+				"columnDefs": [
+					{ "responsivePriority": 1, "targets": 0 },
+					{ "responsivePriority": 2, "targets": -1 },
+					]
 			});
 		}
 	});
@@ -597,71 +591,19 @@
 				"bInfo": true,
 				"responsive": true,
 				"pageLength": 50,
-				"columnDefs": [{
-						"responsivePriority": 1,
-						"targets": 0
-					},
-					{
-						"responsivePriority": 2,
-						"targets": -1
-					},
-				]
+				"columnDefs": [
+					{ "responsivePriority": 1, "targets": 0 },
+					{ "responsivePriority": 2, "targets": -1 },
+					]
 			});
 		}
 	});
-	// document.addEventListener('DOMContentLoaded', function() {
-	// 	var tabLinks = document.querySelectorAll('.nav-tabs a.nav-link');
-	// 	tabLinks.forEach(function(tabLink) {
-	// 		tabLink.addEventListener('click', function(event) {
-	// 			event.preventDefault();
-	// 			var targetTabId = tabLink.getAttribute('href');
-	// 			var tabParamsMap = {
-	// 				'#tab-1': 'details',
-	// 				'#tab-2': 'users',
-	// 				'#tab-3': 'requests',
-	// 				'#tab-4': 'bids',
-	// 				'#tab-5': 'billing',
-	// 			};
-	// 			var tabParam = tabParamsMap[targetTabId];
-	// 			var currentUrl = new URL(window.location.href);
-	// 			currentUrl.searchParams.set('tab', tabParam);
-	// 			history.replaceState(null, null, currentUrl);
-	// 			$(targetTabId).tab('show');
-	// 		});
-	// 	});
-	// 	// Need to show the tab based on the query param from url
-	// 	var urlParams = new URLSearchParams(window.location.search);
-	// 	var activeTab = urlParams.get('tab');
-	// 	var tabParamsMap = {
-	// 		'#tab-1': 'details',
-	// 		'#tab-2': 'users',
-	// 		'#tab-3': 'requests',
-	// 		'#tab-4': 'bids',
-	// 		'#tab-5': 'billing',
-	// 	};
-	// 	if (activeTab) {
-	// 		var targetTabId = null;
-	// 		for (var tab in tabParamsMap) {
-	// 			if (tabParamsMap[tab] === activeTab) {
-	// 				targetTabId = tab;
-	// 				break;
-	// 			}
-	// 		}
-	// 		if (targetTabId) {
-	// 			$(targetTabId).tab('show');
-	// 		}
-	// 	}
-	// });
-
 	document.addEventListener('DOMContentLoaded', function() {
-		// 1. Tab Click Event Handler
 		var tabLinks = document.querySelectorAll('.nav-tabs a.nav-link');
 		tabLinks.forEach(function(tabLink) {
 			tabLink.addEventListener('click', function(event) {
 				event.preventDefault();
 				var targetTabId = tabLink.getAttribute('href');
-
-				// Update URL params
 				var tabParamsMap = {
 					'#tab-1': 'details',
 					'#tab-2': 'users',
@@ -673,31 +615,21 @@
 				var currentUrl = new URL(window.location.href);
 				currentUrl.searchParams.set('tab', tabParam);
 				history.replaceState(null, null, currentUrl);
-
-				// Show the target tab
 				$(targetTabId).tab('show');
 			});
 		});
-
-		// 2. Handle Tab Parameter on Page Load
 		var urlParams = new URLSearchParams(window.location.search);
-		var activeTab = urlParams.get('tab');
-
-		// Keep the tab ID mapping separate
-		var tabParamsMap = {
-			'details': '#tab-1',
-			'users': '#tab-2',
-			'requests': '#tab-3',
-			'bids': '#tab-4',
-			'billing': '#tab-5',
-		};
-
-		// Get the target tab ID based on the URL parameter
-		var targetTabId = tabParamsMap[activeTab];
-
-		// If a valid tab ID is found, show the corresponding tab
-		if (targetTabId) {
-			$(targetTabId).tab('show');
+		var tabParam = urlParams.get('tab');
+		if (tabParam) {
+			var tabIdsMap = {
+				'details': '#tab-1',
+				'users': '#tab-2',
+				'requests': '#tab-3',
+				'bids': '#tab-4',
+				'billing': '#tab-5',
+			};
+			var tabId = tabIdsMap[tabParam];
+			$('a[href="' + tabId + '"]').tab('show');
 		}
 	});
 </script>

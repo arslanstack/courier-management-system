@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Company;
+use App\Models\CompanyProfile;
 use App\Models\QuoteRequest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
@@ -37,6 +38,7 @@ class AuthController extends Controller
         if ($validator->fails()) {
             return response()->json($validator->errors(), 400);
         }
+        $cordinates = return_cordinates($request->zip);
         $company = new Company();
         $company->name = $request->company;
         $company->mail_address_1 = $request->mail_address_1;
@@ -45,6 +47,8 @@ class AuthController extends Controller
         $company->state = $request->state;
         $company->country = $request->country;
         $company->zip = $request->zip;
+        $company->lat = $cordinates['lat'] ?? null;
+        $company->long = $cordinates['lng'] ?? null;
         $company->company_type = $request->company_type;
         $company->motor_carrier_no = $request->motor_carrier_no ?? '';
         $company->dot_no = $request->dot_no ?? '';
@@ -54,6 +58,9 @@ class AuthController extends Controller
         if (!$query) {
             return response()->json(['msg' => 'error', 'response' => 'Could not create company.'], 400);
         } else {
+            $companyProfile = new CompanyProfile();
+            $companyProfile->company_id = $company->id;
+            $companyProfile->save();
             $company_id = $company->id;
         }
 
@@ -122,12 +129,18 @@ class AuthController extends Controller
 
         $company = new Company();
         $company->name = $request->company_name;
+        $cordinates = return_cordinates($request->your_zip);
+        $company->lat = $cordinates['lat'] ??  null;
+        $company->long = $cordinates['lng'] ??  null;
         $company->zip = $request->your_zip;
         $company->company_type = 0;
         $query = $company->save();
         if (!$query) {
             return response()->json(['msg' => 'error', 'response' => 'Could not create company.'], 400);
         } else {
+            $companyProfile = new CompanyProfile();
+            $companyProfile->company_id = $company->id;
+            $companyProfile->save();
             $company_id = $company->id;
         }
         $password = rand(100000, 999999) . $request->fname . rand(1, 99);
@@ -248,6 +261,9 @@ class AuthController extends Controller
         $company->city = $request->city;
         $company->state = $request->state;
         $company->country = $request->country;
+        $cordinates = return_cordinates($request->zip);
+        $company->lat = $cordinates['lat'] ?? null;
+        $company->long = $cordinates['lng'] ?? null;
         $company->zip = $request->zip;
         $company->company_type = 3;
         $company->motor_carrier_no = $request->motor_carrier_no ?? '';
@@ -273,6 +289,9 @@ class AuthController extends Controller
         if (!$query) {
             return response()->json(['msg' => 'error', 'response' => 'Could not create company.'], 400);
         } else {
+            $companyProfile = new CompanyProfile();
+            $companyProfile->company_id = $company->id;
+            $companyProfile->save();
             $company_id = $company->id;
         }
 
@@ -416,14 +435,12 @@ class AuthController extends Controller
             return response()->json(['msg' => 'success', 'response' => 'Please check your inbox on registered email address to access your account and further instructions.'], 200);
         }
     }
-
     public function me()
     {
         $user = Auth::user();
         $company = $user->company;
         return response()->json(['msg' => 'success', 'response' => 'User details.', 'user' => $user], 200);
     }
-
     public function logout()
     {
         auth()->logout();
@@ -441,7 +458,6 @@ class AuthController extends Controller
             'expires_in' => JWTAuth::factory()->getTTL() * 10800
         ]);
     }
-
     public function updatePassword(Request $request)
     {
         $validator = Validator::make($request->all(), [
@@ -453,7 +469,7 @@ class AuthController extends Controller
         if ($validator->fails()) {
             return response()->json($validator->errors(), 400);
         }
-        
+
         $user = Auth::user();
         if (!Hash::check($request->old_password, $user->password)) {
             return response()->json(['msg' => 'error', 'response' => 'Incorrect old password.'], 400);
@@ -467,7 +483,6 @@ class AuthController extends Controller
         }
         return response()->json(['msg' => 'error', 'response' => 'Could not update password.'], 400);
     }
-
     public function updateProfile(Request $request)
     {
         $validator = Validator::make($request->all(), [
@@ -490,12 +505,12 @@ class AuthController extends Controller
                 return response()->json(['msg' => 'error', 'response' => 'Email already exists.'], 400);
             }
         }
-        
+
         $authUser->fname = $request->fname;
         $authUser->lname = $request->lname;
         $authUser->title = $request->title;
         $authUser->phone = $request->phone;
-        $authUser->fax = $request->fax ??  $authUser->fax; 
+        $authUser->fax = $request->fax ??  $authUser->fax;
         $authUser->email = $request->email;
         $query = $authUser->save();
 

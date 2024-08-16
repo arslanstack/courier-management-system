@@ -30,6 +30,15 @@
             <li class="{{ Request::is('admin/quote-requests') ? 'active' : '' }} {{ Request::is('admin/quote-requests/*') ? 'active' : '' }}">
                 <a href="{{ url('admin/quote-requests') }}"><i class="fa-solid fa-building"></i> <span class="nav-label">Quote Requests</span></a>
             </li>
+            <li class="{{ Request::is('admin/rfps') ? 'active' : '' }} {{ Request::is('admin/rfps/*') ? 'active' : '' }}">
+                <a href="{{ url('admin/rfps') }}"><i class="fa-solid fa-comment-dots"></i> <span class="nav-label">Multiple Requests (RFP)</span></a>
+            </li>
+            <li class="{{ Request::is('admin/airports') ? 'active' : '' }} {{ Request::is('admin/airports/*') ? 'active' : '' }}">
+                <a href="{{ url('admin/airports') }}"><i class="fa-solid fa-plane"></i> <span class="nav-label">Airports</span></a>
+            </li>
+            <li class="{{ Request::is('admin/warehouses') ? 'active' : '' }} {{ Request::is('admin/warehouses/*') ? 'active' : '' }}">
+                <a href="{{ url('admin/warehouses') }}"><i class="fa-solid fa-truck"></i> <span class="nav-label">Warehouses</span></a>
+            </li>
         </ul>
     </div>
 </nav>

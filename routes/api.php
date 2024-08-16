@@ -1,10 +1,14 @@
 <?php
 
+use App\Http\Controllers\API\AirportController;
 use App\Http\Controllers\API\CompanyManagementController;
 use App\Http\Controllers\API\QuoteBidsController;
 use App\Http\Controllers\API\User\AuthController;
 use App\Http\Controllers\API\QuoteRequestController;
+use App\Http\Controllers\API\RFPBidsController;
+use App\Http\Controllers\API\RFPController;
 use App\Http\Controllers\API\UserManagementController;
+use App\Http\Controllers\API\WarehouseController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -27,21 +31,35 @@ Route::group([
 
 Route::group([
     'middleware' => ['api', 'auth:api'],
-    'prefix' => 'api'
 ], function ($router) {
     Route::group(['prefix' => 'quote-request'], function ($router) {
-        Route::get('/all', [QuoteRequestController::class, 'index'])->name('all_requests');
-        Route::get('/allByUser', [QuoteRequestController::class, 'getByUser'])->name('all_requests_by_user');
+        Route::get('/allByUser', [QuoteRequestController::class, 'allByUser'])->name('all_requests_by_user');
         Route::get('/allByCompany/{company_id}', [QuoteRequestController::class, 'getByCompany'])->name('all_requests_by_company');
         Route::post('/updateRequest', [QuoteRequestController::class, 'updateRequest'])->name('updateRequest');
         Route::post('/updateAddress', [QuoteRequestController::class, 'updateAddress'])->name('updateAddress');
         Route::post('/submit', [QuoteRequestController::class, 'store'])->name('store_request');
+        Route::post('/search', [QuoteRequestController::class, 'searchQuoteRequest'])->name('searchQuoteRequest');
     });
     Route::group(['prefix' => 'quote-bids'], function ($router) {
         Route::get('/allOnRequest/{request_id}', [QuoteBidsController::class, 'show'])->name('all_on_request');
         Route::get('/allByUser', [QuoteBidsController::class, 'showByUser'])->name('show_user_bids');
         Route::get('/allByCompany/{company_id}', [QuoteBidsController::class, 'showByCompany'])->name('show_company_bids');
         Route::post('/submit', [QuoteBidsController::class, 'store'])->name('store');
+
+    });
+    Route::group(['prefix' => 'rfps'], function ($router) {
+        Route::get('/allByUser', [RFPController::class, 'allByUser'])->name('all_rfp_by_user');
+        Route::get('/allByCompany/{company_id}', [RFPController::class, 'allByCompany'])->name('all_rfp_by_company');
+        Route::get('/show/{id}', [RFPController::class, 'show'])->name('show_rfp');
+        Route::post('/submit', [RFPController::class, 'store'])->name('store_rfp');
+        Route::post('/search', [RFPController::class, 'searchRFP'])->name('searchRFP');
+        Route::post('/update', [RFPController::class, 'update'])->name('update_rfp');
+    });
+    Route::group(['prefix' => 'rfp-bids'], function ($router) {
+        Route::get('/allOnRFP/{rfp_id}', [RFPBidsController::class, 'show'])->name('all_on_request');
+        Route::get('/allByUser', [RFPBidsController::class, 'showByUser'])->name('show_user_bids');
+        Route::get('/allByCompany/{company_id}', [RFPBidsController::class, 'showByCompany'])->name('show_company_bids');
+        Route::post('/submit', [RFPBidsController::class, 'store'])->name('store');
     });
     Route::group(['prefix' => 'user-management'], function ($router) {
         Route::post('/create', [UserManagementController::class, 'createUser'])->name('createUser');
@@ -58,5 +76,19 @@ Route::group([
         Route::get('/getCompanyInfo', [CompanyManagementController::class, 'getCompanyInfo'])->name('getCompanyInfo');
         Route::post('/updateCompanyInfo', [CompanyManagementController::class, 'updateCompanyInfo'])->name('updateCompanyInfo');
         Route::post('/updateCreditCard', [CompanyManagementController::class, 'updateCreditCard'])->name('updateCreditCard');
+    });
+    Route::group(['prefix' => 'airports'], function ($router) {
+        Route::get('/getAll', [AirportController::class, 'index'])->name('getAllAirports');
+        Route::get('/getOne/{id}', [AirportController::class, 'show'])->name('getOneAirports');
+        Route::get('/getCompanyAirports', [AirportController::class, 'getCompanyAirports'])->name('getCompanyAirports');
+        Route::get('/getCompanyAirportDetails/{id}', [AirportController::class, 'getCompanyAirportDetails'])->name('getCompanyAirportDetails');
+        Route::post('/addAirportToCompany', [AirportController::class, 'store'])->name('addAirportToCompany');
+        Route::post('/updateAirportOperationStatus', [AirportController::class, 'update'])->name('updateAirportOperationStatus');
+    });
+    Route::group(['prefix' => 'warehouses'], function ($router) {
+        Route::get('/getCompanyWarehouses', [WarehouseController::class, 'index'])->name('getCompanyWarehouses');
+        Route::get('/getWarehouseDetails/{id}', [WarehouseController::class, 'show'])->name('getWarehouseDetails');
+        Route::post('/addWarehouse', [WarehouseController::class, 'store'])->name('addWarehouse');
+        Route::post('/updateWarehouse', [WarehouseController::class, 'update'])->name('updateWarehouse');
     });
 });

@@ -246,7 +246,6 @@ function mileageCalculator($start_point, $delivery_point)
 	if ($response === false) {
 		$error = curl_error($ch);
 		curl_close($ch);
-		// Error Check 1
 		return null;
 	}
 	$data = json_decode($response, true);
@@ -325,52 +324,122 @@ if (!function_exists('calculate_address')) {
 if (!function_exists('map_vehicle')) {
 	function map_vehicle($vehicle)
 	{
-		if($vehicle == 0){
+		if ($vehicle == 0) {
 			return 'Any';
-		} 
-		else if ($vehicle == 1){
+		} else if ($vehicle == 1) {
 			return 'Car';
-		}
-		else if ($vehicle == 2){
+		} else if ($vehicle == 2) {
 			return 'Mini-van';
-		}
-		else if ($vehicle == 3){
+		} else if ($vehicle == 3) {
 			return 'SUV';
-		}
-		else if ($vehicle == 4){
+		} else if ($vehicle == 4) {
 			return 'Cargo Van';
-		}
-		else if ($vehicle == 5){
+		} else if ($vehicle == 5) {
 			return 'Sprinter';
-		}
-		else if ($vehicle == 6){
+		} else if ($vehicle == 6) {
 			return 'Covered Pickup';
-		}
-		else if ($vehicle == 7){
+		} else if ($vehicle == 7) {
 			return '16 ft. Box Truck';
-		}
-		else if ($vehicle == 8){
+		} else if ($vehicle == 8) {
 			return '18 ft. Box Truck';
-		}
-		else if ($vehicle == 9){
+		} else if ($vehicle == 9) {
 			return '20 ft. Box Truck';
-		}
-		else if ($vehicle == 10){
+		} else if ($vehicle == 10) {
 			return '22 ft. Box Truck';
-		}
-		else if ($vehicle == 11){
+		} else if ($vehicle == 11) {
 			return '24 ft. Box Truck';
-		}
-		else if ($vehicle == 12){
+		} else if ($vehicle == 12) {
 			return '26 ft. Box Truck';
-		}
-		else if ($vehicle == 13){
+		} else if ($vehicle == 13) {
 			return 'Flatbed';
-		}
-		else if ($vehicle == 13){
+		} else if ($vehicle == 13) {
 			return 'Tractor Trailer';
 		} else {
 			return 'Any';
 		}
+	}
+}
+
+if (!function_exists('explode_receps')) {
+	function explode_receps($recepients)
+	{
+		$recepients = explode(';', $recepients);
+		return $recepients;
+	}
+}
+
+if (!function_exists('return_cordinates')) {
+	function return_cordinates($zip)
+	{
+		$api_key = env('MAPS_API_KEY');
+		$url = "https://maps.googleapis.com/maps/api/geocode/json?address={$zip}&sensor=true&key={$api_key}";
+		$ch = curl_init($url);
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+		$response = curl_exec($ch);
+
+		if ($response === false) {
+			$error = curl_error($ch);
+			curl_close($ch);
+			// Error Check 1
+			return null;
+		}
+		$data = json_decode($response, true);
+		if (isset($data['status']) && $data['status'] != 'OK') {
+			return null;
+		}
+
+		if ($data['status'] === 'OK') {
+			$result = $data['results'][0];
+			$location = $result['geometry']['location'];
+			$lat = $location['lat'];
+			$lng = $location['lng'];
+		} else {
+			$lat = null;
+			$lng = null;
+		}
+		
+		$cordinates = array(
+			'lat' => $lat,
+			'lng' => $lng,
+		);
+		return $cordinates;
+	}
+}
+
+if (!function_exists('warehouse_address_finder')) {
+	function warehouse_address_finder($zip)
+	{
+		$api_key = env('MAPS_API_KEY');
+		$url = "https://maps.googleapis.com/maps/api/geocode/json?address={$zip}&sensor=true&key={$api_key}";
+		$ch = curl_init($url);
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+		$response = curl_exec($ch);
+
+		$data = json_decode($response, true);
+		if (isset($data['status']) && $data['status'] != 'OK') {
+			return null;
+		}
+
+		if ($data['status'] === 'OK') {
+			$result = $data['results'][0];
+			$location = $result['geometry']['location'];
+			$lat = $location['lat'];
+			$lng = $location['lng'];
+			$city = $data['results'][0]['address_components'][2]['long_name'];
+			$state = $data['results'][0]['address_components'][4]['long_name'];
+			$country = $data['results'][0]['address_components'][5]['long_name'];
+		}
+
+		$address = array(
+			'city' => $city ?? null,
+			'state' => $state ?? null,
+			'country' => $country ?? null,
+			'lat' => $lat ?? null,
+			'lng' => $lng ?? null,
+		);
+
+		return $address;
 	}
 }

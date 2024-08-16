@@ -49,6 +49,10 @@ class QuoteRequest extends Model
         'delivery_country',
         'pickup_country',
         'status',
+        'start_lat',
+        'start_long',
+        'dellivery_lat',
+        'dellivery_long',
     ];
 
     public function user()

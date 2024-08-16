@@ -22,22 +22,22 @@
 									"formdata": [
 										{
 											"key": "fname",
-											"value": "John",
+											"value": "Raymond",
 											"type": "text"
 										},
 										{
 											"key": "lname",
-											"value": "Doe",
+											"value": "Reddington",
 											"type": "text"
 										},
 										{
 											"key": "title",
-											"value": "Assistant Director Operations",
+											"value": "Director Operations",
 											"type": "text"
 										},
 										{
 											"key": "email",
-											"value": "john@gmail.com",
+											"value": "red@gmail.com",
 											"type": "text"
 										},
 										{
@@ -52,18 +52,17 @@
 										},
 										{
 											"key": "phone",
-											"value": "+14567189283",
+											"value": "+14567199881",
 											"type": "text"
 										},
 										{
 											"key": "fax",
-											"value": "+14567189284",
-											"type": "text",
-											"disabled": true
+											"value": "+14567199881",
+											"type": "text"
 										},
 										{
 											"key": "company",
-											"value": "Highway Production Inc.",
+											"value": "Transport Inrants",
 											"type": "text"
 										},
 										{
@@ -73,22 +72,22 @@
 										},
 										{
 											"key": "mail_address_1",
-											"value": "7162 Broadway",
+											"value": "Joshua Street",
 											"type": "text"
 										},
 										{
 											"key": "mail_address_2",
-											"value": "Manhattan",
+											"value": "5th Avenue",
 											"type": "text"
 										},
 										{
 											"key": "city",
-											"value": "New York City",
+											"value": "Los Angeles",
 											"type": "text"
 										},
 										{
 											"key": "state",
-											"value": "New York",
+											"value": "California",
 											"type": "text"
 										},
 										{
@@ -98,7 +97,7 @@
 										},
 										{
 											"key": "zip",
-											"value": "11011",
+											"value": "90001",
 											"type": "text"
 										}
 									]
@@ -132,7 +131,7 @@
 									"formdata": [
 										{
 											"key": "fname",
-											"value": "Ali",
+											"value": "John",
 											"type": "text"
 										},
 										{
@@ -147,7 +146,7 @@
 										},
 										{
 											"key": "email",
-											"value": "ali@gmail.com",
+											"value": "john@gmail.com",
 											"type": "text"
 										},
 										{
@@ -706,13 +705,13 @@
 							"formdata": [
 								{
 									"key": "username",
-									"value": "kohey12342@ikangou.com",
+									"value": "john@gmail.com",
 									"description": "x",
 									"type": "text"
 								},
 								{
 									"key": "password",
-									"value": "154224aA#88",
+									"value": "123456",
 									"type": "text"
 								}
 							]
@@ -766,13 +765,8 @@
 									"type": "text"
 								},
 								{
-									"key": "pickup_time",
-									"value": "14591",
-									"type": "text"
-								},
-								{
 									"key": "start_point",
-									"value": "10001, 5th Ave, New York, NY",
+									"value": "10001, New York, NY",
 									"type": "text"
 								},
 								{
@@ -802,7 +796,7 @@
 								},
 								{
 									"key": "description",
-									"value": "Radio-active Waste",
+									"value": "Lorem Ipsum Dolor Simit",
 									"type": "text"
 								},
 								{
@@ -827,30 +821,78 @@
 								},
 								{
 									"key": "contact_name",
-									"value": "Harvey Spectre",
+									"value": "Ola Amista",
 									"type": "text"
 								},
 								{
 									"key": "contact_email",
-									"value": "harvey@outlook.com",
+									"value": "amista@gmail.com",
 									"type": "text"
 								},
 								{
 									"key": "contact_phone",
-									"value": "+17163241919",
+									"value": "+17163212345",
 									"type": "text"
 								}
 							]
 						},
 						"url": {
-							"raw": "{{base_url}}/api/quote-request/submit",
+							"raw": "{{base_url}}/quote-request/submit",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
-								"api",
 								"quote-request",
 								"submit"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search Quote Request",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "zip",
+									"value": "10001",
+									"type": "text"
+								},
+								{
+									"key": "radius",
+									"value": "120",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/quote-request/search",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"quote-request",
+								"search"
 							]
 						}
 					},
@@ -968,12 +1010,11 @@
 							]
 						},
 						"url": {
-							"raw": "{{base_url}}/api/quote-request/updateRequest",
+							"raw": "{{base_url}}/quote-request/updateRequest",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
-								"api",
 								"quote-request",
 								"updateRequest"
 							]
@@ -1093,49 +1134,13 @@
 							]
 						},
 						"url": {
-							"raw": "{{base_url}}/api/quote-request/updateAddress",
+							"raw": "{{base_url}}/quote-request/updateAddress",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
-								"api",
 								"quote-request",
 								"updateAddress"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Get All Requests",
-					"protocolProfileBehavior": {
-						"disabledSystemHeaders": {
-							"accept": true
-						}
-					},
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "text"
-							},
-							{
-								"key": "Authorization",
-								"value": "bearer {{access_token}}",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "{{base_url}}/api/quote-request/all",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"api",
-								"quote-request",
-								"all"
 							]
 						}
 					},
@@ -1163,12 +1168,11 @@
 							}
 						],
 						"url": {
-							"raw": "{{base_url}}/api/quote-request/allByUser",
+							"raw": "{{base_url}}/quote-request/allByUser",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
-								"api",
 								"quote-request",
 								"allByUser"
 							]
@@ -1198,12 +1202,11 @@
 							}
 						],
 						"url": {
-							"raw": "{{base_url}}/api/quote-request/allByCompany/3",
+							"raw": "{{base_url}}/quote-request/allByCompany/3",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
-								"api",
 								"quote-request",
 								"allByCompany",
 								"3"
@@ -1243,7 +1246,7 @@
 							"formdata": [
 								{
 									"key": "request_id",
-									"value": "10",
+									"value": "13",
 									"type": "text"
 								},
 								{
@@ -1279,12 +1282,11 @@
 							]
 						},
 						"url": {
-							"raw": "{{base_url}}/api/quote-bids/submit",
+							"raw": "{{base_url}}/quote-bids/submit",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
-								"api",
 								"quote-bids",
 								"submit"
 							]
@@ -1314,12 +1316,11 @@
 							}
 						],
 						"url": {
-							"raw": "{{base_url}}/api/quote-bids/allOnRequest/10",
+							"raw": "{{base_url}}/quote-bids/allOnRequest/10",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
-								"api",
 								"quote-bids",
 								"allOnRequest",
 								"10"
@@ -1350,12 +1351,11 @@
 							}
 						],
 						"url": {
-							"raw": "{{base_url}}/api/quote-bids/allByUser",
+							"raw": "{{base_url}}/quote-bids/allByUser",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
-								"api",
 								"quote-bids",
 								"allByUser"
 							]
@@ -1385,15 +1385,757 @@
 							}
 						],
 						"url": {
-							"raw": "{{base_url}}/api/quote-bids/allByCompany/17",
+							"raw": "{{base_url}}/quote-bids/allByCompany/17",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
-								"api",
 								"quote-bids",
 								"allByCompany",
 								"17"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Recurring Freight Posting",
+			"item": [
+				{
+					"name": "Add RFP",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "route_type",
+									"value": "0",
+									"type": "text"
+								},
+								{
+									"key": "multiple_routes",
+									"value": "0",
+									"type": "text"
+								},
+								{
+									"key": "vehicle_type",
+									"value": "0",
+									"type": "text"
+								},
+								{
+									"key": "reefer",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "hazmat",
+									"value": "0",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "lift_gate",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "start_point",
+									"value": "10001, New York, NY",
+									"type": "text"
+								},
+								{
+									"key": "delivery_point",
+									"value": "90001, Firestone Pk, CA",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Lorem Ipsum Dolor Simit",
+									"type": "text"
+								},
+								{
+									"key": "monday",
+									"value": "0",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "tuesday",
+									"value": "0",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "wednesday",
+									"value": "0",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "thursday",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "friday",
+									"value": "0",
+									"type": "text"
+								},
+								{
+									"key": "saturday",
+									"value": "0",
+									"type": "text"
+								},
+								{
+									"key": "sunday",
+									"value": "0",
+									"type": "text"
+								},
+								{
+									"key": "frequency",
+									"value": "weekly",
+									"type": "text"
+								},
+								{
+									"key": "insurance_coverage",
+									"value": "1200",
+									"type": "text"
+								},
+								{
+									"key": "payment_terms",
+									"value": "Payme",
+									"type": "text"
+								},
+								{
+									"key": "bid_per_stop",
+									"value": "0",
+									"type": "text"
+								},
+								{
+									"key": "bid_per_route",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "other_requirements",
+									"value": "Lorem Ipsum Dolor Simit",
+									"type": "text"
+								},
+								{
+									"key": "bid_due",
+									"value": "2023-06-06",
+									"type": "text"
+								},
+								{
+									"key": "recipients",
+									"value": "abc@gmail.com;def@gmail.com;ghi@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "contact_company",
+									"value": "Evil Corps.",
+									"type": "text"
+								},
+								{
+									"key": "contact_name",
+									"value": "Raymond Red Reddington",
+									"type": "text"
+								},
+								{
+									"key": "contact_phone",
+									"value": "+!4567812309",
+									"type": "text"
+								},
+								{
+									"key": "contact_email",
+									"value": "reddington@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "doc_1",
+									"type": "file",
+									"src": "/C:/Users/being/Downloads/Premium Logistics1721646590.pdf"
+								},
+								{
+									"key": "doc_2",
+									"type": "file",
+									"src": "/C:/Users/being/Downloads/Premium Logistics1721646590.pdf"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/rfps/submit",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"rfps",
+								"submit"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search RFP",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "start_city",
+									"value": "New York",
+									"type": "text"
+								},
+								{
+									"key": "start_state",
+									"value": "New York",
+									"type": "text"
+								},
+								{
+									"key": "start_zip",
+									"value": "10001",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "radius",
+									"value": "15",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "vehicle_type",
+									"value": "0",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/rfps/search",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"rfps",
+								"search"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit RFP",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "rfp_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "route_type",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "multiple_routes",
+									"value": "0",
+									"type": "text"
+								},
+								{
+									"key": "vehicle_type",
+									"value": "0",
+									"type": "text"
+								},
+								{
+									"key": "reefer",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "hazmat",
+									"value": "0",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "lift_gate",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "start_point",
+									"value": "10001, New York, NY",
+									"type": "text"
+								},
+								{
+									"key": "delivery_point",
+									"value": "90001, Firestone Pk, CA",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Lorem Ipsum Dolor Simit",
+									"type": "text"
+								},
+								{
+									"key": "monday",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "tuesday",
+									"value": "0",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "wednesday",
+									"value": "0",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "thursday",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "friday",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "saturday",
+									"value": "0",
+									"type": "text"
+								},
+								{
+									"key": "sunday",
+									"value": "0",
+									"type": "text"
+								},
+								{
+									"key": "frequency",
+									"value": "weekly",
+									"type": "text"
+								},
+								{
+									"key": "insurance_coverage",
+									"value": "1200",
+									"type": "text"
+								},
+								{
+									"key": "payment_terms",
+									"value": "Payme",
+									"type": "text"
+								},
+								{
+									"key": "bid_per_stop",
+									"value": "0",
+									"type": "text"
+								},
+								{
+									"key": "bid_per_route",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "other_requirements",
+									"value": "Lorem Ipsum Dolor Simit",
+									"type": "text"
+								},
+								{
+									"key": "bid_due",
+									"value": "2023-06-06",
+									"type": "text"
+								},
+								{
+									"key": "recipients",
+									"value": "abc@gmail.com;def@gmail.com;ghi@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "contact_company",
+									"value": "Evil Corps.",
+									"type": "text"
+								},
+								{
+									"key": "contact_name",
+									"value": "Yushua Goods",
+									"type": "text"
+								},
+								{
+									"key": "contact_phone",
+									"value": "+!4567812310",
+									"type": "text"
+								},
+								{
+									"key": "contact_email",
+									"value": "reddington@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "doc_1",
+									"type": "file",
+									"src": "/C:/Users/being/Downloads/1.1 Project Page.pdf"
+								},
+								{
+									"key": "doc_2",
+									"type": "file",
+									"src": "/C:/Users/being/Downloads/1.1 Project Page.pdf"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/rfps/update",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"rfps",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Show One RFP",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/rfps/show/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"rfps",
+								"show",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All By Auth User",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/rfps/allByUser",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"rfps",
+								"allByUser"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All By Company",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/rfps/allByCompany/19",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"rfps",
+								"allByCompany",
+								"19"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "RFP Bids",
+			"item": [
+				{
+					"name": "Submit Bid on RFP",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "rfp_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "amount",
+									"value": "2000",
+									"type": "text"
+								},
+								{
+									"key": "contact_name",
+									"value": "Joshua",
+									"type": "text"
+								},
+								{
+									"key": "contact_phone",
+									"value": "+15613451289",
+									"type": "text"
+								},
+								{
+									"key": "contact_email",
+									"value": "jasper@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "terms",
+									"value": "In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before the final copy is available.",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/rfp-bids/submit",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"rfp-bids",
+								"submit"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Bids On A RFP",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/rfp-bids/allOnRFP/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"rfp-bids",
+								"allOnRFP",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Bids By Auth User",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/rfp-bids/allByUser",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"rfp-bids",
+								"allByUser"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Bids By Company",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/rfp-bids/allByCompany/18",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"rfp-bids",
+								"allByCompany",
+								"18"
 							]
 						}
 					},
@@ -1469,12 +2211,11 @@
 							]
 						},
 						"url": {
-							"raw": "{{base_url}}/api/user-management/create",
+							"raw": "{{base_url}}/user-management/create",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
-								"api",
 								"user-management",
 								"create"
 							]
@@ -1542,12 +2283,11 @@
 							]
 						},
 						"url": {
-							"raw": "{{base_url}}/api/user-management/update",
+							"raw": "{{base_url}}/user-management/update",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
-								"api",
 								"user-management",
 								"update"
 							]
@@ -1592,12 +2332,11 @@
 							]
 						},
 						"url": {
-							"raw": "{{base_url}}/api/user-management/updatePhone",
+							"raw": "{{base_url}}/user-management/updatePhone",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
-								"api",
 								"user-management",
 								"updatePhone"
 							]
@@ -1637,12 +2376,11 @@
 							]
 						},
 						"url": {
-							"raw": "{{base_url}}/api/user-management/delete",
+							"raw": "{{base_url}}/user-management/delete",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
-								"api",
 								"user-management",
 								"delete"
 							]
@@ -1672,12 +2410,11 @@
 							}
 						],
 						"url": {
-							"raw": "{{base_url}}/api/user-management/resetPassword/16",
+							"raw": "{{base_url}}/user-management/resetPassword/16",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
-								"api",
 								"user-management",
 								"resetPassword",
 								"16"
@@ -1708,12 +2445,11 @@
 							}
 						],
 						"url": {
-							"raw": "{{base_url}}/api/user-management/all",
+							"raw": "{{base_url}}/user-management/all",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
-								"api",
 								"user-management",
 								"all"
 							]
@@ -1743,12 +2479,11 @@
 							}
 						],
 						"url": {
-							"raw": "{{base_url}}/api/user-management/show/16",
+							"raw": "{{base_url}}/user-management/show/16",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
-								"api",
 								"user-management",
 								"show",
 								"16"
@@ -1799,12 +2534,11 @@
 							]
 						},
 						"url": {
-							"raw": "{{base_url}}/api/company-management/updateAlerts",
+							"raw": "{{base_url}}/company-management/updateAlerts",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
-								"api",
 								"company-management",
 								"updateAlerts"
 							]
@@ -1860,12 +2594,11 @@
 							]
 						},
 						"url": {
-							"raw": "{{base_url}}/api/company-management/updateAlertPref",
+							"raw": "{{base_url}}/company-management/updateAlertPref",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
-								"api",
 								"company-management",
 								"updateAlertPref"
 							]
@@ -1895,12 +2628,11 @@
 							}
 						],
 						"url": {
-							"raw": "{{base_url}}/api/company-management/getCompanyInfo",
+							"raw": "{{base_url}}/company-management/getCompanyInfo",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
-								"api",
 								"company-management",
 								"getCompanyInfo"
 							]
@@ -1990,12 +2722,11 @@
 							]
 						},
 						"url": {
-							"raw": "{{base_url}}/api/company-management/updateCompanyInfo",
+							"raw": "{{base_url}}/company-management/updateCompanyInfo",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
-								"api",
 								"company-management",
 								"updateCompanyInfo"
 							]
@@ -2050,14 +2781,554 @@
 							]
 						},
 						"url": {
-							"raw": "{{base_url}}/api/company-management/updateCreditCard",
+							"raw": "{{base_url}}/company-management/updateCreditCard",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
-								"api",
 								"company-management",
 								"updateCreditCard"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Airports",
+			"item": [
+				{
+					"name": "Get Airports",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/airports/getAll",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"airports",
+								"getAll"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Airport Details",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/airports/getOne/2",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"airports",
+								"getOne",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Company Airports",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/airports/getCompanyAirports",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"airports",
+								"getCompanyAirports"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Company Airports Details",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/airports/getCompanyAirportDetails/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"airports",
+								"getCompanyAirportDetails",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Airport to Company Operation",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "airport_id",
+									"value": "2",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/airports/addAirportToCompany",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"airports",
+								"addAirportToCompany"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Operation Status for Company Airport",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "airport_id",
+									"value": "2",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/airports/updateAirportOperationStatus",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"airports",
+								"updateAirportOperationStatus"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Company Warehouses",
+			"item": [
+				{
+					"name": "Get All Company Warehouse",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/warehouses/getCompanyWarehouses",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"warehouses",
+								"getCompanyWarehouses"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Company Warehouse Details",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/warehouses/getWarehouseDetails/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"warehouses",
+								"getWarehouseDetails",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Company Warehouse",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Alpha Warehouses",
+									"type": "text"
+								},
+								{
+									"key": "city",
+									"value": "New York City",
+									"type": "text"
+								},
+								{
+									"key": "state",
+									"value": "New York",
+									"type": "text"
+								},
+								{
+									"key": "country",
+									"value": "United States",
+									"type": "text"
+								},
+								{
+									"key": "zip",
+									"value": "10003",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/warehouses/addWarehouse",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"warehouses",
+								"addWarehouse"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Company Warehouse",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "Alpha Warehouses",
+									"type": "text"
+								},
+								{
+									"key": "city",
+									"value": "New York City",
+									"type": "text"
+								},
+								{
+									"key": "state",
+									"value": "New York",
+									"type": "text"
+								},
+								{
+									"key": "country",
+									"value": "United States",
+									"type": "text"
+								},
+								{
+									"key": "zip",
+									"value": "10003",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/warehouses/updateWarehouse",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"warehouses",
+								"updateWarehouse"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Search Company",
+			"item": [
+				{
+					"name": "Get All Company Warehouse",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/warehouses/getCompanyWarehouses",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"warehouses",
+								"getCompanyWarehouses"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Company Warehouse",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Alpha Warehouses",
+									"type": "text"
+								},
+								{
+									"key": "city",
+									"value": "New York City",
+									"type": "text"
+								},
+								{
+									"key": "state",
+									"value": "New York",
+									"type": "text"
+								},
+								{
+									"key": "country",
+									"value": "United States",
+									"type": "text"
+								},
+								{
+									"key": "zip",
+									"value": "10003",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/warehouses/addWarehouse",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"warehouses",
+								"addWarehouse"
 							]
 						}
 					},
@@ -2091,12 +3362,12 @@
 	"variable": [
 		{
 			"key": "base_url",
-			"value": "http://localhost/courierboard/api",
+			"value": "https://explorelogicsit.net/drivv/portal/api",
 			"type": "string"
 		},
 		{
 			"key": "access_token",
-			"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0L2NvdXJpZXJib2FyZC9hcGkvYXV0aC91c2VyL2xvZ2luIiwiaWF0IjoxNzIxOTA5Nzg4LCJleHAiOjE3MjE5MTMzODgsIm5iZiI6MTcyMTkwOTc4OCwianRpIjoiRWx1MVZJVmN1VDNmWFlzcyIsInN1YiI6IjE0IiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.BnVw5Bh5xTfFx4xjmUV27MF0nwUuZGKvKM3B4O9wtbA",
+			"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0L2NvdXJpZXJib2FyZC9hcGkvYXV0aC91c2VyL2xvZ2luIiwiaWF0IjoxNzIzNDYwNTYyLCJleHAiOjE3MjQ2NzAxNjIsIm5iZiI6MTcyMzQ2MDU2MiwianRpIjoieE5KUm1vUGVkWFlUa3Q1ciIsInN1YiI6IjEiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.1CoUC7uLkxHMIu8a-hW8xj4K4w69vPjNXXTU7t3h3qo",
 			"type": "string"
 		}
 	]

@@ -1,12 +1,16 @@
 <?php
 
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\AirportController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Artisan;
 use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\CompaniesController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\QuoteRequestController;
+use App\Http\Controllers\Admin\RFPController;
+use App\Http\Controllers\Admin\WarehouseController;
+use Illuminate\Support\Facades\DB;
 
 Route::get('/migrate', function () {
     Artisan::call('migrate');
@@ -64,6 +68,22 @@ Route::group(['prefix'  =>  'admin'], function () {
 			Route::get('/', [QuoteRequestController::class, 'index']);
 			Route::get('detail/{id}', [QuoteRequestController::class, 'details']);
 			Route::post('bidDetails', [QuoteRequestController::class, 'bidDetails']);
+		});
+		Route::group(['prefix'  =>  'rfps'], function () {
+			Route::get('/', [RFPController::class, 'index']);
+			Route::get('detail/{id}', [RFPController::class, 'details']);
+			Route::post('bidDetails', [RFPController::class, 'bidDetails']);
+		});
+		Route::group(['prefix'  =>  'airports'], function () {
+			Route::get('/', [AirportController::class, 'index']);
+			Route::post('/show', [AirportController::class, 'show']);
+			Route::post('/store', [AirportController::class, 'store']);
+			Route::post('/update', [AirportController::class, 'update']);
+			Route::post('/delete', [AirportController::class, 'delete']);
+		});
+		Route::group(['prefix'  =>  'warehouses'], function () {
+			Route::get('/', [WarehouseController::class, 'index']);
+			Route::post('/show', [WarehouseController::class, 'show']);
 		});
 	});
 });

@@ -7,6 +7,7 @@ use App\Models\Company;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use App\Http\Controllers\Controller;
+use App\Models\CompanyProfile;
 use Illuminate\Http\Request;
 
 class CompanyManagementController extends Controller
@@ -50,6 +51,7 @@ class CompanyManagementController extends Controller
     {
         $user = Auth::user();
         $company = Company::where('id', $user->company->id)->first();
+        $company->profile = CompanyProfile::where('company_id', $company->id)->first();
         return response()->json(['msg' => 'success', 'response' => 'Company info retrieved successfully', 'company' => $company], 200);
     }
 
@@ -69,7 +71,7 @@ class CompanyManagementController extends Controller
         if ($user->is_major_user == 0 && $user->has_acc_info == 0) {
             return response()->json(['msg' => 'error', 'response' => 'You are not authorized to perform this action'], 401);
         }
-
+        $cordinates = return_cordinates($request->zip);
         $company = Company::where('id', $user->company->id)->first();
         $company->name = $request->name ?? $company->name;
         $company->mail_address_1 = $request->mail_address_1 ?? $company->mail_address_1;
@@ -77,7 +79,9 @@ class CompanyManagementController extends Controller
         $company->city = $request->city ?? $company->city;
         $company->state = $request->state ?? $company->city;
         $company->country = $request->country ?? $company->city;
-        $company->zip = $request->zip ?? $company->city;
+        $company->zip = $request->zip;
+        $company->lat = $cordinates['lat'];
+        $company->long = $cordinates['long'];
         $company->company_type = $request->company_type ?? $company->city;
         $company->motor_carrier_no = $request->motor_carrier_no ?? $company->city;
         $company->dot_no = $request->dot_no ?? $company->city;
@@ -91,6 +95,16 @@ class CompanyManagementController extends Controller
         return response()->json(['msg' => 'success', 'response' => 'Company info updated successfully', 'company' => $company], 200);
     }
 
+    public function updateCompanyProfileDetails(Request $request){
+        $validator = Validator::make($request->all(), [
+            'company_id' => 'required',
+        ]);
+
+        if($validator->fails()){
+            return response()->json(['msg' => 'error', 'response' => $validator->errors()], 400);
+        }
+    }
+    
     public function updateCreditCard(Request $request)
     {
         $validator = Validator::make($request->all(), [
@@ -123,4 +137,5 @@ class CompanyManagementController extends Controller
 
         return response()->json(['msg' => 'success', 'response' => 'Credit card info updated successfully', 'company' => $company], 200);
     }
+
 }

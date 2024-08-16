@@ -47,6 +47,8 @@ class UserManagementController extends Controller
         $user->fname = $fname;
         $user->lname = $lname;
         $request->phone ? $user->phone = $request->phone : null;
+        $request->fax ? $user->fax = $request->fax : $user->phone;
+
         if ($request->is_major_user) {
             $user->is_major_user = 1;
             $user->has_post_func = 1;
@@ -56,6 +58,7 @@ class UserManagementController extends Controller
             $request->has_post_func ? $user->has_post_func = 1 : null;
             $request->has_acc_info ? $user->has_acc_info = 1 : null;
         }
+
         $request->has_alerts ? $user->has_alerts = 1 : null;
         $user->email = $request->email;
         $user->username = $request->email;
@@ -73,6 +76,7 @@ class UserManagementController extends Controller
             'password' => $password,
             'company' => $company->name
         ];
+
         $headers = "From: webmaster@example.com\r\n";
         $headers .= "Reply-To: webmaster@example.com\r\n";
         $headers .= "Content-Type: text/html\r\n";
@@ -86,6 +90,7 @@ class UserManagementController extends Controller
 
         return response()->json(['msg' => 'success', 'response' => 'User created successfully', 'user' => $user], 200);
     }
+
     public function updateUser(Request $request)
     {
         $validator = Validator::make($request->all(), [
@@ -106,6 +111,7 @@ class UserManagementController extends Controller
         if(!$user){
             return response()->json(['msg' => 'error', 'response' => 'User not found'], 404);
         }
+
         if ($request->is_major_user) {
             $user->is_major_user = 1;
             $user->has_post_func = 1;
@@ -115,6 +121,7 @@ class UserManagementController extends Controller
             $request->has_post_func ? $user->has_post_func = 1 : null;
             $request->has_acc_info ? $user->has_acc_info = 1 : null;
         }
+
         $request->has_alerts ? $user->has_alerts = 1 : null;
         $request->phone ? $user->phone = $request->phone : null;
         $query = $user->save();
