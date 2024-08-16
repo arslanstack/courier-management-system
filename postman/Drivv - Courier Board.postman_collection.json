@@ -296,7 +296,7 @@
 									"formdata": [
 										{
 											"key": "company_id",
-											"value": "10",
+											"value": "6",
 											"type": "text"
 										},
 										{
@@ -390,7 +390,7 @@
 										},
 										{
 											"key": "fname",
-											"value": "Irfan",
+											"value": "amir",
 											"type": "text"
 										},
 										{
@@ -400,7 +400,7 @@
 										},
 										{
 											"key": "email",
-											"value": "sceneonhai@gmail.com",
+											"value": "home@gmail.com",
 											"type": "text"
 										},
 										{
@@ -771,7 +771,7 @@
 								},
 								{
 									"key": "delivery_point",
-									"value": "15470, Ohiopyle, PA",
+									"value": "10005",
 									"type": "text"
 								},
 								{
@@ -821,17 +821,17 @@
 								},
 								{
 									"key": "contact_name",
-									"value": "Ola Amista",
+									"value": "Jabbar Khan",
 									"type": "text"
 								},
 								{
 									"key": "contact_email",
-									"value": "amista@gmail.com",
+									"value": "jabbar@gmail.com",
 									"type": "text"
 								},
 								{
 									"key": "contact_phone",
-									"value": "+17163212345",
+									"value": "+17163245632",
 									"type": "text"
 								}
 							]
@@ -1246,12 +1246,12 @@
 							"formdata": [
 								{
 									"key": "request_id",
-									"value": "13",
+									"value": "5",
 									"type": "text"
 								},
 								{
 									"key": "amount",
-									"value": "2000",
+									"value": "500",
 									"type": "text"
 								},
 								{
@@ -2172,17 +2172,22 @@
 							"formdata": [
 								{
 									"key": "email",
-									"value": "kohey12342@ikangou.com",
+									"value": "alba@gmail.com",
 									"type": "text"
 								},
 								{
 									"key": "c_email",
-									"value": "kohey12342@ikangou.com",
+									"value": "alba@gmail.com",
 									"type": "text"
 								},
 								{
 									"key": "phone",
-									"value": "",
+									"value": "+1090036272",
+									"type": "text"
+								},
+								{
+									"key": "fax",
+									"value": "+1090036272",
 									"type": "text"
 								},
 								{
@@ -2641,6 +2646,40 @@
 					"response": []
 				},
 				{
+					"name": "Get Company Features Checklist",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/company-management/getCompanyFeaturesCheckList",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"company-management",
+								"getCompanyFeaturesCheckList"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "Update Auth Company Info",
 					"protocolProfileBehavior": {
 						"disabledSystemHeaders": {
@@ -2788,6 +2827,210 @@
 							"path": [
 								"company-management",
 								"updateCreditCard"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Company CheckList",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "reefer",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "hazmat",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "lift_gate",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "hr_24_dispatch",
+									"value": "0",
+									"type": "text"
+								},
+								{
+									"key": "tsa_certified",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "on_demand_service",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "scheduled_routes",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "distributed_delivery",
+									"value": "0",
+									"type": "text"
+								},
+								{
+									"key": "warehouse_facility",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "climate_controlled",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "biohazard_exp",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "pharma_distribution",
+									"value": "0",
+									"type": "text"
+								},
+								{
+									"key": "international_freight",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "indirect_aircarrier",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "gps_fleet_system",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "uniformed_drivers",
+									"value": "0",
+									"type": "text"
+								},
+								{
+									"key": "interstate_service",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "whiteglove_service",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "process_legal_service",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "car",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "minivan",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "suv",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "cargo_van",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "sprinter",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "covered_pickup",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "ft_16_truck",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "ft_18_truck",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "ft_20_truck",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "ft_22_truck",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "ft_24_truck",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "ft_26_truck",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "flatbed",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "tractor_trailer",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/company-management/UpdateChecklist",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"company-management",
+								"UpdateChecklist"
 							]
 						}
 					},
@@ -3237,14 +3480,14 @@
 			"name": "Search Company",
 			"item": [
 				{
-					"name": "Get All Company Warehouse",
+					"name": "Search By Location",
 					"protocolProfileBehavior": {
 						"disabledSystemHeaders": {
 							"accept": true
 						}
 					},
 					"request": {
-						"method": "GET",
+						"method": "POST",
 						"header": [
 							{
 								"key": "Accept",
@@ -3257,21 +3500,645 @@
 								"type": "text"
 							}
 						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "city",
+									"value": "New York",
+									"type": "text"
+								},
+								{
+									"key": "state",
+									"value": "New York",
+									"type": "text"
+								},
+								{
+									"key": "zip",
+									"value": "11009",
+									"type": "text"
+								},
+								{
+									"key": "radius",
+									"value": "25",
+									"type": "text"
+								},
+								{
+									"key": "any",
+									"value": "1",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "car",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "minivan",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "suv",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "cargo_van",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "sprinter",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "covered_pickup",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "ft_16_truck",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "ft_18_truck",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "ft_20_truck",
+									"value": "0",
+									"type": "text"
+								},
+								{
+									"key": "ft_22_truck",
+									"value": "0",
+									"type": "text"
+								},
+								{
+									"key": "ft_24_truck",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "ft_26_truck",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "flatbed",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "tractor_trailer",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "reefer",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "hazmat",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "lift_gate",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "hr_24_dispatch",
+									"value": "0",
+									"type": "text"
+								},
+								{
+									"key": "tsa_certified",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "on_demand_service",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "scheduled_routes",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "distributed_delivery",
+									"value": "0",
+									"type": "text"
+								},
+								{
+									"key": "warehouse_facility",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "climate_controlled",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "biohazard_exp",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "pharma_distribution",
+									"value": "0",
+									"type": "text"
+								},
+								{
+									"key": "international_freight",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "indirect_aircarrier",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "gps_fleet_system",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "uniformed_drivers",
+									"value": "0",
+									"type": "text"
+								},
+								{
+									"key": "interstate_service",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "whiteglove_service",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "process_legal_service",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
 						"url": {
-							"raw": "{{base_url}}/warehouses/getCompanyWarehouses",
+							"raw": "{{base_url}}/company-search/searchByLocation",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
-								"warehouses",
-								"getCompanyWarehouses"
+								"company-search",
+								"searchByLocation"
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "Add Company Warehouse",
+					"name": "Search By States",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "states",
+									"value": "[ \"New York\", \"California\", \"New Jersey\"]",
+									"type": "text"
+								},
+								{
+									"key": "any",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "car",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "minivan",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "suv",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "cargo_van",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "sprinter",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "covered_pickup",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "ft_16_truck",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "ft_18_truck",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "ft_20_truck",
+									"value": "0",
+									"type": "text"
+								},
+								{
+									"key": "ft_22_truck",
+									"value": "0",
+									"type": "text"
+								},
+								{
+									"key": "ft_24_truck",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "ft_26_truck",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "flatbed",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "tractor_trailer",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "reefer",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "hazmat",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "lift_gate",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "hr_24_dispatch",
+									"value": "0",
+									"type": "text"
+								},
+								{
+									"key": "tsa_certified",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "on_demand_service",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "scheduled_routes",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "distributed_delivery",
+									"value": "0",
+									"type": "text"
+								},
+								{
+									"key": "warehouse_facility",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "climate_controlled",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "biohazard_exp",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "pharma_distribution",
+									"value": "0",
+									"type": "text"
+								},
+								{
+									"key": "international_freight",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "indirect_aircarrier",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "gps_fleet_system",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "uniformed_drivers",
+									"value": "0",
+									"type": "text"
+								},
+								{
+									"key": "interstate_service",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "whiteglove_service",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "process_legal_service",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/company-search/searchByStates",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"company-search",
+								"searchByStates"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search By Airport Code",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "airport_code",
+									"value": "JFK",
+									"type": "text"
+								},
+								{
+									"key": "any",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "car",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "minivan",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "suv",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "cargo_van",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "sprinter",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "covered_pickup",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "ft_16_truck",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "ft_18_truck",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "ft_20_truck",
+									"value": "0",
+									"type": "text"
+								},
+								{
+									"key": "ft_22_truck",
+									"value": "0",
+									"type": "text"
+								},
+								{
+									"key": "ft_24_truck",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "ft_26_truck",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "flatbed",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "tractor_trailer",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "reefer",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "hazmat",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "lift_gate",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "hr_24_dispatch",
+									"value": "0",
+									"type": "text"
+								},
+								{
+									"key": "tsa_certified",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "on_demand_service",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "scheduled_routes",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "distributed_delivery",
+									"value": "0",
+									"type": "text"
+								},
+								{
+									"key": "warehouse_facility",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "climate_controlled",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "biohazard_exp",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "pharma_distribution",
+									"value": "0",
+									"type": "text"
+								},
+								{
+									"key": "international_freight",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "indirect_aircarrier",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "gps_fleet_system",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "uniformed_drivers",
+									"value": "0",
+									"type": "text"
+								},
+								{
+									"key": "interstate_service",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "whiteglove_service",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "process_legal_service",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/company-search/searchByAirport",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"company-search",
+								"searchByAirport"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search By Name",
 					"protocolProfileBehavior": {
 						"disabledSystemHeaders": {
 							"accept": true
@@ -3296,12 +4163,51 @@
 							"formdata": [
 								{
 									"key": "name",
-									"value": "Alpha Warehouses",
+									"value": "Premium",
 									"type": "text"
-								},
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/company-search/searchByName",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"company-search",
+								"searchByName"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search By Warehouse",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
 								{
 									"key": "city",
-									"value": "New York City",
+									"value": "New York",
 									"type": "text"
 								},
 								{
@@ -3310,25 +4216,25 @@
 									"type": "text"
 								},
 								{
-									"key": "country",
-									"value": "United States",
+									"key": "zip",
+									"value": "11009",
 									"type": "text"
 								},
 								{
-									"key": "zip",
-									"value": "10003",
+									"key": "radius",
+									"value": "25",
 									"type": "text"
 								}
 							]
 						},
 						"url": {
-							"raw": "{{base_url}}/warehouses/addWarehouse",
+							"raw": "{{base_url}}/company-search/searchByWarehouse",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
-								"warehouses",
-								"addWarehouse"
+								"company-search",
+								"searchByWarehouse"
 							]
 						}
 					},
@@ -3367,7 +4273,11 @@
 		},
 		{
 			"key": "access_token",
-			"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0L2NvdXJpZXJib2FyZC9hcGkvYXV0aC91c2VyL2xvZ2luIiwiaWF0IjoxNzIzNDYwNTYyLCJleHAiOjE3MjQ2NzAxNjIsIm5iZiI6MTcyMzQ2MDU2MiwianRpIjoieE5KUm1vUGVkWFlUa3Q1ciIsInN1YiI6IjEiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.1CoUC7uLkxHMIu8a-hW8xj4K4w69vPjNXXTU7t3h3qo",
+			"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0L2NvdXJpZXJib2FyZC9hcGkvYXV0aC91c2VyL3ByZW1pdW0tcmVnaXN0ZXIiLCJpYXQiOjE3MjM4MDk1MjksImV4cCI6MTcyNTAxOTEyOSwibmJmIjoxNzIzODA5NTI5LCJqdGkiOiJDNkkwaTV6bFFXQmJCZGNUIiwic3ViIjoiNiIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.uCMDSwArzlPxIvp0XZdnoKb1T_sxo17dy5mwYi_PfLE",
+			"type": "string"
+		},
+		{
+			"value": "",
 			"type": "string"
 		}
 	]

@@ -118,7 +118,7 @@ class AuthController extends Controller
             'fname' => 'required',
             'lname' => 'required',
             'phone' => 'required',
-            'email' => 'required|string|email|max:255|unique:users',
+            'email' => 'required|string|email|max:255',
             'company_name' => 'required',
             'your_zip' => 'required',
         ]);
@@ -126,7 +126,10 @@ class AuthController extends Controller
         if ($validator->fails()) {
             return response()->json($validator->errors(), 400);
         }
-
+        $user = User::where('email', $request->email)->first();
+        if($user){
+            return response()->json(['msg' => 'error', 'response' => 'Email already exists. Please login to create quote request.'], 401);
+        }
         $company = new Company();
         $company->name = $request->company_name;
         $cordinates = return_cordinates($request->your_zip);

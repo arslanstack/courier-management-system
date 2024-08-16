@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Company;
+use App\Models\CompanyProfile;
 use Illuminate\Http\Request;
 
 class CompaniesController extends Controller
@@ -33,6 +34,7 @@ class CompaniesController extends Controller
         }
         $data['users'] = $company->users;
         $data['company'] = $company;
+        $data['features'] = CompanyProfile::where('company_id', $company->id)->first();
         $data['quoteRequests'] = $company->quoteRequests;
         $data['quoteBids'] = $company->quoteBids;
         return view('admin/companies/company_details', $data);

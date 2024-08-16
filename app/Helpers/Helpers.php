@@ -443,3 +443,58 @@ if (!function_exists('warehouse_address_finder')) {
 		return $address;
 	}
 }
+if (!function_exists('CalculateLatLngRange')) {
+	function CalculateLatLngRange($zip, $radius)
+	{
+		$api_key = env('MAPS_API_KEY');
+		$url = "https://maps.googleapis.com/maps/api/geocode/json?address={$zip}&sensor=true&key={$api_key}";
+		$ch = curl_init($url);
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+		$response = curl_exec($ch);
+
+		if ($response === false) {
+			$error = curl_error($ch);
+			curl_close($ch);
+			// Error Check 1
+			return null;
+		}
+		$data = json_decode($response, true);
+		if (isset($data['status']) && $data['status'] != 'OK') {
+			return null;
+		}
+
+		if ($data['status'] === 'OK') {
+			$result = $data['results'][0];
+			$location = $result['geometry']['location'];
+			$lat = $location['lat'];
+			$lng = $location['lng'];
+		} else {
+			$lat = null;
+			$lng = null;
+		}
+
+		$lat = $lat;
+		$lng = $lng;
+
+		$radius = $radius; //in miles
+
+		$earth_radius = 3958.8; //in miles
+		$lat_deg = rad2deg($radius / $earth_radius);
+		$lng_deg = rad2deg($radius / $earth_radius / cos(deg2rad($lat)));
+
+		$lat_min = $lat - $lat_deg;
+		$lat_max = $lat + $lat_deg;
+		$lng_min = $lng - $lng_deg;
+		$lng_max = $lng + $lng_deg;
+
+		$latLngRange = array(
+			'lat_min' => $lat_min,
+			'lat_max' => $lat_max,
+			'lng_min' => $lng_min,
+			'lng_max' => $lng_max,
+		);
+
+		return $latLngRange;
+	}
+}

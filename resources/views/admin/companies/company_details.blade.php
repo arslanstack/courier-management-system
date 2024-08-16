@@ -358,6 +358,304 @@
 										</div>
 									</div>
 								</div>
+								<div class="row">
+									<div class="col-md-6">
+										<div class="row">
+											<label class="col-4 col-form-label">
+												<strong> Reefer :</strong>
+											</label>
+											<label class="col-8 col-form-label">{{$features->reefer == '1' ?  'Yes' : 'No'}}</label>
+										</div>
+									</div>
+									<div class="col-md-6">
+										<div class="row">
+											<label class="col-4 col-form-label">
+												<strong> Hazmat :</strong>
+											</label>
+											<label class="col-8 col-form-label">{{$features->hazmat == '1' ?  'Yes' : 'No'}}</label>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-6">
+										<div class="row">
+											<label class="col-4 col-form-label">
+												<strong> Liftgate :</strong>
+											</label>
+											<label class="col-8 col-form-label">{{$features->lift_gate == '1' ?  'Yes' : 'No'}}</label>
+										</div>
+									</div>
+									<div class="col-md-6">
+										<div class="row">
+											<label class="col-4 col-form-label">
+												<strong> 24 Hours Dispatch Service :</strong>
+											</label>
+											<label class="col-8 col-form-label">{{$features->hr_24_dispatch == '1' ?  'Yes' : 'No'}}</label>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-6">
+										<div class="row">
+											<label class="col-4 col-form-label">
+												<strong> TSA Certified Drivers :</strong>
+											</label>
+											<label class="col-8 col-form-label">{{$features->tsa_certified == '1' ?  'Yes' : 'No'}}</label>
+										</div>
+									</div>
+									<div class="col-md-6">
+										<div class="row">
+											<label class="col-4 col-form-label">
+												<strong> On Demand Service :</strong>
+											</label>
+											<label class="col-8 col-form-label">{{$features->on_demand_service == '1' ?  'Yes' : 'No'}}</label>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-6">
+										<div class="row">
+											<label class="col-4 col-form-label">
+												<strong> Scheduled Routes :</strong>
+											</label>
+											<label class="col-8 col-form-label">{{$features->scheduled_routes == '1' ?  'Yes' : 'No'}}</label>
+										</div>
+									</div>
+									<div class="col-md-6">
+										<div class="row">
+											<label class="col-4 col-form-label">
+												<strong> Distribution Delivery Service:</strong>
+											</label>
+											<label class="col-8 col-form-label">{{$features->distributed_delivery == '1' ?  'Yes' : 'No'}}</label>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-6">
+										<div class="row">
+											<label class="col-4 col-form-label">
+												<strong> Warehouse Facility :</strong>
+											</label>
+											<label class="col-8 col-form-label">{{$features->warehouse_facility == '1' ?  'Yes' : 'No'}}</label>
+										</div>
+									</div>
+									<div class="col-md-6">
+										<div class="row">
+											<label class="col-4 col-form-label">
+												<strong> Climate Controlled :</strong>
+											</label>
+											<label class="col-8 col-form-label">{{$features->climate_controlled == '1' ?  'Yes' : 'No'}}</label>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-6">
+										<div class="row">
+											<label class="col-4 col-form-label">
+												<strong> Biohazard Experience :</strong>
+											</label>
+											<label class="col-8 col-form-label">{{$features->biohazard_exp == '1' ?  'Yes' : 'No'}}</label>
+										</div>
+									</div>
+									<div class="col-md-6">
+										<div class="row">
+											<label class="col-4 col-form-label">
+												<strong> Pharmaceutical Distribution Experience :</strong>
+											</label>
+											<label class="col-8 col-form-label">{{$features->pharma_distribution == '1' ?  'Yes' : 'No'}}</label>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-6">
+										<div class="row">
+											<label class="col-4 col-form-label">
+												<strong> International Freight Experience :</strong>
+											</label>
+											<label class="col-8 col-form-label">{{$features->international_freight == '1' ?  'Yes' : 'No'}}</label>
+										</div>
+									</div>
+									<div class="col-md-6">
+										<div class="row">
+											<label class="col-4 col-form-label">
+												<strong> Indirect Air Carrier :</strong>
+											</label>
+											<label class="col-8 col-form-label">{{$features->indirect_aircarrier == '1' ?  'Yes' : 'No'}}</label>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-6">
+										<div class="row">
+											<label class="col-4 col-form-label">
+												<strong> GPS Fleet System:</strong>
+											</label>
+											<label class="col-8 col-form-label">{{$features->gps_fleet_system == '1' ?  'Yes' : 'No'}}</label>
+										</div>
+									</div>
+									<div class="col-md-6">
+										<div class="row">
+											<label class="col-4 col-form-label">
+												<strong> Uniformed Drivers :</strong>
+											</label>
+											<label class="col-8 col-form-label">{{$features->uniformed_drivers == '1' ?  'Yes' : 'No'}}</label>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-6">
+										<div class="row">
+											<label class="col-4 col-form-label">
+												<strong> Inter-state Service :</strong>
+											</label>
+											<label class="col-8 col-form-label">{{$features->interstate_service == '1' ?  'Yes' : 'No'}}</label>
+										</div>
+									</div>
+									<div class="col-md-6">
+										<div class="row">
+											<label class="col-4 col-form-label">
+												<strong> White Glove Service :</strong>
+											</label>
+											<label class="col-8 col-form-label">{{$features->whiteglove_service == '1' ?  'Yes' : 'No'}}</label>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-6">
+										<div class="row">
+											<label class="col-4 col-form-label">
+												<strong> Process/Legal Service :</strong>
+											</label>
+											<label class="col-8 col-form-label">{{$features->process_legal_service == '1' ?  'Yes' : 'No'}}</label>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-6">
+										<div class="row">
+											<label class="col-4 col-form-label">
+												<strong> Car :</strong>
+											</label>
+											<label class="col-8 col-form-label">{{$features->car == '1' ?  'Yes' : 'No'}}</label>
+										</div>
+									</div>
+									<div class="col-md-6">
+										<div class="row">
+											<label class="col-4 col-form-label">
+												<strong> Minivan :</strong>
+											</label>
+											<label class="col-8 col-form-label">{{$features->minivan == '1' ?  'Yes' : 'No'}}</label>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-6">
+										<div class="row">
+											<label class="col-4 col-form-label">
+												<strong> SUV :</strong>
+											</label>
+											<label class="col-8 col-form-label">{{$features->suv == '1' ?  'Yes' : 'No'}}</label>
+										</div>
+									</div>
+									<div class="col-md-6">
+										<div class="row">
+											<label class="col-4 col-form-label">
+												<strong> Cargo Van :</strong>
+											</label>
+											<label class="col-8 col-form-label">{{$features->cargo_van == '1' ?  'Yes' : 'No'}}</label>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-6">
+										<div class="row">
+											<label class="col-4 col-form-label">
+												<strong> Sprinter :</strong>
+											</label>
+											<label class="col-8 col-form-label">{{$features->sprinter == '1' ?  'Yes' : 'No'}}</label>
+										</div>
+									</div>
+									<div class="col-md-6">
+										<div class="row">
+											<label class="col-4 col-form-label">
+												<strong> Covered Pickup :</strong>
+											</label>
+											<label class="col-8 col-form-label">{{$features->covered_pickup == '1' ?  'Yes' : 'No'}}</label>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-6">
+										<div class="row">
+											<label class="col-4 col-form-label">
+												<strong> 16 Ft. Truck :</strong>
+											</label>
+											<label class="col-8 col-form-label">{{$features->ft_16_truck == '1' ?  'Yes' : 'No'}}</label>
+										</div>
+									</div>
+									<div class="col-md-6">
+										<div class="row">
+											<label class="col-4 col-form-label">
+												<strong> 18 Ft. Truck :</strong>
+											</label>
+											<label class="col-8 col-form-label">{{$features->ft_18_truck == '1' ?  'Yes' : 'No'}}</label>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-6">
+										<div class="row">
+											<label class="col-4 col-form-label">
+												<strong> 20 Ft. Truck :</strong>
+											</label>
+											<label class="col-8 col-form-label">{{$features->ft_20_truck == '1' ?  'Yes' : 'No'}}</label>
+										</div>
+									</div>
+									<div class="col-md-6">
+										<div class="row">
+											<label class="col-4 col-form-label">
+												<strong> 22 Ft. Truck :</strong>
+											</label>
+											<label class="col-8 col-form-label">{{$features->ft_22_truck == '1' ?  'Yes' : 'No'}}</label>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-6">
+										<div class="row">
+											<label class="col-4 col-form-label">
+												<strong> 24 Ft. Truck :</strong>
+											</label>
+											<label class="col-8 col-form-label">{{$features->ft_24_truck == '1' ?  'Yes' : 'No'}}</label>
+										</div>
+									</div>
+									<div class="col-md-6">
+										<div class="row">
+											<label class="col-4 col-form-label">
+												<strong> 26 Ft. Truck :</strong>
+											</label>
+											<label class="col-8 col-form-label">{{$features->ft_26_truck == '1' ?  'Yes' : 'No'}}</label>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-6">
+										<div class="row">
+											<label class="col-4 col-form-label">
+												<strong> Flatbed :</strong>
+											</label>
+											<label class="col-8 col-form-label">{{$features->flatbed == '1' ?  'Yes' : 'No'}}</label>
+										</div>
+									</div>
+									<div class="col-md-6">
+										<div class="row">
+											<label class="col-4 col-form-label">
+												<strong> Tractor Trailer :</strong>
+											</label>
+											<label class="col-8 col-form-label">{{$features->tractor_trailer == '1' ?  'Yes' : 'No'}}</label>
+										</div>
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -576,10 +874,15 @@
 				"bInfo": true,
 				"responsive": true,
 				"pageLength": 50,
-				"columnDefs": [
-					{ "responsivePriority": 1, "targets": 0 },
-					{ "responsivePriority": 2, "targets": -1 },
-					]
+				"columnDefs": [{
+						"responsivePriority": 1,
+						"targets": 0
+					},
+					{
+						"responsivePriority": 2,
+						"targets": -1
+					},
+				]
 			});
 		}
 	});
@@ -591,10 +894,15 @@
 				"bInfo": true,
 				"responsive": true,
 				"pageLength": 50,
-				"columnDefs": [
-					{ "responsivePriority": 1, "targets": 0 },
-					{ "responsivePriority": 2, "targets": -1 },
-					]
+				"columnDefs": [{
+						"responsivePriority": 1,
+						"targets": 0
+					},
+					{
+						"responsivePriority": 2,
+						"targets": -1
+					},
+				]
 			});
 		}
 	});

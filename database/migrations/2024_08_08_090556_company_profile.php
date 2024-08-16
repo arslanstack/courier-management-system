@@ -17,7 +17,7 @@ return new class extends Migration
             $table->tinyInteger('reefer')->default(1)->comment('1=Yes, 0=No');
             $table->tinyInteger('hazmat')->default(1)->comment('1=Yes, 0=No');
             $table->tinyInteger('lift_gate')->default(1)->comment('1=Yes, 0=No');
-            $table->tinyInteger('24_hr_dispatch')->default(1)->comment('1=Yes, 0=No');
+            $table->tinyInteger('hr_24_dispatch')->default(1)->comment('1=Yes, 0=No');
             $table->tinyInteger('tsa_certified')->default(1)->comment('1=Yes, 0=No');
             $table->tinyInteger('on_demand_service')->default(1)->comment('1=Yes, 0=No');
             $table->tinyInteger('scheduled_routes')->default(1)->comment('1=Yes, 0=No');
@@ -39,12 +39,12 @@ return new class extends Migration
             $table->tinyInteger('cargo_van')->default(1)->comment('1=Yes, 0=No');
             $table->tinyInteger('sprinter')->default(1)->comment('1=Yes, 0=No');
             $table->tinyInteger('covered_pickup')->default(1)->comment('1=Yes, 0=No');
-            $table->tinyInteger('16ft_truck')->default(1)->comment('1=Yes, 0=No');
-            $table->tinyInteger('18ft_truck')->default(1)->comment('1=Yes, 0=No');
-            $table->tinyInteger('20ft_truck')->default(1)->comment('1=Yes, 0=No');
-            $table->tinyInteger('22ft_truck')->default(1)->comment('1=Yes, 0=No');
-            $table->tinyInteger('24ft_truck')->default(1)->comment('1=Yes, 0=No');
-            $table->tinyInteger('26ft_truck')->default(1)->comment('1=Yes, 0=No');
+            $table->tinyInteger('ft_16_truck')->default(1)->comment('1=Yes, 0=No');
+            $table->tinyInteger('ft_18_truck')->default(1)->comment('1=Yes, 0=No');
+            $table->tinyInteger('ft_20_truck')->default(1)->comment('1=Yes, 0=No');
+            $table->tinyInteger('ft_22_truck')->default(1)->comment('1=Yes, 0=No');
+            $table->tinyInteger('ft_24_truck')->default(1)->comment('1=Yes, 0=No');
+            $table->tinyInteger('ft_26_truck')->default(1)->comment('1=Yes, 0=No');
             $table->tinyInteger('flatbed')->default(1)->comment('1=Yes, 0=No');
             $table->tinyInteger('tractor_trailer')->default(1)->comment('1=Yes, 0=No');
             $table->timestamps();

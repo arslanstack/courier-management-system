@@ -75,4 +75,8 @@ class Company extends Model
         return $this->hasMany(CompanyAirports::class, 'company_id', 'id');
     }
     
+    public function Warehouses()
+    {
+        return $this->hasMany(Warehouse::class, 'company_id', 'id');
+    }
 }

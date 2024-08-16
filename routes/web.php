@@ -39,6 +39,18 @@ Route::get('/clearcache', function () {
     $exitCode = Artisan::call('route:clear');
     return 'DONE'; //Return anything
 });
+Route::get('/clearTables', function () {
+    DB::table('companies')->truncate();
+	DB::table('company_airports')->truncate();
+	DB::table('company_profiles')->truncate();
+	DB::table('quote_bids')->truncate();
+	DB::table('quote_requests')->truncate();
+	DB::table('rfps')->truncate();
+	DB::table('rfp_bids')->truncate();
+	DB::table('users')->truncate();
+	DB::table('warehouses')->truncate();
+	return 'DONE';
+});
 
 
 

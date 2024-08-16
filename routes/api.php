@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\API\AirportController;
 use App\Http\Controllers\API\CompanyManagementController;
+use App\Http\Controllers\API\CompanySearchController;
 use App\Http\Controllers\API\QuoteBidsController;
 use App\Http\Controllers\API\User\AuthController;
 use App\Http\Controllers\API\QuoteRequestController;
@@ -76,6 +77,8 @@ Route::group([
         Route::get('/getCompanyInfo', [CompanyManagementController::class, 'getCompanyInfo'])->name('getCompanyInfo');
         Route::post('/updateCompanyInfo', [CompanyManagementController::class, 'updateCompanyInfo'])->name('updateCompanyInfo');
         Route::post('/updateCreditCard', [CompanyManagementController::class, 'updateCreditCard'])->name('updateCreditCard');
+        Route::post('/UpdateChecklist', [CompanyManagementController::class, 'UpdateChecklist'])->name('UpdateChecklist');
+        Route::get('/getCompanyFeaturesCheckList', [CompanyManagementController::class, 'showFeaturesChecklist'])->name('getCompanyFeaturesCheckList');
     });
     Route::group(['prefix' => 'airports'], function ($router) {
         Route::get('/getAll', [AirportController::class, 'index'])->name('getAllAirports');
@@ -90,5 +93,12 @@ Route::group([
         Route::get('/getWarehouseDetails/{id}', [WarehouseController::class, 'show'])->name('getWarehouseDetails');
         Route::post('/addWarehouse', [WarehouseController::class, 'store'])->name('addWarehouse');
         Route::post('/updateWarehouse', [WarehouseController::class, 'update'])->name('updateWarehouse');
+    });
+    Route::group(['prefix' => 'company-search'], function ($router) {
+        Route::post('/searchByLocation', [CompanySearchController::class, 'searchByLocation'])->name('searchByLocation');
+        Route::post('/searchByStates', [CompanySearchController::class, 'searchByStates'])->name('searchByStates');
+        Route::post('/searchByAirport', [CompanySearchController::class, 'searchByAirport'])->name('searchByAirport');
+        Route::post('/searchByName', [CompanySearchController::class, 'searchByName'])->name('searchByName');
+        Route::post('/searchByWarehouse', [CompanySearchController::class, 'searchByWarehouse'])->name('searchByWarehouse');
     });
 });
