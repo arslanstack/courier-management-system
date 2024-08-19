@@ -65,7 +65,8 @@ if (!function_exists('time_elapsed_string')) {
 			}
 		}
 
-		if (!$full) $string = array_slice($string, 0, 1);
+		if (!$full)
+			$string = array_slice($string, 0, 1);
 		return $string ? implode(', ', $string) . ' ago' : 'just now';
 	}
 }
@@ -398,7 +399,7 @@ if (!function_exists('return_cordinates')) {
 			$lat = null;
 			$lng = null;
 		}
-		
+
 		$cordinates = array(
 			'lat' => $lat,
 			'lng' => $lng,
@@ -496,5 +497,23 @@ if (!function_exists('CalculateLatLngRange')) {
 		);
 
 		return $latLngRange;
+	}
+}
+
+if (!function_exists('getFilingTable')) {
+	function getFilingTable($type)
+	{
+		switch ($type) {
+			case 0:
+				return 'companies';
+			case 1:
+				return 'quote_requests';
+			case 2:
+				return 'vehicles';
+			case 3:
+				return 'rfps';
+			default:
+				return null;
+		}
 	}
 }

@@ -10,6 +10,7 @@ use App\Http\Controllers\API\RFPBidsController;
 use App\Http\Controllers\API\RFPController;
 use App\Http\Controllers\API\UserManagementController;
 use App\Http\Controllers\API\WarehouseController;
+use App\Http\Controllers\API\FilingsController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -100,5 +101,15 @@ Route::group([
         Route::post('/searchByAirport', [CompanySearchController::class, 'searchByAirport'])->name('searchByAirport');
         Route::post('/searchByName', [CompanySearchController::class, 'searchByName'])->name('searchByName');
         Route::post('/searchByWarehouse', [CompanySearchController::class, 'searchByWarehouse'])->name('searchByWarehouse');
+    });
+    Route::group(['prefix' => 'filing-cabinet'], function ($router) {
+        Route::post('/addPostToCabinet', [FilingsController::class, 'store'])->name('addPostToCabinet');
+        Route::post('/addNoteToFilings', [FilingsController::class, 'addNote'])->name('addNoteToFilings');
+        Route::post('/deleteFilings', [FilingsController::class, 'delete'])->name('deleteFilings');
+        Route::get('/getCompanyFilings', [FilingsController::class, 'delete'])->name('getCompanyFilings');
+        Route::get('/getCompanyFilings', [FilingsController::class, 'delete'])->name('getCompanyFilings');
+        Route::get('/getCompanyFilings', [FilingsController::class, 'getCompanyFilings'])->name('getCompanyFilings');
+        Route::get('/getQuoteFilings', [FilingsController::class, 'getQuoteFilings'])->name('getQuoteFilings');
+        Route::get('/getRFPFilings', [FilingsController::class, 'getRFPFilings'])->name('getRFPFilings');
     });
 });

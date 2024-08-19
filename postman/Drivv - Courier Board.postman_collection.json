@@ -1,9 +1,9 @@
 {
 	"info": {
-		"_postman_id": "310343b8-b116-4503-a4f8-64801a00a0ec",
+		"_postman_id": "9886f5d4-9cd7-45e2-bfdc-eea69c0dd465",
 		"name": "Drivv - Courier Board",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "36543516"
+		"_exporter_id": "37720134"
 	},
 	"item": [
 		{
@@ -296,7 +296,7 @@
 									"formdata": [
 										{
 											"key": "company_id",
-											"value": "6",
+											"value": "4",
 											"type": "text"
 										},
 										{
@@ -390,7 +390,7 @@
 										},
 										{
 											"key": "fname",
-											"value": "amir",
+											"value": "Irfan",
 											"type": "text"
 										},
 										{
@@ -400,7 +400,7 @@
 										},
 										{
 											"key": "email",
-											"value": "home@gmail.com",
+											"value": "sceneonhai@gmail.com",
 											"type": "text"
 										},
 										{
@@ -771,7 +771,7 @@
 								},
 								{
 									"key": "delivery_point",
-									"value": "10005",
+									"value": "15470, Ohiopyle, PA",
 									"type": "text"
 								},
 								{
@@ -821,17 +821,17 @@
 								},
 								{
 									"key": "contact_name",
-									"value": "Jabbar Khan",
+									"value": "Ola Amista",
 									"type": "text"
 								},
 								{
 									"key": "contact_email",
-									"value": "jabbar@gmail.com",
+									"value": "amista@gmail.com",
 									"type": "text"
 								},
 								{
 									"key": "contact_phone",
-									"value": "+17163245632",
+									"value": "+17163212345",
 									"type": "text"
 								}
 							]
@@ -1246,12 +1246,12 @@
 							"formdata": [
 								{
 									"key": "request_id",
-									"value": "5",
+									"value": "13",
 									"type": "text"
 								},
 								{
 									"key": "amount",
-									"value": "500",
+									"value": "2000",
 									"type": "text"
 								},
 								{
@@ -2172,22 +2172,17 @@
 							"formdata": [
 								{
 									"key": "email",
-									"value": "alba@gmail.com",
+									"value": "kohey12342@ikangou.com",
 									"type": "text"
 								},
 								{
 									"key": "c_email",
-									"value": "alba@gmail.com",
+									"value": "kohey12342@ikangou.com",
 									"type": "text"
 								},
 								{
 									"key": "phone",
-									"value": "+1090036272",
-									"type": "text"
-								},
-								{
-									"key": "fax",
-									"value": "+1090036272",
+									"value": "",
 									"type": "text"
 								},
 								{
@@ -2646,40 +2641,6 @@
 					"response": []
 				},
 				{
-					"name": "Get Company Features Checklist",
-					"protocolProfileBehavior": {
-						"disabledSystemHeaders": {
-							"accept": true
-						}
-					},
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "text"
-							},
-							{
-								"key": "Authorization",
-								"value": "bearer {{access_token}}",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "{{base_url}}/company-management/getCompanyFeaturesCheckList",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"company-management",
-								"getCompanyFeaturesCheckList"
-							]
-						}
-					},
-					"response": []
-				},
-				{
 					"name": "Update Auth Company Info",
 					"protocolProfileBehavior": {
 						"disabledSystemHeaders": {
@@ -2827,210 +2788,6 @@
 							"path": [
 								"company-management",
 								"updateCreditCard"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Update Company CheckList",
-					"protocolProfileBehavior": {
-						"disabledSystemHeaders": {
-							"accept": true
-						}
-					},
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "text"
-							},
-							{
-								"key": "Authorization",
-								"value": "bearer {{access_token}}",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "formdata",
-							"formdata": [
-								{
-									"key": "reefer",
-									"value": "1",
-									"type": "text"
-								},
-								{
-									"key": "hazmat",
-									"value": "1",
-									"type": "text"
-								},
-								{
-									"key": "lift_gate",
-									"value": "1",
-									"type": "text"
-								},
-								{
-									"key": "hr_24_dispatch",
-									"value": "0",
-									"type": "text"
-								},
-								{
-									"key": "tsa_certified",
-									"value": "1",
-									"type": "text"
-								},
-								{
-									"key": "on_demand_service",
-									"value": "1",
-									"type": "text"
-								},
-								{
-									"key": "scheduled_routes",
-									"value": "1",
-									"type": "text"
-								},
-								{
-									"key": "distributed_delivery",
-									"value": "0",
-									"type": "text"
-								},
-								{
-									"key": "warehouse_facility",
-									"value": "1",
-									"type": "text"
-								},
-								{
-									"key": "climate_controlled",
-									"value": "1",
-									"type": "text"
-								},
-								{
-									"key": "biohazard_exp",
-									"value": "1",
-									"type": "text"
-								},
-								{
-									"key": "pharma_distribution",
-									"value": "0",
-									"type": "text"
-								},
-								{
-									"key": "international_freight",
-									"value": "1",
-									"type": "text"
-								},
-								{
-									"key": "indirect_aircarrier",
-									"value": "1",
-									"type": "text"
-								},
-								{
-									"key": "gps_fleet_system",
-									"value": "1",
-									"type": "text"
-								},
-								{
-									"key": "uniformed_drivers",
-									"value": "0",
-									"type": "text"
-								},
-								{
-									"key": "interstate_service",
-									"value": "1",
-									"type": "text"
-								},
-								{
-									"key": "whiteglove_service",
-									"value": "1",
-									"type": "text"
-								},
-								{
-									"key": "process_legal_service",
-									"value": "1",
-									"type": "text"
-								},
-								{
-									"key": "car",
-									"value": "1",
-									"type": "text"
-								},
-								{
-									"key": "minivan",
-									"value": "1",
-									"type": "text"
-								},
-								{
-									"key": "suv",
-									"value": "1",
-									"type": "text"
-								},
-								{
-									"key": "cargo_van",
-									"value": "1",
-									"type": "text"
-								},
-								{
-									"key": "sprinter",
-									"value": "1",
-									"type": "text"
-								},
-								{
-									"key": "covered_pickup",
-									"value": "1",
-									"type": "text"
-								},
-								{
-									"key": "ft_16_truck",
-									"value": "1",
-									"type": "text"
-								},
-								{
-									"key": "ft_18_truck",
-									"value": "1",
-									"type": "text"
-								},
-								{
-									"key": "ft_20_truck",
-									"value": "1",
-									"type": "text"
-								},
-								{
-									"key": "ft_22_truck",
-									"value": "1",
-									"type": "text"
-								},
-								{
-									"key": "ft_24_truck",
-									"value": "1",
-									"type": "text"
-								},
-								{
-									"key": "ft_26_truck",
-									"value": "1",
-									"type": "text"
-								},
-								{
-									"key": "flatbed",
-									"value": "1",
-									"type": "text"
-								},
-								{
-									"key": "tractor_trailer",
-									"value": "1",
-									"type": "text"
-								}
-							]
-						},
-						"url": {
-							"raw": "{{base_url}}/company-management/UpdateChecklist",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"company-management",
-								"UpdateChecklist"
 							]
 						}
 					},
@@ -3480,14 +3237,14 @@
 			"name": "Search Company",
 			"item": [
 				{
-					"name": "Search By Location",
+					"name": "Get All Company Warehouse",
 					"protocolProfileBehavior": {
 						"disabledSystemHeaders": {
 							"accept": true
 						}
 					},
 					"request": {
-						"method": "POST",
+						"method": "GET",
 						"header": [
 							{
 								"key": "Accept",
@@ -3500,645 +3257,21 @@
 								"type": "text"
 							}
 						],
-						"body": {
-							"mode": "formdata",
-							"formdata": [
-								{
-									"key": "city",
-									"value": "New York",
-									"type": "text"
-								},
-								{
-									"key": "state",
-									"value": "New York",
-									"type": "text"
-								},
-								{
-									"key": "zip",
-									"value": "11009",
-									"type": "text"
-								},
-								{
-									"key": "radius",
-									"value": "25",
-									"type": "text"
-								},
-								{
-									"key": "any",
-									"value": "1",
-									"type": "text",
-									"disabled": true
-								},
-								{
-									"key": "car",
-									"value": "1",
-									"type": "text"
-								},
-								{
-									"key": "minivan",
-									"value": "1",
-									"type": "text"
-								},
-								{
-									"key": "suv",
-									"value": "1",
-									"type": "text"
-								},
-								{
-									"key": "cargo_van",
-									"value": "1",
-									"type": "text"
-								},
-								{
-									"key": "sprinter",
-									"value": "1",
-									"type": "text"
-								},
-								{
-									"key": "covered_pickup",
-									"value": "1",
-									"type": "text"
-								},
-								{
-									"key": "ft_16_truck",
-									"value": "1",
-									"type": "text"
-								},
-								{
-									"key": "ft_18_truck",
-									"value": "1",
-									"type": "text"
-								},
-								{
-									"key": "ft_20_truck",
-									"value": "0",
-									"type": "text"
-								},
-								{
-									"key": "ft_22_truck",
-									"value": "0",
-									"type": "text"
-								},
-								{
-									"key": "ft_24_truck",
-									"value": "1",
-									"type": "text"
-								},
-								{
-									"key": "ft_26_truck",
-									"value": "1",
-									"type": "text"
-								},
-								{
-									"key": "flatbed",
-									"value": "1",
-									"type": "text"
-								},
-								{
-									"key": "tractor_trailer",
-									"value": "1",
-									"type": "text"
-								},
-								{
-									"key": "reefer",
-									"value": "1",
-									"type": "text"
-								},
-								{
-									"key": "hazmat",
-									"value": "1",
-									"type": "text"
-								},
-								{
-									"key": "lift_gate",
-									"value": "1",
-									"type": "text"
-								},
-								{
-									"key": "hr_24_dispatch",
-									"value": "0",
-									"type": "text"
-								},
-								{
-									"key": "tsa_certified",
-									"value": "1",
-									"type": "text"
-								},
-								{
-									"key": "on_demand_service",
-									"value": "1",
-									"type": "text"
-								},
-								{
-									"key": "scheduled_routes",
-									"value": "1",
-									"type": "text"
-								},
-								{
-									"key": "distributed_delivery",
-									"value": "0",
-									"type": "text"
-								},
-								{
-									"key": "warehouse_facility",
-									"value": "1",
-									"type": "text"
-								},
-								{
-									"key": "climate_controlled",
-									"value": "1",
-									"type": "text"
-								},
-								{
-									"key": "biohazard_exp",
-									"value": "1",
-									"type": "text"
-								},
-								{
-									"key": "pharma_distribution",
-									"value": "0",
-									"type": "text"
-								},
-								{
-									"key": "international_freight",
-									"value": "1",
-									"type": "text"
-								},
-								{
-									"key": "indirect_aircarrier",
-									"value": "1",
-									"type": "text"
-								},
-								{
-									"key": "gps_fleet_system",
-									"value": "1",
-									"type": "text"
-								},
-								{
-									"key": "uniformed_drivers",
-									"value": "0",
-									"type": "text"
-								},
-								{
-									"key": "interstate_service",
-									"value": "1",
-									"type": "text"
-								},
-								{
-									"key": "whiteglove_service",
-									"value": "1",
-									"type": "text"
-								},
-								{
-									"key": "process_legal_service",
-									"value": "1",
-									"type": "text"
-								}
-							]
-						},
 						"url": {
-							"raw": "{{base_url}}/company-search/searchByLocation",
+							"raw": "{{base_url}}/warehouses/getCompanyWarehouses",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
-								"company-search",
-								"searchByLocation"
+								"warehouses",
+								"getCompanyWarehouses"
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "Search By States",
-					"protocolProfileBehavior": {
-						"disabledSystemHeaders": {
-							"accept": true
-						}
-					},
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "text"
-							},
-							{
-								"key": "Authorization",
-								"value": "bearer {{access_token}}",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "formdata",
-							"formdata": [
-								{
-									"key": "states",
-									"value": "[ \"New York\", \"California\", \"New Jersey\"]",
-									"type": "text"
-								},
-								{
-									"key": "any",
-									"value": "1",
-									"type": "text"
-								},
-								{
-									"key": "car",
-									"value": "1",
-									"type": "text"
-								},
-								{
-									"key": "minivan",
-									"value": "1",
-									"type": "text"
-								},
-								{
-									"key": "suv",
-									"value": "1",
-									"type": "text"
-								},
-								{
-									"key": "cargo_van",
-									"value": "1",
-									"type": "text"
-								},
-								{
-									"key": "sprinter",
-									"value": "1",
-									"type": "text"
-								},
-								{
-									"key": "covered_pickup",
-									"value": "1",
-									"type": "text"
-								},
-								{
-									"key": "ft_16_truck",
-									"value": "1",
-									"type": "text"
-								},
-								{
-									"key": "ft_18_truck",
-									"value": "1",
-									"type": "text"
-								},
-								{
-									"key": "ft_20_truck",
-									"value": "0",
-									"type": "text"
-								},
-								{
-									"key": "ft_22_truck",
-									"value": "0",
-									"type": "text"
-								},
-								{
-									"key": "ft_24_truck",
-									"value": "1",
-									"type": "text"
-								},
-								{
-									"key": "ft_26_truck",
-									"value": "1",
-									"type": "text"
-								},
-								{
-									"key": "flatbed",
-									"value": "1",
-									"type": "text"
-								},
-								{
-									"key": "tractor_trailer",
-									"value": "1",
-									"type": "text"
-								},
-								{
-									"key": "reefer",
-									"value": "1",
-									"type": "text"
-								},
-								{
-									"key": "hazmat",
-									"value": "1",
-									"type": "text"
-								},
-								{
-									"key": "lift_gate",
-									"value": "1",
-									"type": "text"
-								},
-								{
-									"key": "hr_24_dispatch",
-									"value": "0",
-									"type": "text"
-								},
-								{
-									"key": "tsa_certified",
-									"value": "1",
-									"type": "text"
-								},
-								{
-									"key": "on_demand_service",
-									"value": "1",
-									"type": "text"
-								},
-								{
-									"key": "scheduled_routes",
-									"value": "1",
-									"type": "text"
-								},
-								{
-									"key": "distributed_delivery",
-									"value": "0",
-									"type": "text"
-								},
-								{
-									"key": "warehouse_facility",
-									"value": "1",
-									"type": "text"
-								},
-								{
-									"key": "climate_controlled",
-									"value": "1",
-									"type": "text"
-								},
-								{
-									"key": "biohazard_exp",
-									"value": "1",
-									"type": "text"
-								},
-								{
-									"key": "pharma_distribution",
-									"value": "0",
-									"type": "text"
-								},
-								{
-									"key": "international_freight",
-									"value": "1",
-									"type": "text"
-								},
-								{
-									"key": "indirect_aircarrier",
-									"value": "1",
-									"type": "text"
-								},
-								{
-									"key": "gps_fleet_system",
-									"value": "1",
-									"type": "text"
-								},
-								{
-									"key": "uniformed_drivers",
-									"value": "0",
-									"type": "text"
-								},
-								{
-									"key": "interstate_service",
-									"value": "1",
-									"type": "text"
-								},
-								{
-									"key": "whiteglove_service",
-									"value": "1",
-									"type": "text"
-								},
-								{
-									"key": "process_legal_service",
-									"value": "1",
-									"type": "text"
-								}
-							]
-						},
-						"url": {
-							"raw": "{{base_url}}/company-search/searchByStates",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"company-search",
-								"searchByStates"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Search By Airport Code",
-					"protocolProfileBehavior": {
-						"disabledSystemHeaders": {
-							"accept": true
-						}
-					},
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "text"
-							},
-							{
-								"key": "Authorization",
-								"value": "bearer {{access_token}}",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "formdata",
-							"formdata": [
-								{
-									"key": "airport_code",
-									"value": "JFK",
-									"type": "text"
-								},
-								{
-									"key": "any",
-									"value": "1",
-									"type": "text"
-								},
-								{
-									"key": "car",
-									"value": "1",
-									"type": "text"
-								},
-								{
-									"key": "minivan",
-									"value": "1",
-									"type": "text"
-								},
-								{
-									"key": "suv",
-									"value": "1",
-									"type": "text"
-								},
-								{
-									"key": "cargo_van",
-									"value": "1",
-									"type": "text"
-								},
-								{
-									"key": "sprinter",
-									"value": "1",
-									"type": "text"
-								},
-								{
-									"key": "covered_pickup",
-									"value": "1",
-									"type": "text"
-								},
-								{
-									"key": "ft_16_truck",
-									"value": "1",
-									"type": "text"
-								},
-								{
-									"key": "ft_18_truck",
-									"value": "1",
-									"type": "text"
-								},
-								{
-									"key": "ft_20_truck",
-									"value": "0",
-									"type": "text"
-								},
-								{
-									"key": "ft_22_truck",
-									"value": "0",
-									"type": "text"
-								},
-								{
-									"key": "ft_24_truck",
-									"value": "1",
-									"type": "text"
-								},
-								{
-									"key": "ft_26_truck",
-									"value": "1",
-									"type": "text"
-								},
-								{
-									"key": "flatbed",
-									"value": "1",
-									"type": "text"
-								},
-								{
-									"key": "tractor_trailer",
-									"value": "1",
-									"type": "text"
-								},
-								{
-									"key": "reefer",
-									"value": "1",
-									"type": "text"
-								},
-								{
-									"key": "hazmat",
-									"value": "1",
-									"type": "text"
-								},
-								{
-									"key": "lift_gate",
-									"value": "1",
-									"type": "text"
-								},
-								{
-									"key": "hr_24_dispatch",
-									"value": "0",
-									"type": "text"
-								},
-								{
-									"key": "tsa_certified",
-									"value": "1",
-									"type": "text"
-								},
-								{
-									"key": "on_demand_service",
-									"value": "1",
-									"type": "text"
-								},
-								{
-									"key": "scheduled_routes",
-									"value": "1",
-									"type": "text"
-								},
-								{
-									"key": "distributed_delivery",
-									"value": "0",
-									"type": "text"
-								},
-								{
-									"key": "warehouse_facility",
-									"value": "1",
-									"type": "text"
-								},
-								{
-									"key": "climate_controlled",
-									"value": "1",
-									"type": "text"
-								},
-								{
-									"key": "biohazard_exp",
-									"value": "1",
-									"type": "text"
-								},
-								{
-									"key": "pharma_distribution",
-									"value": "0",
-									"type": "text"
-								},
-								{
-									"key": "international_freight",
-									"value": "1",
-									"type": "text"
-								},
-								{
-									"key": "indirect_aircarrier",
-									"value": "1",
-									"type": "text"
-								},
-								{
-									"key": "gps_fleet_system",
-									"value": "1",
-									"type": "text"
-								},
-								{
-									"key": "uniformed_drivers",
-									"value": "0",
-									"type": "text"
-								},
-								{
-									"key": "interstate_service",
-									"value": "1",
-									"type": "text"
-								},
-								{
-									"key": "whiteglove_service",
-									"value": "1",
-									"type": "text"
-								},
-								{
-									"key": "process_legal_service",
-									"value": "1",
-									"type": "text"
-								}
-							]
-						},
-						"url": {
-							"raw": "{{base_url}}/company-search/searchByAirport",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"company-search",
-								"searchByAirport"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Search By Name",
+					"name": "Add Company Warehouse",
 					"protocolProfileBehavior": {
 						"disabledSystemHeaders": {
 							"accept": true
@@ -4163,26 +3296,51 @@
 							"formdata": [
 								{
 									"key": "name",
-									"value": "Premium",
+									"value": "Alpha Warehouses",
+									"type": "text"
+								},
+								{
+									"key": "city",
+									"value": "New York City",
+									"type": "text"
+								},
+								{
+									"key": "state",
+									"value": "New York",
+									"type": "text"
+								},
+								{
+									"key": "country",
+									"value": "United States",
+									"type": "text"
+								},
+								{
+									"key": "zip",
+									"value": "10003",
 									"type": "text"
 								}
 							]
 						},
 						"url": {
-							"raw": "{{base_url}}/company-search/searchByName",
+							"raw": "{{base_url}}/warehouses/addWarehouse",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
-								"company-search",
-								"searchByName"
+								"warehouses",
+								"addWarehouse"
 							]
 						}
 					},
 					"response": []
-				},
+				}
+			]
+		},
+		{
+			"name": "Filing Cabinet",
+			"item": [
 				{
-					"name": "Search By Warehouse",
+					"name": "Add Post To Cabinet",
 					"protocolProfileBehavior": {
 						"disabledSystemHeaders": {
 							"accept": true
@@ -4206,35 +3364,255 @@
 							"mode": "formdata",
 							"formdata": [
 								{
+									"key": "post_id",
+									"value": "4",
+									"description": "id of the record that needs to be added to cabinet",
+									"type": "text"
+								},
+								{
+									"key": "type",
+									"value": "0",
+									"description": "0: company, 1: quote_Request, 2:vehicle, 3: rfps",
+									"type": "text"
+								},
+								{
 									"key": "city",
-									"value": "New York",
+									"value": "Los Angeles",
+									"description": "File under this city",
 									"type": "text"
 								},
 								{
 									"key": "state",
-									"value": "New York",
+									"value": "California",
+									"description": "File under this state",
 									"type": "text"
 								},
 								{
-									"key": "zip",
-									"value": "11009",
-									"type": "text"
-								},
-								{
-									"key": "radius",
-									"value": "25",
+									"key": "note",
+									"value": "",
+									"description": "Nullable so leave empty if not used",
 									"type": "text"
 								}
 							]
 						},
 						"url": {
-							"raw": "{{base_url}}/company-search/searchByWarehouse",
+							"raw": "{{base_url}}/filing-cabinet/addPostToCabinet",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
-								"company-search",
-								"searchByWarehouse"
+								"filing-cabinet",
+								"addPostToCabinet"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Note To Filings",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "filings",
+									"value": "[2,3]",
+									"description": "array containing id of all the filings that you want to add note to",
+									"type": "text"
+								},
+								{
+									"key": "note",
+									"value": "Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.",
+									"description": "Text you want to add as a note",
+									"type": "text"
+								},
+								{
+									"key": "type",
+									"value": "0",
+									"description": "Filing Type Tab e.g. 0: company, 1: quote_Request, 2:vehicle, 3: rfps So can return appropriate records back",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/filing-cabinet/addNoteToFilings",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"filing-cabinet",
+								"addNoteToFilings"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Filings From Cabinet",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "filings",
+									"value": "[3]",
+									"description": "array containing id of all the filings that you want to delete",
+									"type": "text"
+								},
+								{
+									"key": "type",
+									"value": "0",
+									"description": "Filing Type Tab e.g. 0: company, 1: quote_Request, 2:vehicle, 3: rfps So can return appropriate records back",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/filing-cabinet/deleteFilings",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"filing-cabinet",
+								"deleteFilings"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Company Filings",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/filing-cabinet/getCompanyFilings",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"filing-cabinet",
+								"getCompanyFilings"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Quote Filings",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/filing-cabinet/getQuoteFilings",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"filing-cabinet",
+								"getQuoteFilings"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get RFP Filings",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/filing-cabinet/getRFPFilings",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"filing-cabinet",
+								"getRFPFilings"
 							]
 						}
 					},
@@ -4273,11 +3651,7 @@
 		},
 		{
 			"key": "access_token",
-			"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0L2NvdXJpZXJib2FyZC9hcGkvYXV0aC91c2VyL3ByZW1pdW0tcmVnaXN0ZXIiLCJpYXQiOjE3MjM4MDk1MjksImV4cCI6MTcyNTAxOTEyOSwibmJmIjoxNzIzODA5NTI5LCJqdGkiOiJDNkkwaTV6bFFXQmJCZGNUIiwic3ViIjoiNiIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.uCMDSwArzlPxIvp0XZdnoKb1T_sxo17dy5mwYi_PfLE",
-			"type": "string"
-		},
-		{
-			"value": "",
+			"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0L2NvdXJpZXJib2FyZC9hcGkvYXV0aC91c2VyL2xvZ2luIiwiaWF0IjoxNzI0MDY1MjAyLCJleHAiOjE3MjUyNzQ4MDIsIm5iZiI6MTcyNDA2NTIwMiwianRpIjoiajNzeENjVUZyUVdnUTVMbiIsInN1YiI6IjQiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.girpwJDsURTFfuH2LcOtSt7POvFOvQUH5wohc7EScdg",
 			"type": "string"
 		}
 	]
