@@ -29,6 +29,16 @@ class QuoteRequestController extends Controller
         }
         return response()->json(['msg' => 'success', 'response' => 'Quote Requests retrieved successfully', 'quoteRequests' => $quoteRequests], 200);
     }
+    public function show($id)
+    {
+        $quoteRequest = QuoteRequest::where('id', $id)->first();
+        if (!$quoteRequest) {
+            return response()->json(['msg' => 'error', 'response' => 'Quote Request not found.'], 404);
+        }
+        $quoteRequest->company = $quoteRequest->company;
+        $quoteRequest->user = $quoteRequest->user;
+        return response()->json(['msg' => 'success', 'response' => 'Quote Request retrieved successfully', 'data' => $quoteRequest], 200);
+    }
 
     public function getByCompany($company_id)
     {
@@ -153,8 +163,15 @@ class QuoteRequestController extends Controller
 
         $dellivery_zip = substr($request->dellivery_point, 0, 5);
         $dellivery_cordinates = return_cordinates($dellivery_zip);
-        $dellivery_lat = $dellivery_cordinates['lat'];
-        $dellivery_long = $dellivery_cordinates['long'];
+        // dd($dellivery_cordinates);
+        if ($dellivery_cordinates == null) {
+            $dellivery_lat = null;
+            $dellivery_long = null;
+        } else {
+            $dellivery_lat = $dellivery_cordinates['lat'];
+            $dellivery_long = $dellivery_cordinates['long'];
+        }
+
 
         $mileage = mileageCalculator($request->start_point, $request->delivery_point);
         $pickup_addr = calculate_address(substr($request->start_point, 0, 5));

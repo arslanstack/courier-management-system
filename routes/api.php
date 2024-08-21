@@ -11,6 +11,7 @@ use App\Http\Controllers\API\RFPController;
 use App\Http\Controllers\API\UserManagementController;
 use App\Http\Controllers\API\WarehouseController;
 use App\Http\Controllers\API\FilingsController;
+use App\Http\Controllers\API\VehiclePostController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -36,6 +37,7 @@ Route::group([
 ], function ($router) {
     Route::group(['prefix' => 'quote-request'], function ($router) {
         Route::get('/allByUser', [QuoteRequestController::class, 'allByUser'])->name('all_requests_by_user');
+        Route::get('/show/{id}', [QuoteRequestController::class, 'show'])->name('one_Request_show');
         Route::get('/allByCompany/{company_id}', [QuoteRequestController::class, 'getByCompany'])->name('all_requests_by_company');
         Route::post('/updateRequest', [QuoteRequestController::class, 'updateRequest'])->name('updateRequest');
         Route::post('/updateAddress', [QuoteRequestController::class, 'updateAddress'])->name('updateAddress');
@@ -47,7 +49,6 @@ Route::group([
         Route::get('/allByUser', [QuoteBidsController::class, 'showByUser'])->name('show_user_bids');
         Route::get('/allByCompany/{company_id}', [QuoteBidsController::class, 'showByCompany'])->name('show_company_bids');
         Route::post('/submit', [QuoteBidsController::class, 'store'])->name('store');
-
     });
     Route::group(['prefix' => 'rfps'], function ($router) {
         Route::get('/allByUser', [RFPController::class, 'allByUser'])->name('all_rfp_by_user');
@@ -111,5 +112,15 @@ Route::group([
         Route::get('/getCompanyFilings', [FilingsController::class, 'getCompanyFilings'])->name('getCompanyFilings');
         Route::get('/getQuoteFilings', [FilingsController::class, 'getQuoteFilings'])->name('getQuoteFilings');
         Route::get('/getRFPFilings', [FilingsController::class, 'getRFPFilings'])->name('getRFPFilings');
+    });
+
+    Route::group(['prefix' => 'vehicle-posts'], function ($router) {
+        Route::get('/fetchByCompany', [VehiclePostController::class, 'index'])->name('companVehiclePost');
+        Route::get('/show/{id}', [VehiclePostController::class, 'show'])->name('showVehiclePost');
+        Route::post('/store', [VehiclePostController::class, 'store'])->name('addVehiclePost');
+        Route::post('/update', [VehiclePostController::class, 'update'])->name('updateVehiclePost');
+        Route::post('/search', [VehiclePostController::class, 'search'])->name('searchVehiclePost');
+        Route::post('/sendMail', [VehiclePostController::class, 'sendMail'])->name('sendMailVehiclePost');
+        Route::post('/deleteMultiple', [VehiclePostController::class, 'deleteMultiple'])->name('deleteMultipleVehiclePost');
     });
 });

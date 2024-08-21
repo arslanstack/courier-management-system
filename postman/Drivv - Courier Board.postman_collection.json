@@ -761,7 +761,7 @@
 							"formdata": [
 								{
 									"key": "pickup_date",
-									"value": "2023-12-12",
+									"value": "2024-08-29",
 									"type": "text"
 								},
 								{
@@ -826,12 +826,12 @@
 								},
 								{
 									"key": "contact_email",
-									"value": "amista@gmail.com",
+									"value": "red@gmail.com",
 									"type": "text"
 								},
 								{
 									"key": "contact_phone",
-									"value": "+17163212345",
+									"value": "",
 									"type": "text"
 								}
 							]
@@ -924,7 +924,7 @@
 							"formdata": [
 								{
 									"key": "id",
-									"value": "5",
+									"value": "1",
 									"type": "text"
 								},
 								{
@@ -1175,6 +1175,41 @@
 							"path": [
 								"quote-request",
 								"allByUser"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get One Quote Request",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/quote-request/show/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"quote-request",
+								"show",
+								"1"
 							]
 						}
 					},
@@ -3619,6 +3654,582 @@
 					"response": []
 				}
 			]
+		},
+		{
+			"name": "Vehicle Post",
+			"item": [
+				{
+					"name": "Post a Vehicle Available",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "date_available",
+									"value": "22-08-2024",
+									"description": "Date of Availability for the trip",
+									"type": "text"
+								},
+								{
+									"key": "route_type",
+									"value": "0",
+									"description": "on demand 0 or scheduled 1",
+									"type": "text"
+								},
+								{
+									"key": "start_city",
+									"value": "Manhattan",
+									"description": "City",
+									"type": "text"
+								},
+								{
+									"key": "start_state",
+									"value": "New York",
+									"description": "State",
+									"type": "text"
+								},
+								{
+									"key": "start_zip",
+									"value": "10001",
+									"description": "zip",
+									"type": "text"
+								},
+								{
+									"key": "departure",
+									"value": "1400",
+									"description": "1400 hrs means 2pm",
+									"type": "text"
+								},
+								{
+									"key": "stops",
+									"value": "[{\"city\": \"New York\", \"state\": \"New York\", \"zip\": \"10012\", \"arrival\": \"1600\"}, {\"city\": \"Philadelphia\", \"state\": \"Pennsylvania\", \"zip\": \"19107\", \"arrival\": \"1800\"}]",
+									"description": "stops in between in form of array of objects e.g. [\n  {\n    \"city\": \"New York\", \n    \"state\": \"New York\",\n    \"zip\": \"10012\", \n    \"arrival\": \"1600\" \n  },\n  {\n    \"city\": \"Philadelphia\", \n    \"state\": \"Pennsylvania\",\n    \"zip\": \"19107\",\n    \"arrival\": \"1800\" \n  },\n  {\n    \"city\": \"Washington D.C.\", \n    \"state\": \"District of Columbia\",\n    \"zip\": \"20001\",\n    \"arrival\": \"2000\" \n  }\n]",
+									"type": "text"
+								},
+								{
+									"key": "destination_city",
+									"value": "Chicago",
+									"description": "City",
+									"type": "text"
+								},
+								{
+									"key": "destination_state",
+									"value": "Illinois",
+									"description": "State",
+									"type": "text"
+								},
+								{
+									"key": "arrival",
+									"value": "2200",
+									"description": "200hrs means 11pm",
+									"type": "text"
+								},
+								{
+									"key": "vehicle_type",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "other_info",
+									"value": "Lorem Ipsum",
+									"type": "text"
+								},
+								{
+									"key": "contact_name",
+									"value": "John Snow",
+									"type": "text"
+								},
+								{
+									"key": "contact_phone",
+									"value": "+!9872341019",
+									"type": "text"
+								},
+								{
+									"key": "contact_email",
+									"value": "johnsnow@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "reefer",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "hazmat",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "round_trip",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/vehicle-posts/store",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"vehicle-posts",
+								"store"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Vehicle Available Post",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "vehicle_post_id",
+									"value": "2",
+									"description": "Date of Availability for the trip",
+									"type": "text"
+								},
+								{
+									"key": "date_available",
+									"value": "23-08-2024",
+									"description": "on demand 0 or scheduled 1",
+									"type": "text"
+								},
+								{
+									"key": "route_type",
+									"value": "1",
+									"description": "City",
+									"type": "text"
+								},
+								{
+									"key": "start_city",
+									"value": "Chicago",
+									"description": "State",
+									"type": "text"
+								},
+								{
+									"key": "start_state",
+									"value": "Illinois",
+									"description": "zip",
+									"type": "text"
+								},
+								{
+									"key": "start_zip",
+									"value": "60008",
+									"description": "1400 hrs means 2pm",
+									"type": "text"
+								},
+								{
+									"key": "departure",
+									"value": "1200",
+									"description": "stops in between in form of array of objects e.g. [\n  {\n    \"city\": \"New York\", \n    \"state\": \"New York\",\n    \"zip\": \"10012\", \n    \"arrival\": \"1600\" \n  },\n  {\n    \"city\": \"Philadelphia\", \n    \"state\": \"Pennsylvania\",\n    \"zip\": \"19107\",\n    \"arrival\": \"1800\" \n  },\n  {\n    \"city\": \"Washington D.C.\", \n    \"state\": \"District of Columbia\",\n    \"zip\": \"20001\",\n    \"arrival\": \"2000\" \n  }\n]",
+									"type": "text"
+								},
+								{
+									"key": "stops",
+									"value": "[{\"city\": \"New York\", \"state\": \"New York\", \"zip\": \"10001\", \"arrival\": \"1700\"}]",
+									"description": "City",
+									"type": "text"
+								},
+								{
+									"key": "destination_city",
+									"value": "Albuquerque",
+									"description": "State",
+									"type": "text"
+								},
+								{
+									"key": "destination_state",
+									"value": "New Mexico",
+									"description": "200hrs means 11pm",
+									"type": "text"
+								},
+								{
+									"key": "arrival",
+									"value": "2200",
+									"type": "text"
+								},
+								{
+									"key": "vehicle_type",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "other_info",
+									"value": "Hello",
+									"type": "text"
+								},
+								{
+									"key": "contact_name",
+									"value": "John Snow",
+									"type": "text"
+								},
+								{
+									"key": "contact_phone",
+									"value": "+!9872341019",
+									"type": "text"
+								},
+								{
+									"key": "contact_email",
+									"value": "johnsnow@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "reefer",
+									"value": "0",
+									"type": "text"
+								},
+								{
+									"key": "hazmat",
+									"value": "0",
+									"type": "text"
+								},
+								{
+									"key": "round_trip",
+									"value": "0",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/vehicle-posts/update",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"vehicle-posts",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search Vehicle Posts",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "date_available",
+									"value": "22-08-2024",
+									"description": "Date of Availability for the trip",
+									"type": "text"
+								},
+								{
+									"key": "vehicle_type",
+									"value": "1",
+									"description": "0 any, 1: car and so on",
+									"type": "text"
+								},
+								{
+									"key": "city",
+									"value": "Manhattan",
+									"description": "City",
+									"type": "text"
+								},
+								{
+									"key": "state",
+									"value": "New York",
+									"description": "State",
+									"type": "text"
+								},
+								{
+									"key": "radius",
+									"value": "75",
+									"description": "in miles",
+									"type": "text"
+								},
+								{
+									"key": "post_time",
+									"value": "0",
+									"description": "0: anytime, 1: 30 min and so on",
+									"type": "text"
+								},
+								{
+									"key": "zip",
+									"value": "10021",
+									"description": "zip code for start point",
+									"type": "text"
+								},
+								{
+									"key": "reefer",
+									"value": "0",
+									"description": "0 if not needed 1 if needed",
+									"type": "text"
+								},
+								{
+									"key": "hazmat",
+									"value": "0",
+									"description": "0 if not needed 1 if needed",
+									"type": "text"
+								},
+								{
+									"key": "lift_gate",
+									"value": "0",
+									"description": "0 if not needed 1 if needed",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/vehicle-posts/search",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"vehicle-posts",
+								"search"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Send Interested Email",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "vehicle_post_id",
+									"value": "7",
+									"description": "Vehicle Post ID",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "Roger Federer",
+									"description": "Sender Name",
+									"type": "text"
+								},
+								{
+									"key": "from_email",
+									"value": "roger@gmail.com",
+									"description": "Sender Email",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "539-248-6868",
+									"description": "Sender Phone",
+									"type": "text"
+								},
+								{
+									"key": "subject",
+									"value": "Courierboard.com A User showed interest in vehicle post from New York to New Mexico on 22-08-2024",
+									"description": "Subject of Email",
+									"type": "text"
+								},
+								{
+									"key": "body",
+									"value": "ZtQ3MjU4Nzk2MDQ2NjU0NjY3NzY2NjY2Njg2NzY2Njg2NzY2Njg2NzY2Njg2NzY2Njg2NzY2Njg2NzY2Njg2NzY2Njg2NzY2Njg2NzY2Njg2NzY2Njg2NzY2Njg2NzY2Njg2NzY2Njg2NzY2Njg2NzY2Njg2NzY2Njg2NzY2Njg2NzY2Njg2NzY2Njg2NzY2Njg2NzY2Njg2NzY2Njg2NzY2Njg2NzY2Njg2NzY2Njg2NzY2Njg2NzY2Njg2NzY2Njg2NzY2Njg2NzY2Njg2NzY2Njg2NzY2Njg2NzY2Njg2NzY2Njg2NzY2Njg2NzY2Njg2NzY2Njg2NzY2Njg2NzY2Njg2NzY2Njg2NzY2Njg2NzY2Njg2NzY2Njg2NzY2Njg2NzY2Njg2NzY2Njg2NzY2Njg2NzY2Njg2NzY2Njg2NzY2Njg2NzY2Njg2NzY2Njg2NzY2Njg2NzY2Njg2NzY2Njg2NzY2Njg2NzY2Njg2NzY2Njg2NzY2Njg2NzY2Njg2NzY2Njg2NzY2Njg2NzY2Njg2NzY2Njg2NzY2Njg2NzY2Njg2NzY2Njg2NzY2Njg2NzY2Njg2NzY2Njg2NzY2Njg2NzY2Njg2NzY2Njg2NzY2Njg2NzY2Njg2NzY2Njg2NzY2Njg2NzY2Njg2NzY2Njg2NzY2Njg2NzY2Njg2NzY2Njg2NzY2Njg2NzY2Njg2NzY2Njg2NzY2Njg2NzY2Njg2NzY2Njg2NzY2Njg2NzY2Njg2NzY2Njg2NzY2",
+									"description": "Body/Msg",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/vehicle-posts/sendMail",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"vehicle-posts",
+								"sendMail"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Multiple",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "vehicle_post_ids",
+									"value": "[4,5]",
+									"description": "Ids of all selected records",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/vehicle-posts/deleteMultiple",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"vehicle-posts",
+								"deleteMultiple"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Company Posts",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/vehicle-posts/fetchByCompany",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"vehicle-posts",
+								"fetchByCompany"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Show Post",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/vehicle-posts/show/2",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"vehicle-posts",
+								"show",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
 		}
 	],
 	"event": [
@@ -3651,7 +4262,7 @@
 		},
 		{
 			"key": "access_token",
-			"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0L2NvdXJpZXJib2FyZC9hcGkvYXV0aC91c2VyL2xvZ2luIiwiaWF0IjoxNzI0MDY1MjAyLCJleHAiOjE3MjUyNzQ4MDIsIm5iZiI6MTcyNDA2NTIwMiwianRpIjoiajNzeENjVUZyUVdnUTVMbiIsInN1YiI6IjQiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.girpwJDsURTFfuH2LcOtSt7POvFOvQUH5wohc7EScdg",
+			"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0L2NvdXJpZXJib2FyZC9hcGkvYXV0aC91c2VyL2xvZ2luIiwiaWF0IjoxNzI0MjM2Mjk3LCJleHAiOjE3MjU0NDU4OTcsIm5iZiI6MTcyNDIzNjI5NywianRpIjoid2Y2SjVTSUpvNHZ3VmlOMiIsInN1YiI6IjQiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.How3OE9s1TRdjAWwRBc1lmSVg4PYK--4jvTIxn4H_Q0",
 			"type": "string"
 		}
 	]
