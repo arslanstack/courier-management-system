@@ -79,4 +79,9 @@ class Company extends Model
     {
         return $this->hasMany(Warehouse::class, 'company_id', 'id');
     }
+
+    public function vehiclePosts()
+    {
+        return $this->hasMany(VehiclePost::class, 'company_id', 'id');
+    }
 }

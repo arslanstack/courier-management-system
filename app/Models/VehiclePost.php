@@ -41,6 +41,11 @@ class VehiclePost extends Model
         'status',
     ];
 
+
+    public function company()
+    {
+        return $this->belongsTo(Company::class);
+    }
     public function VehicleStop()
     {
         return $this->hasMany(VehicleStop::class);

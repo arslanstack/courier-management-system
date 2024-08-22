@@ -39,6 +39,9 @@
             <li class="{{ Request::is('admin/warehouses') ? 'active' : '' }} {{ Request::is('admin/warehouses/*') ? 'active' : '' }}">
                 <a href="{{ url('admin/warehouses') }}"><i class="fa-solid fa-truck"></i> <span class="nav-label">Warehouses</span></a>
             </li>
+            <li class="{{ Request::is('admin/vehicle-posts') ? 'active' : '' }} {{ Request::is('admin/vehicle-posts/*') ? 'active' : '' }}">
+                <a href="{{ url('admin/vehicle-posts') }}"><i class="fa-solid fa-car"></i> <span class="nav-label">Vehicle Posts</span></a>
+            </li>
         </ul>
     </div>
 </nav>

@@ -360,6 +360,20 @@ if (!function_exists('map_vehicle')) {
 		}
 	}
 }
+if (!function_exists('mapVehicleStatus')) {
+	function mapVehicleStatus($status)
+	{
+		if ($status == 0) {
+			return 'Inactive';
+		} else if ($status == 1) {
+			return 'Active';
+		} else if ($status == 2) {
+			return 'Expired';
+		} else {
+			return 'Availed';
+		}
+	}
+}
 
 if (!function_exists('explode_receps')) {
 	function explode_receps($recepients)

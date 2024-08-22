@@ -37,7 +37,8 @@
 							href="#tab-5">Warehouses</a></li>
 					<li class="show_airports"><a class="nav-link" data-toggle="tab" id="tab6-link" href="#tab-6">Airport
 							Operations</a></li>
-					<li class="show_billing"><a class="nav-link" data-toggle="tab" id="tab7-link" href="#tab-7">Billing
+					<li class="show_vehicle_posts"><a class="nav-link" data-toggle="tab" id="tab7-link" href="#tab-7">Vehicle Posts</a></li>
+					<li class="show_billing"><a class="nav-link" data-toggle="tab" id="tab8-link" href="#tab-8">Billing
 							History</a></li>
 				</ul>
 				<div class="tab-content">
@@ -47,9 +48,9 @@
 								<h5>Company Details</h5>
 								<div class="ibox-tools">
 									@if($company->account_type == 0)
-										<span class="label label-primary float-right">Exchange Account</span>
+									<span class="label label-primary float-right">Exchange Account</span>
 									@else
-										<span class="label label-success float-right">Premium Account</span>
+									<span class="label label-success float-right">Premium Account</span>
 									@endif
 								</div>
 							</div>
@@ -174,11 +175,11 @@
 											</label>
 											<label class="col-8 col-form-label">
 												@if($company->website)
-													<a href="{{ $company->website }}" target="_blank">
-														<i class="fa fa-external-link"></i> {{ $company->website }}
-													</a>
+												<a href="{{ $company->website }}" target="_blank">
+													<i class="fa fa-external-link"></i> {{ $company->website }}
+												</a>
 												@else
-													N/A
+												N/A
 												@endif
 											</label>
 										</div>
@@ -210,10 +211,10 @@
 											</label>
 											<label class="col-8 col-form-label">
 												@if($company->insurance_declaration)
-													<a href="{{ url('/public/uploads/insurance_declarations/' . $company->insurance_declaration) }}"
-														target="_blank">{{ $company->insurance_declaration }}</a>
+												<a href="{{ url('/public/uploads/insurance_declarations/' . $company->insurance_declaration) }}"
+													target="_blank">{{ $company->insurance_declaration }}</a>
 												@else
-													N/A
+												N/A
 												@endif
 											</label>
 										</div>
@@ -227,9 +228,9 @@
 											</label>
 											<label class="col-8 col-form-label">
 												@if($company->general_liability)
-													$company->general_liability . ' USD'
+												$company->general_liability . ' USD'
 												@else
-													N/A
+												N/A
 												@endif
 											</label>
 										</div>
@@ -241,9 +242,9 @@
 											</label>
 											<label class="col-8 col-form-label">
 												@if($company->cargo_insurance)
-													{{$company->cargo_insurance }} USD
+												{{$company->cargo_insurance }} USD
 												@else
-													N/A
+												N/A
 												@endif
 											</label>
 										</div>
@@ -257,9 +258,9 @@
 											</label>
 											<label class="col-8 col-form-label">
 												@if($company->other_insurance)
-													{{$company->other_insurance}} USD
+												{{$company->other_insurance}} USD
 												@else
-													N/A
+												N/A
 												@endif
 											</label>
 										</div>
@@ -744,34 +745,34 @@
 										<tbody>
 											@php($i = 1)
 											@foreach($users as $item)
-												<tr class="gradeX">
-													<td>{{ $i++ }}</td>
-													<td>{{ $item->fname . ' ' . $item->lname }}</td>
-													<td>{{$item->title ?? 'N/A'}}</td>
-													<td>{{$item->phone}}</td>
-													<td>
-														@if($item->status == 0)
-															<span class="label label-danger">Blocked</span>
-														@elseif($item->status == 1)
-															<span class="label label-primary">Active</span>
-														@elseif($item->status == 2)
-															<span class="label label-warning">Deleted</span>
-														@endif
-													</td>
-													<td>
-														@if($item->is_major_user == 0)
-															<span class="label label-primary">Sub-user</span>
-														@else
-															<span class="label label-success">Super-user</span>
-														@endif
-													</td>
-													<td>
-														<a href="{{ url('admin/users/detail') }}/{{ $item->id }}"
-															class="btn btn-primary btn-sm" data-placement="top"
-															title="Details"><i class="fa-solid fa-file-text-o"></i> Details
-														</a>
-													</td>
-												</tr>
+											<tr class="gradeX">
+												<td>{{ $i++ }}</td>
+												<td>{{ $item->fname . ' ' . $item->lname }}</td>
+												<td>{{$item->title ?? 'N/A'}}</td>
+												<td>{{$item->phone}}</td>
+												<td>
+													@if($item->status == 0)
+													<span class="label label-danger">Blocked</span>
+													@elseif($item->status == 1)
+													<span class="label label-primary">Active</span>
+													@elseif($item->status == 2)
+													<span class="label label-warning">Deleted</span>
+													@endif
+												</td>
+												<td>
+													@if($item->is_major_user == 0)
+													<span class="label label-primary">Sub-user</span>
+													@else
+													<span class="label label-success">Super-user</span>
+													@endif
+												</td>
+												<td>
+													<a href="{{ url('admin/users/detail') }}/{{ $item->id }}"
+														class="btn btn-primary btn-sm" data-placement="top"
+														title="Details"><i class="fa-solid fa-file-text-o"></i> Details
+													</a>
+												</td>
+											</tr>
 											@endforeach
 										</tbody>
 									</table>
@@ -802,30 +803,30 @@
 										<tbody>
 											@php($i = 1)
 											@foreach($quoteRequests as $item)
-												<tr class="gradeX">
-													<td>{{ $i++ }}</td>
-													<td>{{$item->pickup_zip}}</td>
-													<td>{{$item->delivery_zip}}</td>
-													<td>{{$item->pickup_date}}</td>
-													<td>{{$item->estimated_mileage ?? '-'}}</td>
-													<td>
-														@if($item->status == 0 || 1)
-															<span class="label label-dark">Listed</span>
-														@elseif($item->status == 2)
-															<span class="label label-primary">Bid Accepted</span>
-														@elseif($item->status == 3)
-															<span class="label label-success">Delivered</span>
-														@elseif($item->status == 4)
-															<span class="label label-red">Removed</span>
-														@endif
-													</td>
-													<td>
-														<a href="{{ url('admin/quote-requests/detail') }}/{{ $item->id }}"
-															class="btn btn-primary btn-sm" data-placement="top"
-															title="Details"><i class="fa-solid fa-file-text-o"></i> Details
-														</a>
-													</td>
-												</tr>
+											<tr class="gradeX">
+												<td>{{ $i++ }}</td>
+												<td>{{$item->pickup_zip}}</td>
+												<td>{{$item->delivery_zip}}</td>
+												<td>{{$item->pickup_date}}</td>
+												<td>{{$item->estimated_mileage ?? '-'}}</td>
+												<td>
+													@if($item->status == 0 || 1)
+													<span class="label label-dark">Listed</span>
+													@elseif($item->status == 2)
+													<span class="label label-primary">Bid Accepted</span>
+													@elseif($item->status == 3)
+													<span class="label label-success">Delivered</span>
+													@elseif($item->status == 4)
+													<span class="label label-red">Removed</span>
+													@endif
+												</td>
+												<td>
+													<a href="{{ url('admin/quote-requests/detail') }}/{{ $item->id }}"
+														class="btn btn-primary btn-sm" data-placement="top"
+														title="Details"><i class="fa-solid fa-file-text-o"></i> Details
+													</a>
+												</td>
+											</tr>
 											@endforeach
 										</tbody>
 									</table>
@@ -854,29 +855,29 @@
 										<tbody>
 											@php($i = 1)
 											@foreach($quoteBids as $item)
-												<tr class="gradeX">
-													<td>{{ $i++ }}</td>
-													<td>{{ $item->company->name }}</td>
-													<td>{{$item->amount}}</td>
-													<td>
-														@if($item->status == 0)
-															<span class="label label-dark">Listed</span>
-														@elseif($item->status == 1)
-															<span class="label label-warning">Unlisted</span>
-														@elseif($item->status == 2)
-															<span class="label label-primary">Bid Accepted</span>
-														@elseif($item->status == 3)
-															<span class="label label-success">Delivered</span>
-														@elseif($item->status == 4)
-															<span class="label label-red">Removed</span>
-														@endif
-													</td>
-													<td>
-														<button class="btn btn-primary btn-sm btn_bid_details"
-															data-id="{{$item->id}}" type="button"><i
-																class="fa-solid fa-file-text-o"></i> Details</button>
-													</td>
-												</tr>
+											<tr class="gradeX">
+												<td>{{ $i++ }}</td>
+												<td>{{ $item->company->name }}</td>
+												<td>{{$item->amount}}</td>
+												<td>
+													@if($item->status == 0)
+													<span class="label label-dark">Listed</span>
+													@elseif($item->status == 1)
+													<span class="label label-warning">Unlisted</span>
+													@elseif($item->status == 2)
+													<span class="label label-primary">Bid Accepted</span>
+													@elseif($item->status == 3)
+													<span class="label label-success">Delivered</span>
+													@elseif($item->status == 4)
+													<span class="label label-red">Removed</span>
+													@endif
+												</td>
+												<td>
+													<button class="btn btn-primary btn-sm btn_bid_details"
+														data-id="{{$item->id}}" type="button"><i
+															class="fa-solid fa-file-text-o"></i> Details</button>
+												</td>
+											</tr>
 											@endforeach
 										</tbody>
 									</table>
@@ -906,14 +907,14 @@
 										<tbody>
 											@php($i = 1)
 											@foreach($warehouses as $item)
-												<tr class="gradeX">
-													<td>{{ $i++ }}</td>
-													<td>{{ $item->name ?? '-' }}</td>
-													<td>{{$item->zip}}</td>
-													<td>{{$item->city ?? '-'}}</td>
-													<td>{{$item->state ?? '-'}}</td>
-													<td>{{$item->country ?? '-'}}</td>
-												</tr>
+											<tr class="gradeX">
+												<td>{{ $i++ }}</td>
+												<td>{{ $item->name ?? '-' }}</td>
+												<td>{{$item->zip}}</td>
+												<td>{{$item->city ?? '-'}}</td>
+												<td>{{$item->state ?? '-'}}</td>
+												<td>{{$item->country ?? '-'}}</td>
+											</tr>
 											@endforeach
 										</tbody>
 									</table>
@@ -942,13 +943,13 @@
 										<tbody>
 											@php($i = 1)
 											@foreach($airports as $item)
-												<tr class="gradeX">
-													<td>{{ $i++ }}</td>
-													<td>{{ $item->name ?? '-' }}</td>
-													<td>{{$item->code}}</td>
-													<td>{{$item->city ?? '-'}}</td>
-													<td>{{$item->country ?? '-'}}</td>
-												</tr>
+											<tr class="gradeX">
+												<td>{{ $i++ }}</td>
+												<td>{{ $item->name ?? '-' }}</td>
+												<td>{{$item->code}}</td>
+												<td>{{$item->city ?? '-'}}</td>
+												<td>{{$item->country ?? '-'}}</td>
+											</tr>
 											@endforeach
 										</tbody>
 									</table>
@@ -957,6 +958,46 @@
 						</div>
 					</div>
 					<div id="tab-7" class="tab-pane" role="tabpanel">
+						<div class="ibox">
+							<div class="ibox-title">
+								<h5>Vehicle Posts</h5>
+							</div>
+							<div class="ibox-content">
+								<div class="table-responsive">
+									<table id="manage_tbl" class="table table-striped table-bordered dt-responsive" style="width:100%">
+										<thead>
+											<tr>
+												<th>Sr #</th>
+												<th>Date</th>
+												<th>Start Point</th>
+												<th>Destination</th>
+												<th>Mileage</th>
+												<th>Company</th>
+												<th>Action</th>
+											</tr>
+										</thead>
+										<tbody>
+											@php($i = 1)
+											@foreach($vehiclePosts as $item)
+											<tr class="gradeX">
+												<td>{{ $i++ }}</td>
+												<td>{{$item->date_available}}</td>
+												<td>{{$item->start_city . ', ' . $item->start_state}}</td>
+												<td>{{$item->destination_city . ', ' . $item->destination_state}}</td>
+												<td>{{$item->mileage ?? '-'}}</td>
+												<td>{{ $item->company->name ?? '-' }}</td>
+												<td>
+													<button class="btn btn-primary btn-sm btn_vehiclePost_edit" data-id="{{$item->id}}" type="button"><i class="fa-solid fa-page"></i> Details</button>
+												</td>
+											</tr>
+											@endforeach
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div id="tab-8" class="tab-pane" role="tabpanel">
 						<div class="ibox">
 							<div class="ibox-title">
 								<h5>Billing History</h5>
@@ -996,32 +1037,32 @@
 </div>
 @endsection
 @push('scripts')
-	<script>
-		$(document).on("click", ".btn_bid_details", function () {
-			var id = $(this).attr('data-id');
-			$.ajax({
-				url: "{{ url('admin/quote-requests/bidDetails') }}",
-				type: 'POST',
-				dataType: 'json',
-				data: {
-					"_token": "{{ csrf_token() }}",
-					'id': id
-				},
-				success: function (status) {
-					$("#edit_modalbox_body").html(status.response);
-					$("#edit_modalbox").modal('show');
-				}
-			});
+<script>
+	$(document).on("click", ".btn_bid_details", function() {
+		var id = $(this).attr('data-id');
+		$.ajax({
+			url: "{{ url('admin/quote-requests/bidDetails') }}",
+			type: 'POST',
+			dataType: 'json',
+			data: {
+				"_token": "{{ csrf_token() }}",
+				'id': id
+			},
+			success: function(status) {
+				$("#edit_modalbox_body").html(status.response);
+				$("#edit_modalbox").modal('show');
+			}
 		});
-		$(document).on('click', '.show_users', function () {
-			if (!($("table#manage_tbl").hasClass("dataTable"))) {
-				$('#manage_tbl').dataTable({
-					"paging": true,
-					"searching": true,
-					"bInfo": true,
-					"responsive": true,
-					"pageLength": 50,
-					"columnDefs": [{
+	});
+	$(document).on('click', '.show_users', function() {
+		if (!($("table#manage_tbl").hasClass("dataTable"))) {
+			$('#manage_tbl').dataTable({
+				"paging": true,
+				"searching": true,
+				"bInfo": true,
+				"responsive": true,
+				"pageLength": 50,
+				"columnDefs": [{
 						"responsivePriority": 1,
 						"targets": 0
 					},
@@ -1029,19 +1070,19 @@
 						"responsivePriority": 2,
 						"targets": -1
 					},
-					]
-				});
-			}
-		});
-		$(document).on('click', '.show_billing', function () {
-			if (!($("table#manage_tbl2").hasClass("dataTable"))) {
-				$('#manage_tbl2').dataTable({
-					"paging": true,
-					"searching": true,
-					"bInfo": true,
-					"responsive": true,
-					"pageLength": 50,
-					"columnDefs": [{
+				]
+			});
+		}
+	});
+	$(document).on('click', '.show_billing', function() {
+		if (!($("table#manage_tbl2").hasClass("dataTable"))) {
+			$('#manage_tbl2').dataTable({
+				"paging": true,
+				"searching": true,
+				"bInfo": true,
+				"responsive": true,
+				"pageLength": 50,
+				"columnDefs": [{
 						"responsivePriority": 1,
 						"targets": 0
 					},
@@ -1049,47 +1090,66 @@
 						"responsivePriority": 2,
 						"targets": -1
 					},
-					]
-				});
-			}
-		});
-		document.addEventListener('DOMContentLoaded', function () {
-			var tabLinks = document.querySelectorAll('.nav-tabs a.nav-link');
-			tabLinks.forEach(function (tabLink) {
-				tabLink.addEventListener('click', function (event) {
-					event.preventDefault();
-					var targetTabId = tabLink.getAttribute('href');
-					var tabParamsMap = {
-						'#tab-1': 'details',
-						'#tab-2': 'users',
-						'#tab-3': 'requests',
-						'#tab-4': 'bids',
-						'#tab-5': 'warehouses',
-						'#tab-6': 'airports',
-						'#tab-7': 'billing',
-					};
-					var tabParam = tabParamsMap[targetTabId];
-					var currentUrl = new URL(window.location.href);
-					currentUrl.searchParams.set('tab', tabParam);
-					history.replaceState(null, null, currentUrl);
-					$(targetTabId).tab('show');
-				});
+				]
 			});
-			var urlParams = new URLSearchParams(window.location.search);
-			var tabParam = urlParams.get('tab');
-			if (tabParam) {
-				var tabIdsMap = {
-					'details': '#tab-1',
-					'users': '#tab-2',
-					'requests': '#tab-3',
-					'bids': '#tab-4',
-					'warehouses': '#tab-5',
-					'airports': '#tab-6',
-					'billing': '#tab-7',
+		}
+	});
+	document.addEventListener('DOMContentLoaded', function() {
+		var tabLinks = document.querySelectorAll('.nav-tabs a.nav-link');
+		tabLinks.forEach(function(tabLink) {
+			tabLink.addEventListener('click', function(event) {
+				event.preventDefault();
+				var targetTabId = tabLink.getAttribute('href');
+				var tabParamsMap = {
+					'#tab-1': 'details',
+					'#tab-2': 'users',
+					'#tab-3': 'requests',
+					'#tab-4': 'bids',
+					'#tab-5': 'warehouses',
+					'#tab-6': 'airports',
+					'#tab-7': 'vehicle_posts',
+					'#tab-8': 'billing',
 				};
-				var tabId = tabIdsMap[tabParam];
-				$('a[href="' + tabId + '"]').tab('show');
+				var tabParam = tabParamsMap[targetTabId];
+				var currentUrl = new URL(window.location.href);
+				currentUrl.searchParams.set('tab', tabParam);
+				history.replaceState(null, null, currentUrl);
+				$(targetTabId).tab('show');
+			});
+		});
+		var urlParams = new URLSearchParams(window.location.search);
+		var tabParam = urlParams.get('tab');
+		if (tabParam) {
+			var tabIdsMap = {
+				'details': '#tab-1',
+				'users': '#tab-2',
+				'requests': '#tab-3',
+				'bids': '#tab-4',
+				'warehouses': '#tab-5',
+				'airports': '#tab-6',
+				'vehicle_posts': '#tab-7',
+				'billing': '#tab-8',
+			};
+			var tabId = tabIdsMap[tabParam];
+			$('a[href="' + tabId + '"]').tab('show');
+		}
+	});
+
+	$(document).on("click", ".btn_vehiclePost_edit", function() {
+		var id = $(this).attr('data-id');
+		$.ajax({
+			url: "{{ url('admin/vehicle-posts/show') }}",
+			type: 'POST',
+			dataType: 'json',
+			data: {
+				"_token": "{{ csrf_token() }}",
+				'id': id
+			},
+			success: function(status) {
+				$("#edit_modalbox_body").html(status.response);
+				$("#edit_modalbox").modal('show');
 			}
 		});
-	</script>
+	});
+</script>
 @endpush

@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\CompaniesController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\QuoteRequestController;
 use App\Http\Controllers\Admin\RFPController;
+use App\Http\Controllers\Admin\VehicleController;
 use App\Http\Controllers\Admin\WarehouseController;
 use Illuminate\Support\Facades\DB;
 
@@ -96,6 +97,10 @@ Route::group(['prefix'  =>  'admin'], function () {
 		Route::group(['prefix'  =>  'warehouses'], function () {
 			Route::get('/', [WarehouseController::class, 'index']);
 			Route::post('/show', [WarehouseController::class, 'show']);
+		});
+		Route::group(['prefix'  =>  'vehicle-posts'], function () {
+			Route::get('/', [VehicleController::class, 'index']);
+			Route::post('/show', [VehicleController::class, 'show']);
 		});
 	});
 });
