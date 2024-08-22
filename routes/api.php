@@ -3,6 +3,8 @@
 use App\Http\Controllers\API\AirportController;
 use App\Http\Controllers\API\CompanyManagementController;
 use App\Http\Controllers\API\CompanySearchController;
+use App\Http\Controllers\API\DriverAdController;
+use App\Http\Controllers\API\DriverResponseController;
 use App\Http\Controllers\API\QuoteBidsController;
 use App\Http\Controllers\API\User\AuthController;
 use App\Http\Controllers\API\QuoteRequestController;
@@ -12,6 +14,7 @@ use App\Http\Controllers\API\UserManagementController;
 use App\Http\Controllers\API\WarehouseController;
 use App\Http\Controllers\API\FilingsController;
 use App\Http\Controllers\API\VehiclePostController;
+use App\Models\DriverResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -122,5 +125,20 @@ Route::group([
         Route::post('/search', [VehiclePostController::class, 'search'])->name('searchVehiclePost');
         Route::post('/sendMail', [VehiclePostController::class, 'sendMail'])->name('sendMailVehiclePost');
         Route::post('/deleteMultiple', [VehiclePostController::class, 'deleteMultiple'])->name('deleteMultipleVehiclePost');
+    });
+
+    Route::group(['prefix' => 'driver-ads'], function ($router) {
+        Route::get('/allByCompany', [DriverAdController::class, 'index'])->name('allCompanyDriverAd');
+        Route::get('/show/{id}', [DriverAdController::class, 'show'])->name('showDriverAd');
+        Route::get('/showRecent', [DriverAdController::class, 'showRecent'])->name('showRecentDriverAd');
+        Route::post('/search', [DriverAdController::class, 'search'])->name('searchDriverAd');
+        Route::post('/store', [DriverAdController::class, 'store'])->name('addDriverAd');
+        Route::post('/update', [DriverAdController::class, 'update'])->name('updateDriverAd');
+    });
+    Route::group(['prefix' => 'driver-response'], function ($router) {
+        Route::post('/store', [DriverResponseController::class, 'store'])->name('addDriverResponse');
+        Route::get('/allReceivedByCompany', [DriverResponseController::class, 'allReceived'])->name('allReceivedByCompany');
+        Route::get('/allSentByCompany', [DriverResponseController::class, 'allSent'])->name('allSentByCompany');
+        Route::get('/show/{id}', [DriverResponseController::class, 'show'])->name('showresponse');
     });
 });

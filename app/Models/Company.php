@@ -84,4 +84,9 @@ class Company extends Model
     {
         return $this->hasMany(VehiclePost::class, 'company_id', 'id');
     }
+
+    public function driverAds()
+    {
+        return $this->hasMany(DriverAd::class, 'company_id', 'id');
+    }
 }

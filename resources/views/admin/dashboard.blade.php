@@ -80,6 +80,32 @@
 				</div>
 			</div>
 		</div>
+		<div class="col-lg-4">
+			<div class="ibox float-e-margins">
+				<div class="ibox-title">
+					<span class="label label-success pull-right">Total</span>
+					<h5>Vehicle Posts</h5>
+				</div>
+				<div class="ibox-content">
+					<h1 class="no-margins">{{count_records('vehicle_posts')}}</h1>
+					<div class="stat-percent font-bold text-primary"><a href="{{url('admin/vehicle-posts')}}"><span class="label label-primary">View</span></a></div>
+					<small>Posts</small>
+				</div>
+			</div>
+		</div>
+		<div class="col-lg-4">
+			<div class="ibox float-e-margins">
+				<div class="ibox-title">
+					<span class="label label-success pull-right">Total</span>
+					<h5>Driver Ads</h5>
+				</div>
+				<div class="ibox-content">
+					<h1 class="no-margins">{{count_records('driver_ads')}}</h1>
+					<div class="stat-percent font-bold text-primary"><a href="{{url('admin/driver-ads')}}"><span class="label label-primary">View</span></a></div>
+					<small>Ads</small>
+				</div>
+			</div>
+		</div>
 	</div>
 </div>
 @endsection

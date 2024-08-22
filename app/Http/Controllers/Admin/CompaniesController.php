@@ -38,6 +38,7 @@ class CompaniesController extends Controller
         $data['features'] = CompanyProfile::where('company_id', $company->id)->first();
         $data['warehouses'] = $company->Warehouses;
         $data['vehiclePosts'] = $company->vehiclePosts;
+        $data['driverAds'] = $company->driverAds;
         $companyAirports = $company->companyAirports;
         $data['airports'] = [];
         foreach ($companyAirports as $airport){

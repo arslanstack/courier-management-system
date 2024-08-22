@@ -42,6 +42,9 @@
             <li class="{{ Request::is('admin/vehicle-posts') ? 'active' : '' }} {{ Request::is('admin/vehicle-posts/*') ? 'active' : '' }}">
                 <a href="{{ url('admin/vehicle-posts') }}"><i class="fa-solid fa-car"></i> <span class="nav-label">Vehicle Posts</span></a>
             </li>
+            <li class="{{ Request::is('admin/driver-ads') ? 'active' : '' }} {{ Request::is('admin/driver-ads/*') ? 'active' : '' }}">
+                <a href="{{ url('admin/driver-ads') }}"><i class="fa-solid fa-drivers-license"></i> <span class="nav-label">Driver Ads</span></a>
+            </li>
         </ul>
     </div>
 </nav>

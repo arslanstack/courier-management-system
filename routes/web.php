@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Artisan;
 use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\CompaniesController;
+use App\Http\Controllers\Admin\DriverAdsController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\QuoteRequestController;
 use App\Http\Controllers\Admin\RFPController;
@@ -14,34 +15,34 @@ use App\Http\Controllers\Admin\WarehouseController;
 use Illuminate\Support\Facades\DB;
 
 Route::get('/migrate', function () {
-    Artisan::call('migrate');
-    return 'DONE'; // Return anything
+	Artisan::call('migrate');
+	return 'DONE'; // Return anything
 });
 Route::get('/migrate-refresh', function () {
-    Artisan::call('migrate:refresh');
-    return 'DONE'; // Return anything
+	Artisan::call('migrate:refresh');
+	return 'DONE'; // Return anything
 });
 Route::get('/migrate-rollback', function () {
-    Artisan::call('migrate:rollback');
-    return 'DONE'; // Return anything
+	Artisan::call('migrate:rollback');
+	return 'DONE'; // Return anything
 });
 Route::get(
-    '/',
-    function () {
-        return redirect()->route('admin.dashboard');
-    }
+	'/',
+	function () {
+		return redirect()->route('admin.dashboard');
+	}
 );
 
 Route::get('/clearcache', function () {
-    $exitCode = Artisan::call('config:clear');
-    $exitCode = Artisan::call('cache:clear');
-    $exitCode = Artisan::call('config:cache');
-    $exitCode = Artisan::call('view:clear');
-    $exitCode = Artisan::call('route:clear');
-    return 'DONE'; //Return anything
+	$exitCode = Artisan::call('config:clear');
+	$exitCode = Artisan::call('cache:clear');
+	$exitCode = Artisan::call('config:cache');
+	$exitCode = Artisan::call('view:clear');
+	$exitCode = Artisan::call('route:clear');
+	return 'DONE'; //Return anything
 });
 Route::get('/clearTables', function () {
-    DB::table('companies')->truncate();
+	DB::table('companies')->truncate();
 	DB::table('company_airports')->truncate();
 	DB::table('company_profiles')->truncate();
 	DB::table('quote_bids')->truncate();
@@ -68,11 +69,11 @@ Route::group(['prefix'  =>  'admin'], function () {
 		Route::post('update_password', [AdminController::class, 'update_password'])->middleware('auth:admin');
 
 
-        Route::group(['prefix'  =>  'companies'], function () {
+		Route::group(['prefix'  =>  'companies'], function () {
 			Route::get('/', [CompaniesController::class, 'index']);
 			Route::get('detail/{id}', [CompaniesController::class, 'details']);
 		});
-        Route::group(['prefix'  =>  'users'], function () {
+		Route::group(['prefix'  =>  'users'], function () {
 			Route::get('/', [UserController::class, 'index']);
 			Route::get('detail/{id}', [UserController::class, 'details']);
 		});
@@ -102,7 +103,10 @@ Route::group(['prefix'  =>  'admin'], function () {
 			Route::get('/', [VehicleController::class, 'index']);
 			Route::post('/show', [VehicleController::class, 'show']);
 		});
+		Route::group(['prefix'  =>  'driver-ads'], function () {
+			Route::get('/', [DriverAdsController::class, 'index']);
+			Route::get('detail/{id}', [DriverAdsController::class, 'show']);
+			Route::post('responseDetails', [DriverAdsController::class, 'responseDetails']);
+		});
 	});
 });
-
-

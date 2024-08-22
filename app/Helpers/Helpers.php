@@ -531,3 +531,45 @@ if (!function_exists('getFilingTable')) {
 		}
 	}
 }
+
+if (!function_exists('mapDriverType')) {
+	function mapDriverType($type)
+	{
+		switch ($type) {
+			case 0:
+				return 'Independent';
+			case 1:
+				return 'Full Time';
+			case 2:
+				return 'Part time';
+			case 3:
+				return 'Temporary';
+			case 4:
+				return 'Seasonal';
+			default:
+				return null;
+		}
+	}
+}
+
+if (!function_exists('mapExperience')) {
+	function mapExperience($type)
+	{
+		switch ($type) {
+			case 0:
+				return 'Any';
+			case 1:
+				return '0-6 Months';
+			case 2:
+				return '7-12 Months';
+			case 3:
+				return '13-18 Months';
+			case 4:
+				return '19-24 Months';
+			case 5:
+				return 'More Than 25 Months';
+			default:
+				return null;
+		}
+	}
+}

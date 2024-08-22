@@ -3823,7 +3823,7 @@
 							"formdata": [
 								{
 									"key": "vehicle_post_id",
-									"value": "2",
+									"value": "1",
 									"description": "Date of Availability for the trip",
 									"type": "text"
 								},
@@ -3908,7 +3908,7 @@
 								},
 								{
 									"key": "contact_email",
-									"value": "johnsnow@gmail.com",
+									"value": "alarmingcivil1@gmail.com",
 									"type": "text"
 								},
 								{
@@ -3967,25 +3967,25 @@
 							"formdata": [
 								{
 									"key": "date_available",
-									"value": "22-08-2024",
+									"value": "23-08-2024",
 									"description": "Date of Availability for the trip",
 									"type": "text"
 								},
 								{
 									"key": "vehicle_type",
-									"value": "1",
+									"value": "2",
 									"description": "0 any, 1: car and so on",
 									"type": "text"
 								},
 								{
 									"key": "city",
-									"value": "Manhattan",
+									"value": "Chicago",
 									"description": "City",
 									"type": "text"
 								},
 								{
 									"key": "state",
-									"value": "New York",
+									"value": "Illinois",
 									"description": "State",
 									"type": "text"
 								},
@@ -4003,7 +4003,7 @@
 								},
 								{
 									"key": "zip",
-									"value": "10021",
+									"value": "60000",
 									"description": "zip code for start point",
 									"type": "text"
 								},
@@ -4066,7 +4066,7 @@
 							"formdata": [
 								{
 									"key": "vehicle_post_id",
-									"value": "7",
+									"value": "1",
 									"description": "Vehicle Post ID",
 									"type": "text"
 								},
@@ -4141,7 +4141,7 @@
 							"formdata": [
 								{
 									"key": "vehicle_post_ids",
-									"value": "[4,5]",
+									"value": "[1]",
 									"description": "Ids of all selected records",
 									"type": "text"
 								}
@@ -4216,14 +4216,787 @@
 							}
 						],
 						"url": {
-							"raw": "{{base_url}}/vehicle-posts/show/2",
+							"raw": "{{base_url}}/vehicle-posts/show/1",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
 								"vehicle-posts",
 								"show",
-								"2"
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Driver Ad Posts",
+			"item": [
+				{
+					"name": "Post A Driver Ad",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "type",
+									"value": "0",
+									"description": "0: Independent, 1: Full Time, 2: Part time, 3: Temporary, 4: Seasonal ",
+									"type": "text"
+								},
+								{
+									"key": "compensation",
+									"value": "12000 - 16000",
+									"description": "Value or Range",
+									"type": "text"
+								},
+								{
+									"key": "compensation_type",
+									"value": "Per Month",
+									"description": "Per Week, Per Day, Per Hour, Per Month or Custom",
+									"type": "text"
+								},
+								{
+									"key": "vehicle_types",
+									"value": "[0,1,2,3]",
+									"description": "Array of Vehicle Types e.g.  \t0=Any, 1 - car, 2 - minivan, 3 - suv, 4 - cargo van, 5 - sprinter, 6 - covered pickup, 7 - 16 ft Box Truck, 8 - and so on till 14 - Tractor Trailer \t",
+									"type": "text"
+								},
+								{
+									"key": "reefer",
+									"value": "0",
+									"description": "0 : No , 1: Yes Required",
+									"type": "text"
+								},
+								{
+									"key": "hazmat",
+									"value": "1",
+									"description": "0 : No , 1: Yes Required",
+									"type": "text"
+								},
+								{
+									"key": "lift_gate",
+									"value": "0",
+									"description": "0 : No , 1: Yes Required",
+									"type": "text"
+								},
+								{
+									"key": "tsa_certified",
+									"value": "1",
+									"description": "0 : No , 1: Yes Required",
+									"type": "text"
+								},
+								{
+									"key": "city",
+									"value": "Chicago",
+									"description": "Required",
+									"type": "text"
+								},
+								{
+									"key": "state",
+									"value": "Illinois",
+									"description": "Required",
+									"type": "text"
+								},
+								{
+									"key": "zip",
+									"value": "60007",
+									"description": "Optional",
+									"type": "text"
+								},
+								{
+									"key": "experience",
+									"value": "1",
+									"description": "0: Any, 1: 0-6 mo, 2: 7-12 mo, 3: 13-18 mo, 4: 19-24 mo, 5: more than 24 mo",
+									"type": "text"
+								},
+								{
+									"key": "insurance_coverage",
+									"value": "1200",
+									"description": "amount",
+									"type": "text"
+								},
+								{
+									"key": "company_name",
+									"value": "Hancox Logistics",
+									"description": "Required",
+									"type": "text"
+								},
+								{
+									"key": "show_company_name",
+									"value": "1",
+									"description": "0: No 1: Yes",
+									"type": "text"
+								},
+								{
+									"key": "ad_title",
+									"value": "Driver Wanted Independent Contractor Chicago With Benefits & Allowances",
+									"description": "Required",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.",
+									"description": "Required",
+									"type": "text"
+								},
+								{
+									"key": "response_info",
+									"value": "Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.",
+									"description": "Optional",
+									"type": "text"
+								},
+								{
+									"key": "company_logo",
+									"description": "Optional",
+									"type": "file",
+									"src": "postman-cloud:///1ef60752-26cf-41e0-9003-b1bcf71b81a4"
+								},
+								{
+									"key": "contact_email",
+									"value": "red@gmail.com",
+									"description": "Required",
+									"type": "text"
+								},
+								{
+									"key": "div_id",
+									"value": "929",
+									"description": "Optional",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/driver-ads/store",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"driver-ads",
+								"store"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update A Driver Ad",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "driver_ad_id",
+									"value": "3",
+									"description": "id of that ad",
+									"type": "text"
+								},
+								{
+									"key": "type",
+									"value": "0",
+									"description": "0: Independent, 1: Full Time, 2: Part time, 3: Temporary, 4: Seasonal ",
+									"type": "text"
+								},
+								{
+									"key": "compensation",
+									"value": "12000 - 16000",
+									"description": "Array of Vehicle Types e.g.  \t0=Any, 1 - car, 2 - minivan, 3 - suv, 4 - cargo van, 5 - sprinter, 6 - covered pickup, 7 - 16 ft Box Truck, 8 - and so on till 14 - Tractor Trailer \t",
+									"type": "text"
+								},
+								{
+									"key": "compensation_type",
+									"value": "Per Month",
+									"description": "0 : No , 1: Yes Required",
+									"type": "text"
+								},
+								{
+									"key": "vehicle_types",
+									"value": "[0,1,2,3]",
+									"description": "0 : No , 1: Yes Required",
+									"type": "text"
+								},
+								{
+									"key": "reefer",
+									"value": "0",
+									"description": "0 : No , 1: Yes Required",
+									"type": "text"
+								},
+								{
+									"key": "hazmat",
+									"value": "1",
+									"description": "0 : No , 1: Yes Required",
+									"type": "text"
+								},
+								{
+									"key": "lift_gate",
+									"value": "0",
+									"description": "Required",
+									"type": "text"
+								},
+								{
+									"key": "tsa_certified",
+									"value": "1",
+									"description": "Required",
+									"type": "text"
+								},
+								{
+									"key": "city",
+									"value": "Chicago",
+									"description": "Optional",
+									"type": "text"
+								},
+								{
+									"key": "state",
+									"value": "Illinois",
+									"description": "0: Any, 1: 0-6 mo, 2: 7-12 mo, 3: 13-18 mo, 4: 19-24 mo, 5: more than 24 mo",
+									"type": "text"
+								},
+								{
+									"key": "zip",
+									"value": "60007",
+									"description": "amount",
+									"type": "text"
+								},
+								{
+									"key": "experience",
+									"value": "1",
+									"description": "Required",
+									"type": "text"
+								},
+								{
+									"key": "insurance_coverage",
+									"value": "1200",
+									"description": "0: No 1: Yes",
+									"type": "text"
+								},
+								{
+									"key": "company_name",
+									"value": "Hancox Logistics",
+									"description": "Required",
+									"type": "text"
+								},
+								{
+									"key": "show_company_name",
+									"value": "1",
+									"description": "Required",
+									"type": "text"
+								},
+								{
+									"key": "ad_title",
+									"value": "Driver Wanted Independent Contractor Chicago With Benefits & Allowances",
+									"description": "Optional",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.",
+									"description": "Optional",
+									"type": "text"
+								},
+								{
+									"key": "response_info",
+									"value": "Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.",
+									"description": "Required",
+									"type": "text"
+								},
+								{
+									"key": "contact_email",
+									"value": "red@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "div_id",
+									"value": "929",
+									"type": "text"
+								},
+								{
+									"key": "company_logo",
+									"type": "file",
+									"src": "postman-cloud:///1ef60752-26cf-41e0-9003-b1bcf71b81a4"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/driver-ads/update",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"driver-ads",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Company Driver Ads",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						},
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{base_url}}/driver-ads/allByCompany",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"driver-ads",
+								"allByCompany"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Show Single Ad",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						},
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{base_url}}/driver-ads/show/3",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"driver-ads",
+								"show",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Show Recent Ads Paginated",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						},
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{base_url}}/driver-ads/showRecent?page=1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"driver-ads",
+								"showRecent"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search Driver Ads",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "city",
+									"value": "Chicago",
+									"type": "text"
+								},
+								{
+									"key": "state",
+									"value": "Illinois",
+									"type": "text"
+								},
+								{
+									"key": "zip",
+									"value": "60007",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/driver-ads/search",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"driver-ads",
+								"search"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Driver Ad Responses",
+			"item": [
+				{
+					"name": "Post A Response",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "driver_ad_id",
+									"value": "3",
+									"description": "ID of driver ad post for which applying",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "John F Kennedy",
+									"description": "Driver Name",
+									"type": "text"
+								},
+								{
+									"key": "city",
+									"value": "Chicago",
+									"description": "Driver City",
+									"type": "text"
+								},
+								{
+									"key": "state",
+									"value": "Illinois",
+									"description": "Driver State",
+									"type": "text"
+								},
+								{
+									"key": "vehicle_types",
+									"value": "[0,1,2,3]",
+									"description": "Driver Vehicle",
+									"type": "text"
+								},
+								{
+									"key": "contact_email",
+									"value": "arslan@gmail.com",
+									"description": "Driver Email",
+									"type": "text"
+								},
+								{
+									"key": "contact_phone",
+									"value": "+1987265121",
+									"description": "Driver Phone",
+									"type": "text"
+								},
+								{
+									"key": "message",
+									"value": "All the details and bids etc.",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/driver-response/store",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"driver-response",
+								"store"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "all Received Resonses",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						},
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{base_url}}/driver-response/allReceivedByCompany",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"driver-response",
+								"allReceivedByCompany"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "all Sent Resonses",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						},
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{base_url}}/driver-response/allSentByCompany",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"driver-response",
+								"allSentByCompany"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "show one",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						},
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "driver_ad_id",
+									"value": "3",
+									"description": "ID of driver ad post for which applying",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "John F Kennedy",
+									"description": "Driver Name",
+									"type": "text"
+								},
+								{
+									"key": "city",
+									"value": "Chicago",
+									"description": "Driver City",
+									"type": "text"
+								},
+								{
+									"key": "state",
+									"value": "Illinois",
+									"description": "Driver State",
+									"type": "text"
+								},
+								{
+									"key": "vehicle_types",
+									"value": "[0,1,2,3]",
+									"description": "Driver Vehicle",
+									"type": "text"
+								},
+								{
+									"key": "contact_email",
+									"value": "arslan@gmail.com",
+									"description": "Driver Email",
+									"type": "text"
+								},
+								{
+									"key": "contact_phone",
+									"value": "+1987265121",
+									"description": "Driver Phone",
+									"type": "text"
+								},
+								{
+									"key": "message",
+									"value": "All the details and bids etc.",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/driver-response/show/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"driver-response",
+								"show",
+								"1"
 							]
 						}
 					},
@@ -4262,8 +5035,13 @@
 		},
 		{
 			"key": "access_token",
-			"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0L2NvdXJpZXJib2FyZC9hcGkvYXV0aC91c2VyL2xvZ2luIiwiaWF0IjoxNzI0MjM2Mjk3LCJleHAiOjE3MjU0NDU4OTcsIm5iZiI6MTcyNDIzNjI5NywianRpIjoid2Y2SjVTSUpvNHZ3VmlOMiIsInN1YiI6IjQiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.How3OE9s1TRdjAWwRBc1lmSVg4PYK--4jvTIxn4H_Q0",
+			"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0L2NvdXJpZXJib2FyZC9hcGkvYXV0aC91c2VyL2xvZ2luIiwiaWF0IjoxNzI0MzIzNzM1LCJleHAiOjE3MjU1MzMzMzUsIm5iZiI6MTcyNDMyMzczNSwianRpIjoibUxwNGxYRnJYaW9MZlc4ZCIsInN1YiI6IjMiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.MQFWT8bb1nIVDKepQCIxuaoi9yfdJdZSscCMU1p0O0Q",
 			"type": "string"
+		},
+		{
+			"value": "",
+			"type": "string",
+			"disabled": true
 		}
 	]
 }

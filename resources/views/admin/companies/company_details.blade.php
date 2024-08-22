@@ -38,7 +38,8 @@
 					<li class="show_airports"><a class="nav-link" data-toggle="tab" id="tab6-link" href="#tab-6">Airport
 							Operations</a></li>
 					<li class="show_vehicle_posts"><a class="nav-link" data-toggle="tab" id="tab7-link" href="#tab-7">Vehicle Posts</a></li>
-					<li class="show_billing"><a class="nav-link" data-toggle="tab" id="tab8-link" href="#tab-8">Billing
+					<li class="show_driver_ads"><a class="nav-link" data-toggle="tab" id="tab8-link" href="#tab-8">Driver Ads</a></li>
+					<li class="show_billing"><a class="nav-link" data-toggle="tab" id="tab9-link" href="#tab-9">Billing
 							History</a></li>
 				</ul>
 				<div class="tab-content">
@@ -1000,6 +1001,47 @@
 					<div id="tab-8" class="tab-pane" role="tabpanel">
 						<div class="ibox">
 							<div class="ibox-title">
+								<h5>Driver Ads</h5>
+							</div>
+							<div class="ibox-content">
+								<div class="table-responsive">
+									<table id="manage_tbl" class="table table-striped table-bordered dt-responsive" style="width:100%">
+										<thead>
+											<tr>
+												<th>Sr #</th>
+												<th>Company</th>
+												<th>City</th>
+												<th>State</th>
+												<th>Zip</th>
+												<th>Posted On</th>
+												<th>Action</th>
+											</tr>
+										</thead>
+										<tbody>
+											@php($i = 1)
+											@foreach($driverAds as $item)
+											<tr class="gradeX">
+												<td>{{ $i++ }}</td>
+												<td>{{ $item->company->name }}</td>
+												<td>{{$item->city}}</td>
+												<td>{{$item->state}}</td>
+												<td>{{$item->zip ?? '-'}}</td>
+												<td>{{formated_date($item->created_at)}}</td>
+
+												<td>
+													<a href="{{ url('admin/driver-ads/detail') }}/{{ $item->id }}" class="btn btn-primary btn-sm" data-placement="top" title="Details"><i class="fa-solid fa-file-text-o"></i> Details </a>
+												</td>
+											</tr>
+											@endforeach
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div id="tab-9" class="tab-pane" role="tabpanel">
+						<div class="ibox">
+							<div class="ibox-title">
 								<h5>Billing History</h5>
 							</div>
 							<div class="ibox-content">
@@ -1108,7 +1150,8 @@
 					'#tab-5': 'warehouses',
 					'#tab-6': 'airports',
 					'#tab-7': 'vehicle_posts',
-					'#tab-8': 'billing',
+					'#tab-8': 'driver_ads',
+					'#tab-9': 'billing',
 				};
 				var tabParam = tabParamsMap[targetTabId];
 				var currentUrl = new URL(window.location.href);
@@ -1128,7 +1171,8 @@
 				'warehouses': '#tab-5',
 				'airports': '#tab-6',
 				'vehicle_posts': '#tab-7',
-				'billing': '#tab-8',
+				'driver_ads': '#tab-8',
+				'billing': '#tab-9',
 			};
 			var tabId = tabIdsMap[tabParam];
 			$('a[href="' + tabId + '"]').tab('show');
