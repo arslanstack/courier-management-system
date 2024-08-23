@@ -4,6 +4,7 @@ use App\Http\Controllers\API\AirportController;
 use App\Http\Controllers\API\CompanyManagementController;
 use App\Http\Controllers\API\CompanySearchController;
 use App\Http\Controllers\API\DriverAdController;
+use App\Http\Controllers\API\DriverContactListController;
 use App\Http\Controllers\API\DriverResponseController;
 use App\Http\Controllers\API\QuoteBidsController;
 use App\Http\Controllers\API\User\AuthController;
@@ -140,5 +141,12 @@ Route::group([
         Route::get('/allReceivedByCompany', [DriverResponseController::class, 'allReceived'])->name('allReceivedByCompany');
         Route::get('/allSentByCompany', [DriverResponseController::class, 'allSent'])->name('allSentByCompany');
         Route::get('/show/{id}', [DriverResponseController::class, 'show'])->name('showresponse');
+    });
+    Route::group(['prefix' => 'driver-list'], function ($router) {
+        Route::post('/store', [DriverContactListController::class, 'store'])->name('addToList');
+        Route::post('/delete', [DriverContactListController::class, 'delete'])->name('delFromList');
+        Route::post('/sendMail', [DriverContactListController::class, 'sendMail'])->name('sendMailFromList');
+        Route::get('/allCompanyContactItems', [DriverContactListController::class, 'index'])->name('allCompanyContactItems');
+
     });
 });

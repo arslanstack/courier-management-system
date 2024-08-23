@@ -11,28 +11,32 @@ use Illuminate\Support\Facades\Validator;
 
 class DriverResponseController extends Controller
 {
-    public function allReceived(){
-        $driverResponses = DriverResponse::whereHas('driverAd', function($query){
+    public function allReceived()
+    {
+        $driverResponses = DriverResponse::whereHas('driverAd', function ($query) {
             $query->where('company_id', Auth::user()->company_id);
         })->with('driverAd')->with('user')->get();
         return response()->json(['msg' => 'success', 'response' => 'Data retreived successfully', 'data' => $driverResponses], 200);
     }
 
-    public function allSent(Request $request){
+    public function allSent(Request $request)
+    {
         $driverResponses = DriverResponse::where('company_id', Auth::user()->company_id)->with('driverAd')->get();
         return response()->json(['msg' => 'success', 'response' => 'Data retreived successfully', 'data' => $driverResponses], 200);
     }
 
-    public function show($id){
+    public function show($id)
+    {
         $driverResponse = DriverResponse::where('id', $id)->with('driverAd')->with('user')->first();
-        if(!$driverResponse){
+        if (!$driverResponse) {
             return response()->json(['msg' => 'error', 'response' => 'Response not found'], 404);
         }
         return response()->json(['msg' => 'success', 'response' => 'Data retreived successfully.', 'data' => $driverResponse], 200);
     }
 
-    public function store(Request $request){
-        
+    public function store(Request $request)
+    {
+
         $validator = Validator::make($request->all(), [
             'driver_ad_id' => 'required',
             'name' => 'required',
@@ -50,11 +54,11 @@ class DriverResponseController extends Controller
 
         $driverAd = DriverAd::find($request->driver_ad_id);
 
-        if(!$driverAd){
+        if (!$driverAd) {
             return response()->json(['msg' => 'error', 'response' => 'Driver Ad not found'], 404);
         }
 
-        if(Auth::user()->company_id == $driverAd->company_id){
+        if (Auth::user()->company_id == $driverAd->company_id) {
             return response()->json(['msg' => 'error', 'response' => 'You cannot respond to your own ad.'], 401);
         }
 
@@ -72,9 +76,9 @@ class DriverResponseController extends Controller
         $driverResponse->status = 1;
         $query = $driverResponse->save();
         // Send Mails if asked in future
-        if($query){
+        if ($query) {
             return response()->json(['msg' => 'success', 'response' => 'Response submitted successfully'], 200);
-        }else{
+        } else {
             return response()->json(['msg' => 'error', 'response' => 'Error submitting response'], 500);
         }
     }
