@@ -136,6 +136,7 @@ class DriverContactListController extends Controller
         }
 
         $listItem->email_sent = 1;
+        
         $query = $listItem->save();
 
         if (!$query) {

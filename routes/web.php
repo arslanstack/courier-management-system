@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\AirportController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Artisan;
 use App\Http\Controllers\Admin\AuthController;
+use App\Http\Controllers\Admin\ClassifiedController;
 use App\Http\Controllers\Admin\CompaniesController;
 use App\Http\Controllers\Admin\DriverAdsController;
 use App\Http\Controllers\Admin\UserController;
@@ -107,6 +108,10 @@ Route::group(['prefix'  =>  'admin'], function () {
 			Route::get('/', [DriverAdsController::class, 'index']);
 			Route::get('detail/{id}', [DriverAdsController::class, 'show']);
 			Route::post('responseDetails', [DriverAdsController::class, 'responseDetails']);
+		});
+		Route::group(['prefix'  =>  'classifieds'], function () {
+			Route::get('/', [ClassifiedController::class, 'index']);
+			Route::post('show', [ClassifiedController::class, 'show']);
 		});
 	});
 });

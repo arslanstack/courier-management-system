@@ -33,6 +33,7 @@ class User extends Authenticatable implements JWTSubject
         'has_acc_info',
         'has_post_func',
         'has_alerts',
+        'screen_name',
     ];
 
     /**

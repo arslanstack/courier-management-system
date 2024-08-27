@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\API\AirportController;
+use App\Http\Controllers\API\ClassifiedController;
 use App\Http\Controllers\API\CompanyManagementController;
 use App\Http\Controllers\API\CompanySearchController;
 use App\Http\Controllers\API\DriverAdController;
@@ -147,6 +148,12 @@ Route::group([
         Route::post('/delete', [DriverContactListController::class, 'delete'])->name('delFromList');
         Route::post('/sendMail', [DriverContactListController::class, 'sendMail'])->name('sendMailFromList');
         Route::get('/allCompanyContactItems', [DriverContactListController::class, 'index'])->name('allCompanyContactItems');
-
+    });
+    Route::group(['prefix' => 'classified'], function ($router) {
+        Route::post('/store', [ClassifiedController::class, 'store'])->name('addClassified');
+        Route::post('/reply', [ClassifiedController::class, 'reply'])->name('replyClassified');
+        Route::post('/setScreenName', [ClassifiedController::class, 'setScreenName'])->name('sendMailClassified');
+        Route::get('/all', [ClassifiedController::class, 'index'])->name('allClassified');
+        Route::get('/show/{id}', [ClassifiedController::class, 'show'])->name('showClassified');
     });
 });

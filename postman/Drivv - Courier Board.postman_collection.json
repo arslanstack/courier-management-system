@@ -705,8 +705,7 @@
 							"formdata": [
 								{
 									"key": "username",
-									"value": "red@gmail.com",
-									"description": "x",
+									"value": "john@gmail.com",
 									"type": "text"
 								},
 								{
@@ -5123,7 +5122,7 @@
 							"formdata": [
 								{
 									"key": "list_item_id",
-									"value": "2",
+									"value": "1",
 									"description": "id of item to delete from list",
 									"type": "text"
 								},
@@ -5197,6 +5196,258 @@
 					"response": []
 				}
 			]
+		},
+		{
+			"name": "Classified Ads",
+			"item": [
+				{
+					"name": "Set Screen Name for Author",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "screen_name",
+									"value": "redfox",
+									"description": "id of item to delete from list",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/classified/setScreenName",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"classified",
+								"setScreenName"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Store Classified",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "location",
+									"value": "Chicago",
+									"type": "text"
+								},
+								{
+									"key": "state",
+									"value": "Illinois",
+									"type": "text"
+								},
+								{
+									"key": "category",
+									"value": "5",
+									"type": "text"
+								},
+								{
+									"key": "title",
+									"value": "We need merchandiser for our warehouses",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Lorem ipsum dolor sit amet. Et corporis magni non laudantium rerum ab nisi quia ut praesentium itaque ea ullam repudiandae cum possimus rerum. Aut consectetur nihil in tempore praesentium ut unde ipsa eum deleniti sint sit incidunt dolor qui expedita expedita. Et sunt ducimus sed soluta blanditiis sit suscipit veritatis sit unde debitis ad consequatur soluta quo maiores voluptatem quo sequi dolorem!\n\nQui asperiores dignissimos eum itaque omnis sed exercitationem velit qui asperiores dolorum aut error veritatis. Ut commodi commodi ex nostrum laudantium qui eveniet internos aut tenetur voluptatem qui ducimus voluptas. Ad esse debitis ut magnam autem ut sapiente dolores nam consequuntur dicta qui modi omnis. Quo quia officia cum fugit galisum aut distinctio galisum 33 delectus pariatur qui consequatur inventore et facere nisi.",
+									"type": "text"
+								},
+								{
+									"key": "photo",
+									"type": "file",
+									"src": "postman-cloud:///1ef60752-26cf-41e0-9003-b1bcf71b81a4"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/classified/store",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"classified",
+								"store"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Send Reply",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "classified_id",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "subject",
+									"value": "We can provide you with merchandisers for your warehouses",
+									"type": "text"
+								},
+								{
+									"key": "message",
+									"value": "Lorem ipsum dolor sit amet. Et corporis magni non laudantium rerum ab nisi quia ut praesentium itaque ea ullam repudiandae cum possimus rerum. Aut consectetur nihil in tempore praesentium ut unde ipsa eum deleniti sint sit incidunt dolor qui expedita expedita. Et sunt ducimus sed soluta blanditiis sit suscipit veritatis sit unde debitis ad consequatur soluta quo maiores voluptatem quo sequi dolorem!\n\nQui asperiores dignissimos eum itaque omnis sed exercitationem velit qui asperiores dolorum aut error veritatis. Ut commodi commodi ex nostrum laudantium qui eveniet internos aut tenetur voluptatem qui ducimus voluptas. Ad esse debitis ut magnam autem ut sapiente dolores nam consequuntur dicta qui modi omnis. Quo quia officia cum fugit galisum aut distinctio galisum 33 delectus pariatur qui consequatur inventore et facere nisi.",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/classified/reply",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"classified",
+								"reply"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Fetch Classifieds",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						},
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{base_url}}/classified/all",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"classified",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Show Classified",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						},
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{base_url}}/classified/show/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"classified",
+								"show",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
 		}
 	],
 	"event": [
@@ -5229,7 +5480,7 @@
 		},
 		{
 			"key": "access_token",
-			"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0L2NvdXJpZXJib2FyZC9hcGkvYXV0aC91c2VyL2xvZ2luIiwiaWF0IjoxNzI0NDE0MDE1LCJleHAiOjE3MjU2MjM2MTUsIm5iZiI6MTcyNDQxNDAxNSwianRpIjoiSWpvQ3prYXJHcDYxNlFlZSIsInN1YiI6IjQiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.RtmKbPCw-BsaeDESmgSvS8db_6GE9Os8XYQFWI9ZORE",
+			"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL2V4cGxvcmVsb2dpY3NpdC5uZXQvZHJpdnYvcG9ydGFsL2FwaS9hdXRoL3VzZXIvbG9naW4iLCJpYXQiOjE3MjQ2NzQ4ODksImV4cCI6MTcyNTg4NDQ4OSwibmJmIjoxNzI0Njc0ODg5LCJqdGkiOiJkWmVYZWc4TkxVUFAxRjVxIiwic3ViIjoiMiIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.rO7tuURykB-7PvZgGEIhKNCMGvw4787lM6KJthDWHbQ",
 			"type": "string"
 		},
 		{

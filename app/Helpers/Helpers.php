@@ -573,3 +573,25 @@ if (!function_exists('mapExperience')) {
 		}
 	}
 }
+
+if (!function_exists('mapCategory')) {
+	function mapCategory($type)
+	{
+		switch ($type) {
+			case 0:
+				return 'For Sale';
+			case 1:
+				return 'Help Wanted';
+			case 2:
+				return 'Other';
+			case 3:
+				return 'Position Sought';
+			case 4:
+				return 'Want to Purchase';
+			case 5:
+				return 'Warehousing';
+			default:
+				return null;
+		}
+	}
+}
