@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\API\AirportController;
+use App\Http\Controllers\API\ChatController;
 use App\Http\Controllers\API\ClassifiedController;
 use App\Http\Controllers\API\CompanyManagementController;
 use App\Http\Controllers\API\CompanySearchController;
@@ -24,6 +25,7 @@ Route::group([
     'middleware' => 'api',
     'prefix' => 'auth/user'
 ], function ($router) {
+
     Route::post('/register', [AuthController::class, 'register'])->name('register');
     Route::post('/homepage-register', [AuthController::class, 'homepage_register'])->name('homepage_register');
     Route::post('/premium-register', [AuthController::class, 'premium_register'])->name('premium_register');
@@ -35,11 +37,13 @@ Route::group([
     Route::get('/me', [AuthController::class, 'me'])->middleware('auth:api')->name('me');
     Route::post('/updateProfile', [AuthController::class, 'updateProfile'])->middleware('auth:api')->name('updateProfile');
     Route::post('/updatePassword', [AuthController::class, 'updatePassword'])->middleware('auth:api')->name('updatePassword');
+    
 });
 
 Route::group([
     'middleware' => ['api', 'auth:api'],
 ], function ($router) {
+
     Route::group(['prefix' => 'quote-request'], function ($router) {
         Route::get('/allByUser', [QuoteRequestController::class, 'allByUser'])->name('all_requests_by_user');
         Route::get('/show/{id}', [QuoteRequestController::class, 'show'])->name('one_Request_show');
@@ -49,12 +53,14 @@ Route::group([
         Route::post('/submit', [QuoteRequestController::class, 'store'])->name('store_request');
         Route::post('/search', [QuoteRequestController::class, 'searchQuoteRequest'])->name('searchQuoteRequest');
     });
+
     Route::group(['prefix' => 'quote-bids'], function ($router) {
         Route::get('/allOnRequest/{request_id}', [QuoteBidsController::class, 'show'])->name('all_on_request');
         Route::get('/allByUser', [QuoteBidsController::class, 'showByUser'])->name('show_user_bids');
         Route::get('/allByCompany/{company_id}', [QuoteBidsController::class, 'showByCompany'])->name('show_company_bids');
         Route::post('/submit', [QuoteBidsController::class, 'store'])->name('store');
     });
+
     Route::group(['prefix' => 'rfps'], function ($router) {
         Route::get('/allByUser', [RFPController::class, 'allByUser'])->name('all_rfp_by_user');
         Route::get('/allByCompany/{company_id}', [RFPController::class, 'allByCompany'])->name('all_rfp_by_company');
@@ -63,12 +69,14 @@ Route::group([
         Route::post('/search', [RFPController::class, 'searchRFP'])->name('searchRFP');
         Route::post('/update', [RFPController::class, 'update'])->name('update_rfp');
     });
+
     Route::group(['prefix' => 'rfp-bids'], function ($router) {
         Route::get('/allOnRFP/{rfp_id}', [RFPBidsController::class, 'show'])->name('all_on_request');
         Route::get('/allByUser', [RFPBidsController::class, 'showByUser'])->name('show_user_bids');
         Route::get('/allByCompany/{company_id}', [RFPBidsController::class, 'showByCompany'])->name('show_company_bids');
         Route::post('/submit', [RFPBidsController::class, 'store'])->name('store');
     });
+
     Route::group(['prefix' => 'user-management'], function ($router) {
         Route::post('/create', [UserManagementController::class, 'createUser'])->name('createUser');
         Route::post('/update', [UserManagementController::class, 'updateUser'])->name('updateUser');
@@ -78,6 +86,7 @@ Route::group([
         Route::get('/all', [UserManagementController::class, 'allUsers'])->name('allUsers');
         Route::get('/show/{userid}', [UserManagementController::class, 'showUser'])->name('showUser');
     });
+
     Route::group(['prefix' => 'company-management'], function ($router) {
         Route::post('/updateAlerts', [CompanyManagementController::class, 'updateCompanyAlertMails'])->name('updateCompanyAlertMails');
         Route::post('/updateAlertPref', [CompanyManagementController::class, 'updateAlertPref'])->name('updateAlertPref');
@@ -87,6 +96,7 @@ Route::group([
         Route::post('/UpdateChecklist', [CompanyManagementController::class, 'UpdateChecklist'])->name('UpdateChecklist');
         Route::get('/getCompanyFeaturesCheckList', [CompanyManagementController::class, 'showFeaturesChecklist'])->name('getCompanyFeaturesCheckList');
     });
+
     Route::group(['prefix' => 'airports'], function ($router) {
         Route::get('/getAll', [AirportController::class, 'index'])->name('getAllAirports');
         Route::get('/getOne/{id}', [AirportController::class, 'show'])->name('getOneAirports');
@@ -95,12 +105,14 @@ Route::group([
         Route::post('/addAirportToCompany', [AirportController::class, 'store'])->name('addAirportToCompany');
         Route::post('/updateAirportOperationStatus', [AirportController::class, 'update'])->name('updateAirportOperationStatus');
     });
+
     Route::group(['prefix' => 'warehouses'], function ($router) {
         Route::get('/getCompanyWarehouses', [WarehouseController::class, 'index'])->name('getCompanyWarehouses');
         Route::get('/getWarehouseDetails/{id}', [WarehouseController::class, 'show'])->name('getWarehouseDetails');
         Route::post('/addWarehouse', [WarehouseController::class, 'store'])->name('addWarehouse');
         Route::post('/updateWarehouse', [WarehouseController::class, 'update'])->name('updateWarehouse');
     });
+
     Route::group(['prefix' => 'company-search'], function ($router) {
         Route::post('/searchByLocation', [CompanySearchController::class, 'searchByLocation'])->name('searchByLocation');
         Route::post('/searchByStates', [CompanySearchController::class, 'searchByStates'])->name('searchByStates');
@@ -108,6 +120,7 @@ Route::group([
         Route::post('/searchByName', [CompanySearchController::class, 'searchByName'])->name('searchByName');
         Route::post('/searchByWarehouse', [CompanySearchController::class, 'searchByWarehouse'])->name('searchByWarehouse');
     });
+
     Route::group(['prefix' => 'filing-cabinet'], function ($router) {
         Route::post('/addPostToCabinet', [FilingsController::class, 'store'])->name('addPostToCabinet');
         Route::post('/addNoteToFilings', [FilingsController::class, 'addNote'])->name('addNoteToFilings');
@@ -137,18 +150,21 @@ Route::group([
         Route::post('/store', [DriverAdController::class, 'store'])->name('addDriverAd');
         Route::post('/update', [DriverAdController::class, 'update'])->name('updateDriverAd');
     });
+
     Route::group(['prefix' => 'driver-response'], function ($router) {
         Route::post('/store', [DriverResponseController::class, 'store'])->name('addDriverResponse');
         Route::get('/allReceivedByCompany', [DriverResponseController::class, 'allReceived'])->name('allReceivedByCompany');
         Route::get('/allSentByCompany', [DriverResponseController::class, 'allSent'])->name('allSentByCompany');
         Route::get('/show/{id}', [DriverResponseController::class, 'show'])->name('showresponse');
     });
+
     Route::group(['prefix' => 'driver-list'], function ($router) {
         Route::post('/store', [DriverContactListController::class, 'store'])->name('addToList');
         Route::post('/delete', [DriverContactListController::class, 'delete'])->name('delFromList');
         Route::post('/sendMail', [DriverContactListController::class, 'sendMail'])->name('sendMailFromList');
         Route::get('/allCompanyContactItems', [DriverContactListController::class, 'index'])->name('allCompanyContactItems');
     });
+
     Route::group(['prefix' => 'classified'], function ($router) {
         Route::post('/store', [ClassifiedController::class, 'store'])->name('addClassified');
         Route::post('/reply', [ClassifiedController::class, 'reply'])->name('replyClassified');
@@ -156,4 +172,10 @@ Route::group([
         Route::get('/all', [ClassifiedController::class, 'index'])->name('allClassified');
         Route::get('/show/{id}', [ClassifiedController::class, 'show'])->name('showClassified');
     });
+
+    Route::group(['prefix' => 'chat'], function ($router) {
+        Route::post('/sendMessage', [ChatController::class, 'send'])->name('sendMessage');
+        Route::post('/getThread', [ChatController::class, 'getThread'])->name('getThread');
+    });
+
 });

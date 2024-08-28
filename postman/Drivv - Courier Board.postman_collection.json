@@ -705,7 +705,7 @@
 							"formdata": [
 								{
 									"key": "username",
-									"value": "john@gmail.com",
+									"value": "red@gmail.com",
 									"type": "text"
 								},
 								{
@@ -5448,6 +5448,115 @@
 					"response": []
 				}
 			]
+		},
+		{
+			"name": "Quote Request Chat & Messages",
+			"item": [
+				{
+					"name": "Send Message",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "message",
+									"value": "What else do you wanna ask?",
+									"description": "id of item to delete from list",
+									"type": "text"
+								},
+								{
+									"key": "quote_request_id",
+									"value": "7",
+									"type": "text"
+								},
+								{
+									"key": "receiver_company_id",
+									"value": "4",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/chat/sendMessage",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"chat",
+								"sendMessage"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Chat Thread",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "quote_request_id",
+									"value": "7",
+									"type": "text"
+								},
+								{
+									"key": "other_company_id",
+									"value": "3",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/chat/getThread",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"chat",
+								"getThread"
+							]
+						}
+					},
+					"response": []
+				}
+			]
 		}
 	],
 	"event": [
@@ -5480,11 +5589,11 @@
 		},
 		{
 			"key": "access_token",
-			"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL2V4cGxvcmVsb2dpY3NpdC5uZXQvZHJpdnYvcG9ydGFsL2FwaS9hdXRoL3VzZXIvbG9naW4iLCJpYXQiOjE3MjQ2NzQ4ODksImV4cCI6MTcyNTg4NDQ4OSwibmJmIjoxNzI0Njc0ODg5LCJqdGkiOiJkWmVYZWc4TkxVUFAxRjVxIiwic3ViIjoiMiIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.rO7tuURykB-7PvZgGEIhKNCMGvw4787lM6KJthDWHbQ",
+			"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0L2NvdXJpZXJib2FyZC9hcGkvYXV0aC91c2VyL2xvZ2luIiwiaWF0IjoxNzI0NzU4OTc2LCJleHAiOjE3MjU5Njg1NzcsIm5iZiI6MTcyNDc1ODk3NywianRpIjoiNWQ2QXo1NG5CcU1SZkdlZyIsInN1YiI6IjQiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.pIlMBi3qTS5FILjcEcv53ZlaGKk0kSEPUxx5edZmyqA",
 			"type": "string"
 		},
 		{
-			"value": "",
+			"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0L2NvdXJpZXJib2FyZC9hcGkvYXV0aC91c2VyL2xvZ2luIiwiaWF0IjoxNzI0NzYyODUzLCJleHAiOjE3MjU5NzI0NTMsIm5iZiI6MTcyNDc2Mjg1MywianRpIjoiV0lHOGhNaHY4Y0FlN1N4QSIsInN1YiI6IjMiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.WnYOGwMq2QZXcXXiBDJmuTGffijvHZfk9L15uBJ98KY",
 			"type": "string",
 			"disabled": true
 		}
