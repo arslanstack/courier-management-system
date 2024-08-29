@@ -42,4 +42,9 @@ class Chat extends Model
     public function quoteRequest(){
         return $this->belongsTo(QuoteRequest::class, 'quote_request_id');
     }
+
+    public function messages()
+    {
+        return $this->hasMany(Message::class, 'chat_id');
+    }
 }

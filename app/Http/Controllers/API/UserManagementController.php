@@ -15,7 +15,7 @@ class UserManagementController extends Controller
     {
         $authUser = Auth::user();
         $company = Company::where('id', $authUser->company->id)->first();
-        $users = User::where('company_id', $company->id)->get();
+        $users = User::where('company_id', $company->id)->where('status', '!=', 2)->get();
         return response()->json(['msg' => 'success', 'response' => 'Users retrieved successfully', 'users' => $users], 200);
 
     }
@@ -46,8 +46,8 @@ class UserManagementController extends Controller
         $user = new User();
         $user->fname = $fname;
         $user->lname = $lname;
-        $request->phone ? $user->phone = $request->phone : null;
-        $request->fax ? $user->fax = $request->fax : $user->phone;
+        $user->phone = $request->phone ? $request->phone : '00000000000';
+        $user->fax = $request->fax ? $request->fax : '00000000000';
 
         if ($request->is_major_user) {
             $user->is_major_user = 1;

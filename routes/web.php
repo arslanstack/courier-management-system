@@ -83,6 +83,7 @@ Route::group(['prefix'  =>  'admin'], function () {
 			Route::get('/', [QuoteRequestController::class, 'index']);
 			Route::get('detail/{id}', [QuoteRequestController::class, 'details']);
 			Route::post('bidDetails', [QuoteRequestController::class, 'bidDetails']);
+			Route::post('chatDetails', [QuoteRequestController::class, 'chatDetails']);
 		});
 		Route::group(['prefix'  =>  'rfps'], function () {
 			Route::get('/', [RFPController::class, 'index']);
