@@ -8,10 +8,28 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use App\Http\Controllers\Controller;
 use App\Models\CompanyProfile;
+use App\Models\RFP;
 use Illuminate\Http\Request;
 
 class CompanyManagementController extends Controller
 {
+    public function rfpsCount()
+    {
+        $authCompany = Auth::user()->company;
+        $rfpsCount = RFP::whereHas('user', function ($query) use ($authCompany) {
+            $query->where('company_id', $authCompany->id);
+        })->count();
+        return response()->json(['msg' => 'success', 'response' => 'RFPs count retrieved successfully', 'count' => $rfpsCount], 200);
+    }
+
+    public function quoteCount()
+    {
+        $authCompany = Auth::user()->company;
+        $quotes = $authCompany->quoteRequests;
+        $count = $quotes->count();
+        return response()->json(['msg' => 'success', 'response' => 'Quotes count retrieved successfully', 'count' => $count], 200);
+    }
+
     public function updateCompanyAlertMails(Request $request)
     {
         $authUser = Auth::user();
@@ -239,7 +257,7 @@ class CompanyManagementController extends Controller
             return response()->json(['msg' => 'error', 'response' => 'Could not find company. Something went wrong. Try again later.'], 404);
         }
         $features = CompanyProfile::where('company_id', $company->id)->first();
-        if(!$features){
+        if (!$features) {
             $features = new CompanyProfile();
             $features->company_id = $company->id;
             $features->save();

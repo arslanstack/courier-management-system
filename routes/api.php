@@ -44,6 +44,10 @@ Route::group([
     'middleware' => ['api', 'auth:api'],
 ], function ($router) {
 
+    Route::group(['prefix' => 'home-stats'], function ($router) {
+        Route::get('/quote-request-count', [CompanyManagementController::class, 'quoteCount'])->name('quote_request_count');
+        Route::get('/rfps-count', [CompanyManagementController::class, 'rfpsCount'])->name('rfps_count');
+    });
     Route::group(['prefix' => 'quote-request'], function ($router) {
         Route::get('/allByUser', [QuoteRequestController::class, 'allByUser'])->name('all_requests_by_user');
         Route::get('/show/{id}', [QuoteRequestController::class, 'show'])->name('one_Request_show');

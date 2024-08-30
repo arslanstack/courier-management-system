@@ -445,26 +445,6 @@
 								<div class="row">
 									<div class="col-md-9 ">
 										<div class="chat-discussion">
-											<!-- <div class="chat-message left">
-												<img class="message-avatar" src="{{ asset('admin_assets/img/a1.jpg') }}" alt="">
-												<div class="message">
-													<a class="message-author" href="#"> Michael Smith </a>
-													<span class="message-date"> Mon Jan 26 2015 - 18:39:23 </span>
-													<span class="message-content">
-														Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
-													</span>
-												</div>
-											</div>
-											<div class="chat-message right">
-												<img class="message-avatar" src="{{ asset('admin_assets/img/a4.jpg') }}" alt="">
-												<div class="message">
-													<a class="message-author" href="#"> Karl Jordan </a>
-													<span class="message-date"> Fri Jan 25 2015 - 11:12:36 </span>
-													<span class="message-content">
-														Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover.
-													</span>
-												</div>
-											</div> -->
 										</div>
 									</div>
 									<div class="col-md-3">

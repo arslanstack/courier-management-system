@@ -732,6 +732,75 @@
 			]
 		},
 		{
+			"name": "Dashboard Stats",
+			"item": [
+				{
+					"name": "Quote Request Count",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "bearer {{access_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/home-stats/quote-request-count",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"home-stats",
+								"quote-request-count"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "RFP Count",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "bearer {{access_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/home-stats/rfps-count",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"home-stats",
+								"rfps-count"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
 			"name": "Quote Requests",
 			"item": [
 				{
@@ -5478,18 +5547,18 @@
 							"formdata": [
 								{
 									"key": "message",
-									"value": "What else do you wanna ask?",
+									"value": "What can i help you with?",
 									"description": "id of item to delete from list",
 									"type": "text"
 								},
 								{
 									"key": "quote_request_id",
-									"value": "7",
+									"value": "1",
 									"type": "text"
 								},
 								{
 									"key": "receiver_company_id",
-									"value": "4",
+									"value": "2",
 									"type": "text"
 								}
 							]
@@ -5533,12 +5602,12 @@
 							"formdata": [
 								{
 									"key": "quote_request_id",
-									"value": "7",
+									"value": "1",
 									"type": "text"
 								},
 								{
 									"key": "other_company_id",
-									"value": "3",
+									"value": "1",
 									"type": "text"
 								}
 							]
@@ -5589,11 +5658,11 @@
 		},
 		{
 			"key": "access_token",
-			"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0L2NvdXJpZXJib2FyZC9hcGkvYXV0aC91c2VyL2xvZ2luIiwiaWF0IjoxNzI0NzU4OTc2LCJleHAiOjE3MjU5Njg1NzcsIm5iZiI6MTcyNDc1ODk3NywianRpIjoiNWQ2QXo1NG5CcU1SZkdlZyIsInN1YiI6IjQiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.pIlMBi3qTS5FILjcEcv53ZlaGKk0kSEPUxx5edZmyqA",
+			"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL2V4cGxvcmVsb2dpY3NpdC5uZXQvZHJpdnYvcG9ydGFsL2FwaS9hdXRoL3VzZXIvbG9naW4iLCJpYXQiOjE3MjUwMDM0MzUsImV4cCI6MTcyNjIxMzAzNSwibmJmIjoxNzI1MDAzNDM1LCJqdGkiOiIyaUhKM2o5Qmc3aDFCZkRVIiwic3ViIjoiMiIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.bV7m2J4uk1Nx7_pU39TFaroYQi1Y1NzR2BB9Qbmm960",
 			"type": "string"
 		},
 		{
-			"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0L2NvdXJpZXJib2FyZC9hcGkvYXV0aC91c2VyL2xvZ2luIiwiaWF0IjoxNzI0NzYyODUzLCJleHAiOjE3MjU5NzI0NTMsIm5iZiI6MTcyNDc2Mjg1MywianRpIjoiV0lHOGhNaHY4Y0FlN1N4QSIsInN1YiI6IjMiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.WnYOGwMq2QZXcXXiBDJmuTGffijvHZfk9L15uBJ98KY",
+			"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL2V4cGxvcmVsb2dpY3NpdC5uZXQvZHJpdnYvcG9ydGFsL2FwaS9hdXRoL3VzZXIvbG9naW4iLCJpYXQiOjE3MjQ4NDU5NTAsImV4cCI6MTcyNjA1NTU1MCwibmJmIjoxNzI0ODQ1OTUwLCJqdGkiOiJNbUJiQ3Y2ZUtBVGZ1VXplIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.IhzNc4r4JyZuwrdwWTgiT9h0bCdgMxPKgQ277PZq7aY",
 			"type": "string",
 			"disabled": true
 		}
