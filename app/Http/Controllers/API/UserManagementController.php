@@ -16,16 +16,27 @@ class UserManagementController extends Controller
         $authUser = Auth::user();
         $company = Company::where('id', $authUser->company->id)->first();
         $users = User::where('company_id', $company->id)->where('status', '!=', 2)->get();
-        return response()->json(['msg' => 'success', 'response' => 'Users retrieved successfully', 'users' => $users], 200);
+        return response()->json([
+            'msg' => 'success', 
+            'response' => 'Users retrieved successfully', 
+            'users' => $users
+        ], 200);
 
     }
     public function showUser($user_id)
     {
         $user = User::where('id', $user_id)->first();
         if(!$user){
-            return response()->json(['msg' => 'error', 'response' => 'User not found'], 404);
+            return response()->json([
+                'msg' => 'error', 
+                'response' => 'User not found'
+            ], 404);
         }
-        return response()->json(['msg' => 'success', 'response' => 'User retrieved successfully', 'user' => $user], 200);
+        return response()->json([
+            'msg' => 'success', 
+            'response' => 'User retrieved successfully', 
+            'user' => $user
+        ], 200);
 
     }
     public function createUser(Request $request)
@@ -67,7 +78,10 @@ class UserManagementController extends Controller
         $query = $user->save();
 
         if (!$query) {
-            return response()->json(['msg' => 'error', 'response' => 'User could not be created. Please try later'], 500);
+            return response()->json([
+                'msg' => 'error', 
+                'response' => 'User could not be created. Please try later'
+            ], 500);
         }
 
         $maildata = [
@@ -85,10 +99,17 @@ class UserManagementController extends Controller
         $sendMail = mail($user->email, $subject, $emailTemplate, $headers);
 
         if (!$sendMail) {
-            return response()->json(['msg' => 'error', 'response' => 'User created but email could not be sent. Please try later'], 500);
+            return response()->json([
+                'msg' => 'error', 
+                'response' => 'User created but email could not be sent. Please try later'
+            ], 500);
         }
 
-        return response()->json(['msg' => 'success', 'response' => 'User created successfully', 'user' => $user], 200);
+        return response()->json([
+            'msg' => 'success', 
+            'response' => 'User created successfully', 
+            'user' => $user
+        ], 200);
     }
 
     public function updateUser(Request $request)
@@ -104,12 +125,18 @@ class UserManagementController extends Controller
         $authUser = Auth::user();
 
         if ($authUser->is_major_user == 0) {
-            return response()->json(['msg' => 'error', 'response' => 'You are not authorized to perform this action'], 401);
+            return response()->json([
+                'msg' => 'error', 
+                'response' => 'You are not authorized to perform this action'
+            ], 401);
         }
 
         $user = User::where('id', $request->user_id)->first();
         if(!$user){
-            return response()->json(['msg' => 'error', 'response' => 'User not found'], 404);
+            return response()->json([
+                'msg' => 'error', 
+                'response' => 'User not found'
+            ], 404);
         }
 
         if ($request->is_major_user) {
@@ -127,20 +154,34 @@ class UserManagementController extends Controller
         $query = $user->save();
 
         if (!$query) {
-            return response()->json(['msg' => 'error', 'response' => 'User could not be updated. Please try later'], 500);
+            return response()->json([
+                'msg' => 'error', 
+                'response' => 'User could not be updated. Please try later'
+            ], 500);
         }
 
-        return response()->json(['msg' => 'success', 'response' => 'User updated successfully', 'user' => $user], 200);
+        return response()->json([
+            'msg' => 'success', 
+            'response' => 'User updated successfully', 
+            'user' => $user
+        ], 200);
     }
+
     public function ResetUserPassword($userId)
     {
         $authUser = Auth::user();
         if($authUser->is_major_user == 0){
-            return response()->json(['msg' => 'error', 'response' => 'You are not authorized to perform this action'], 401);
+            return response()->json([
+                'msg' => 'error', 
+                'response' => 'You are not authorized to perform this action'
+            ], 401);
         }
         $user = User::where('id', $userId)->first();
         if(!$user){
-            return response()->json(['msg' => 'error', 'response' => 'User not found'], 404);
+            return response()->json([
+                'msg' => 'error', 
+                'response' => 'User not found'
+            ], 404);
         }
 
         $password = rand(100000, 999999) . 'aA#' . rand(1, 99);
@@ -148,7 +189,10 @@ class UserManagementController extends Controller
         $query = $user->save();
 
         if (!$query) {
-            return response()->json(['msg' => 'error', 'response' => 'Password could not be reset. Please try later'], 500);
+            return response()->json([
+                'msg' => 'error', 
+                'response' => 'Password could not be reset. Please try later'
+            ], 500);
         }
 
         $maildata = [
@@ -166,10 +210,16 @@ class UserManagementController extends Controller
         $sendMail = mail($user->email, $subject, $emailTemplate, $headers);
 
         if (!$sendMail) {
-            return response()->json(['msg' => 'error', 'response' => 'Password changed, but could not send updated credentials via email. Please try again!'], 500);
+            return response()->json([
+                'msg' => 'error', 
+                'response' => 'Password changed, but could not send updated credentials via email. Please try again!'
+            ], 500);
         }
 
-        return response()->json(['msg' => 'success', 'response' => 'Password reset successfully. Updated credentials dispatched via email.'], 200);
+        return response()->json([
+            'msg' => 'success', 
+            'response' => 'Password reset successfully. Updated credentials dispatched via email.'
+        ], 200);
 
     }
     
@@ -181,21 +231,33 @@ class UserManagementController extends Controller
 
         $authUser = Auth::user();
         if($authUser->is_major_user == 0){
-            return response()->json(['msg' => 'error', 'response' => 'You are not authorized to perform this action'], 401);
+            return response()->json([
+                'msg' => 'error', 
+                'response' => 'You are not authorized to perform this action'
+            ], 401);
         }
 
         $user = User::where('id', $request->user_id)->first();
         if(!$user){
-            return response()->json(['msg' => 'error', 'response' => 'User not found'], 404);
+            return response()->json([
+                'msg' => 'error', 
+                'response' => 'User not found'
+            ], 404);
         }
 
         $user->phone = $request->phone;
         $query = $user->save();
         if(!$query){
-            return response()->json(['msg' => 'error', 'response' => 'Phone number could not be added. Please try later'], 500);
+            return response()->json([
+                'msg' => 'error', 
+                'response' => 'Phone number could not be added. Please try later'
+            ], 500);
         }
 
-        return response()->json(['msg' => 'success', 'response' => 'Phone number added successfully'], 200);
+        return response()->json([
+            'msg' => 'success', 
+            'response' => 'Phone number added successfully'
+        ], 200);
     }
 
     public function deleteUser(Request $request){
@@ -205,20 +267,32 @@ class UserManagementController extends Controller
 
         $authUser = Auth::user();
         if($authUser->is_major_user == 0){
-            return response()->json(['msg' => 'error', 'response' => 'You are not authorized to perform this action'], 401);
+            return response()->json([
+                'msg' => 'error', 
+                'response' => 'You are not authorized to perform this action'
+            ], 401);
         }
 
         $user = User::where('id', $request->user_id)->first();
         if(!$user){
-            return response()->json(['msg' => 'error', 'response' => 'User not found'], 404);
+            return response()->json([
+                'msg' => 'error', 
+                'response' => 'User not found'
+            ], 404);
         }
 
         $user->status = 2;
         $query = $user->save();
         if(!$query){
-            return response()->json(['msg' => 'error', 'response' => 'User could not be deleted. Please try later'], 500);
+            return response()->json([
+                'msg' => 'error', 
+                'response' => 'User could not be deleted. Please try later'
+            ], 500);
         }
 
-        return response()->json(['msg' => 'success', 'response' => 'User deleted successfully'], 200);
+        return response()->json([
+            'msg' => 'success', 
+            'response' => 'User deleted successfully'
+        ], 200);
     }
 }

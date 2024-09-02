@@ -12,7 +12,7 @@ class ClassifiedController extends Controller
 {
     public function index()
     {
-        $classifieds = Classified::where('status', 1)->paginate(10);
+        $classifieds = Classified::where('status', 1)->get();
         foreach ($classifieds as $classified) {
             $classified->user;
             $classified->company;
