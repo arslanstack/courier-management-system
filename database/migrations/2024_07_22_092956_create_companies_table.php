@@ -28,7 +28,7 @@ return new class extends Migration
             $table->string('alert_email_2')->nullable();
             $table->tinyInteger('alert_freight')->default(0)->comment('0: No, 1: Yes');
             $table->tinyInteger('alert_vehicle')->default(0)->comment('0: No, 1: Yes');
-            $table->tinyInteger('alert_rpf')->default(0)->comment('0: No, 1: Yes');
+            $table->tinyInteger('alert_rfp')->default(0)->comment('0: No, 1: Yes');
             $table->tinyInteger('alert_driver')->default(0)->comment('0: No, 1: Yes');
             $table->timestamps();
         });

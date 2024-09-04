@@ -56,7 +56,7 @@ class CompanyManagementController extends Controller
         $company = Company::where('id', $authUser->company->id)->first();
         $request->alert_freight && $request->alert_freight  == 1 ? $company->alert_freight = 1 : $company->alert_freight = 0;
         $request->alert_vehicle && $request->alert_vehicle == 1 ? $company->alert_vehicle = 1 : $company->alert_vehicle = 0;
-        $request->alert_rpf && $request->alert_rpf  == 1 ? $company->alert_rpf = 1 : $company->alert_rpf = 0;
+        $request->alert_rfp && $request->alert_rfp  == 1 ? $company->alert_rfp = 1 : $company->alert_rfp = 0;
         $request->alert_driver && $request->alert_driver == 1 ? $company->alert_driver = 1 : $company->alert_driver = 0;
         $query = $company->save();
         if (!$query) {

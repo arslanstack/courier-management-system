@@ -515,6 +515,7 @@ class AuthController extends Controller
         $authUser->phone = $request->phone;
         $authUser->fax = $request->fax ??  $authUser->fax;
         $authUser->email = $request->email;
+        $authUser->username = $request->email;
         $query = $authUser->save();
 
         if ($query) {

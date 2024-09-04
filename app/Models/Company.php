@@ -28,7 +28,7 @@ class Company extends Model
         'alert_email_2',
         'alert_freight',
         'alert_vehicle',
-        'alert_rpf',
+        'alert_rfp',
         'alert_driver',
         'website',
         'drivers',
